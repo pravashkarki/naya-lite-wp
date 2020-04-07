@@ -1,4 +1,4 @@
-<?php 
+<?php
  /**
  * Default Theme Option.
  *
@@ -11,66 +11,54 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-
- 
 function sampression_customize_register_default( $wp_customize ) {
-    
-        /** Default Settings */    
+        /** Default Settings */
         $wp_customize->get_setting('blogname')->transport = 'postMessage';
         $wp_customize->get_setting('blogdescription')->transport = 'postMessage';
-        //$wp_customize->remove_section('title_tagline');
-        $wp_customize->remove_section('colors');
-        $wp_customize->remove_section('header_image');
-        $wp_customize->remove_section('background_image');
-        
 
-        /**
-         * Sampression Theme Support here
-         * 
-         * */
-
-
-        //get default values 
+        //get default values
         $defaults = sampression_get_default_options_value();
 
         // General Settings - Panel
         $wp_customize->add_panel('sampression_general_setting_panel', array(
-            'priority' => 20,
-            'capability' => 'edit_theme_options',
-            'theme_supports' => '',
-            'title' => __('General Settings', 'naya-lite'),
-            
+			'priority'       => 20,
+			'capability'     => 'edit_theme_options',
+			'theme_supports' => '',
+			'title'          => __('General Settings', 'naya-lite'),
         ));
 
-        // Site Title, Tagline, Site Icon - Section
-        $wp_customize->add_section('title_tagline',
-            array(
-                'title' => __('Site Identity', 'naya-lite'),
-                'priority' => 1,
-                'panel' => 'sampression_general_setting_panel',
-            )
-        );
-
+		$wp_customize->get_section('title_tagline')->panel    = 'sampression_general_setting_panel';
+		$wp_customize->get_section('title_tagline')->priority = 1;
 
         //Remove Logo - Setting
-        $wp_customize->add_setting('sampression_remove_logo', array('sanitize_callback' => 'sampression_sanitize_checkbox'));
+        $wp_customize->add_setting('sampression_remove_logo',
+        	array(
+        		'sanitize_callback' => 'sampression_sanitize_checkbox' ,
+        		'default'           => $defaults['sampression_remove_logo'],
+        )
+        );
         $wp_customize->add_control('sampression_remove_logo',
             array(
                 'type' => 'checkbox',
-                'label' => __('Show Site Title?', 'naya-lite'),
+                'label' => __('Hide Logo and show title?', 'naya-lite'),
                 'section' => 'title_tagline',
-                'priority' => 61,
+                'priority' => 10,
             )
         );
 
         //Remove Tagline - Setting
-        $wp_customize->add_setting('sampression_remove_tagline', array('sanitize_callback' => 'sampression_sanitize_checkbox'));
+        $wp_customize->add_setting('sampression_remove_tagline',
+        	array(
+        		'sanitize_callback' => 'sampression_sanitize_checkbox',
+        		'default'           => $defaults['sampression_remove_tagline'],
+        	)
+        );
         $wp_customize->add_control('sampression_remove_tagline',
             array(
                 'type' => 'checkbox',
                 'label' => __('Remove Tagline?', 'naya-lite'),
                 'section' => 'title_tagline',
-                'priority' => 62,
+                'priority' => 10,
             )
         );
 
@@ -108,9 +96,6 @@ function sampression_customize_register_default( $wp_customize ) {
             'section' => 'background_image',
             'priority' => 1
         )));
-
-
-        
 
         /** Add selective part pencil tool here */
         //require get_template_directory() . '/sampression-customizer/inc/selective-part.php';
@@ -153,19 +138,6 @@ function sampression_customize_register_default( $wp_customize ) {
           $wp_customize->selective_refresh->add_partial( 'widgetText_heading_label', array(
             'selector' => '.sidebar', // You can also select a css class
         ) );
-    
+
     }
 add_action( 'customize_register', 'sampression_customize_register_default' );
-
-//addition css section
-add_action( 'customize_register', 'wpse261932_change_css_title', 15 );
-
-function wpse261932_change_css_title () {
-	global $wp_customize;
-
-	$wp_customize->get_section('custom_css')->title = __('Additional CSS', 'naya-lite');
-	$wp_customize->get_section('custom_css')->description = __( '<div class="add-extra-css"></div>', 'naya-lite' );
-
-}
-
-

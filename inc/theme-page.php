@@ -38,7 +38,7 @@ function about_sampression_theme_page()
             <p><a class="button button-primary"
                   href="<?php echo esc_url('customize.php?return=%2Fwp-admin%2Fthemes.php') ?>"><?php _e('Go to Customizer', 'naya-lite') ?></a>
 
-                <a class="button button-primary" href="<?php echo esc_url(site_url()) ?>"
+                <a class="button button-primary" href="<?php echo esc_url(home_url()) ?>"
                    target="_blank"><?php _e('Visit ', 'naya-lite') ?><?php bloginfo('name') ?></a>
 
 

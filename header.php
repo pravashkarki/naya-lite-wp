@@ -31,49 +31,36 @@
                 <div class="six columns">
                     <span id="trigger-primary-nav"><a href="#primary-nav"><i class="icon-menu6"></i>&nbsp;</a></span>
                     <div class="site-title-wrap">
-                        <?php // sampression_blog_title() ?>
+                        <?php $sampression_remove_logo = sampression_get_option( 'sampression_remove_logo' ); ?>
+
                         <?php
-                        if (get_theme_mod('custom_logo') && get_custom_logo() && get_theme_mod('sampression_remove_logo') != 1) {
+                        if ( has_custom_logo() && true !== $sampression_remove_logo ) {
                             ?>
-                            <a href="<?php echo esc_url(site_url()) ?>" title="<?php bloginfo('name') ?>" rel="home"
+                            <a href="<?php echo esc_url(home_url()) ?>" title="<?php bloginfo('name') ?>" rel="home"
                                id="logo-area">
                                 <?php echo get_custom_logo(); ?>
                             </a>
                             <?php
-                        } else if (check_custom_logo() !== false) { ?>
-                            <a href="<?php echo esc_url(site_url()) ?>" title="<?php bloginfo('name') ?>" rel="home"
-                               id="logo-area">
-                                <img class="logo-img" src="<?php echo check_custom_logo(); ?>"
-                                     alt="<?php bloginfo('name'); ?>">
-                            </a>
-                        <?php } else { ?>
+                        } else { ?>
                             <h1 id="site-title" class="site-title">
                                 <a rel="home" title="<?php bloginfo('name') ?>"
-                                   href="<?php echo esc_url(site_url()) ?>"><?php bloginfo('name') ?></a>
+                                   href="<?php echo esc_url(home_url()) ?>"><?php bloginfo('name') ?></a>
                             </h1>
                             <?php
                         }
-                        if (get_theme_mod('sampression_remove_tagline') != 1) {
-                            ?>
-                            <h2 id="site-description" class="site-description"><?php bloginfo('description') ?></h2>
-                        <?php } ?>
+                        ?>
+
+                        <?php $sampression_remove_tagline = sampression_get_option( 'sampression_remove_tagline' ); ?>
+
+                        <?php if ( true !== $sampression_remove_tagline ) : ?>
+                        	<h2 id="site-description" class="site-description"><?php bloginfo('description') ?></h2>
+                        <?php endif; ?>
                     </div>
                 </div>
+
                 <div class="social-connect" id="social-connect">
                     <?php sampression_social_media_icons() ?>
-                </div>
-                <?php $header_image = get_header_image();
-                if (!empty($header_image)) : ?>
-                    <div class="jumbotron">
-                        <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($header_image); ?>"
-                                                                             class="header-image"
-                                                                             width="<?php echo get_custom_header()->width; ?>"
-                                                                             height="<?php echo get_custom_header()->height; ?>"
-                                                                             alt="<?php echo get_bloginfo('name'); ?>"/>
-                        </a>
-                    </div>
-                <?php endif; ?>
-                <!-- .social-connect-->
+                </div><!-- .social-connect-->
 
                 <nav id="primary-nav" class="clearfix" role="navigation">
 
@@ -90,5 +77,5 @@
 // $sampression_copyright_text = sampression_get_option( 'sampression_copyright_text'  );
 // nsdump( $sampression_copyright_text );
 
-$back = get_theme_support( 'custom-background' );
-nspre( $back );
+// $back = get_theme_support( 'custom-background' );
+// nspre( $back );

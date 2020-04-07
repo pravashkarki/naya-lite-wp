@@ -18,7 +18,11 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 
 		$defaults = array();
 
-		// Footer
+		// Header.
+		$defaults['sampression_remove_logo']    = true; // Show Site Title?
+		$defaults['sampression_remove_tagline'] = false; // Remove Tagline?
+
+		// Footer.
 		$defaults['sampression_copyright_text']        = '';
 		$defaults['sampression_remove_copyright_text'] = false;
 

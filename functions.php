@@ -111,5 +111,5 @@ function sampression_get_option( $key ) {
 
 	$value = get_theme_mod( $key );
 
-	return $value ? $value : $current_default_value;
+	return ! is_null( $value ) ? $value : $current_default_value;
 }

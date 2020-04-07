@@ -86,16 +86,6 @@ function categories_lists()
     return $data_str = implode('&', $data);
 }
 
-function check_custom_logo()
-{
-    global $sampression_options_settings;
-    if (get_theme_mod('custom_logo') == '' && $sampression_options_settings['logo_url'] != '' && get_theme_mod('sampression_remove_logo') != 1) {
-        return $sampression_options_settings['logo_url'];
-    } else {
-        return false;
-    }
-}
-
 if (!function_exists('sampression_home_layout_classes')) {
 
     function sampression_home_layout_classes()
@@ -268,13 +258,13 @@ if (!function_exists('sampression_setup')) :
         /**
          * Set up the WordPress core custom background feature.
          */
-        add_theme_support('custom-background', array(
+        add_theme_support( 'custom-background', array(
 			'default-color'    => 'F3F7F6',
 			'default-image'    => '',
 			'wp-head-callback' => 'sampression_custom_background_cb'
         ));
 
-        add_theme_support('custom-logo', array(
+        add_theme_support( 'custom-logo', array(
 			'height'        => 120,
 			'width'         => 220,
 			'flex-height'   => true,
