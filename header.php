@@ -87,6 +87,5 @@
 
 <?php
 
-$sampression_copyright_text = sampression_get_option( 'sampression_copyright_text'  );
-nsdump( $sampression_copyright_text );
- ?>
+// $sampression_copyright_text = sampression_get_option( 'sampression_copyright_text'  );
+// nsdump( $sampression_copyright_text );

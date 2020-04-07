@@ -1240,43 +1240,6 @@ if (!function_exists('sampression_header_style')) {
 // TODO
 // add_action('wp_head', 'sampression_header_style', 999);
 
-function sampression_header_code()
-{
-    global $sampression_options_settings;
-    if (get_theme_mod('sampression_header_code')) {
-        echo get_theme_mod('sampression_header_code') . PHP_EOL;
-    } else {
-        if (get_theme_mod('sampression_header_code') == '') {
-            echo get_theme_mod('sampression_header_code') . PHP_EOL;
-        } else {
-            if (($sampression_options_settings['advanced_header_code'])) {
-                echo $sampression_options_settings['advanced_header_code'] . PHP_EOL;
-            }
-        }
-    }
-}
-
-add_action('wp_head', 'sampression_header_code', 1111);
-
-function sampression_footer_code()
-{
-    global $sampression_options_settings;
-    if (get_theme_mod('sampression_footer_code')) {
-        echo get_theme_mod('sampression_footer_code') . PHP_EOL;
-    } else {
-        if (get_theme_mod('sampression_footer_code') == '') {
-            echo get_theme_mod('sampression_footer_code') . PHP_EOL;
-        } else {
-            if (($sampression_options_settings['advanced_footer_code'])) {
-                echo $sampression_options_settings['advanced_footer_code'] . PHP_EOL;
-            }
-        }
-    }
-}
-
-add_action('wp_footer', 'sampression_footer_code', 999);
-
-
 /**
  * Register widget area.
  */

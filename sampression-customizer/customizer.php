@@ -8,7 +8,6 @@
 // Create your-option.php inside customizer-parts folder .Add your new option-name below.
 $sampression_customizer_settings = array(
 	'defaults',
-	'custom-code',
 	'typography',
 	'social-options',
 	'blog-options',
