@@ -370,10 +370,10 @@ if (!function_exists('sampression_setup')) :
         /**
          * Sampression Uses uses wp_nav_menu() in below assigned locations
          */
-//        register_nav_menus( array(
-//            'top-menu' => esc_html__( 'Primary Navigation','naya-lite' ),
-//            'secondary' => esc_html__( 'Secondary Navigation','naya-lite' ),
-//        ) );
+        register_nav_menus( array(
+        	'primary' => __( 'Primary Menu', 'naya-lite' ),
+        ) );
+
 
         /**
          * Switch default core markup for search form, comment form, and comments
@@ -2265,18 +2265,6 @@ if (!function_exists('sampression_posts_navi')) :
     }
 endif;
 
-
-function pre($arr, $die = false)
-{
-    echo '<pre>';
-    print_r($arr);
-    echo '</pre>';
-    if ($die) {
-        die;
-    }
-}
-
-
 function sampression_sticky_ping()
 {
     $code = '';
@@ -2294,8 +2282,6 @@ function sampression_sticky_ping()
 
 }
 
-
-if (!isset($content_width)) $content_width = 900;
 function customizer_widgets_section_args_nayalite($args)
 {
     $args['active_callback'] = '__return_true';

@@ -55,8 +55,6 @@ if ( ! function_exists( 'sampression_setup' ) ):
 			) );
 		}
 
-		//load_theme_textdomain( 'sampression', SAM_FW_LANGUAGES_DIR );
-
 		$menus = get_theme_support( 'sampression-menus' );
 		/** Register supported menus */
 		foreach ( (array) $menus[0] as $id => $name ) {

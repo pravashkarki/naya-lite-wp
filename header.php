@@ -83,3 +83,10 @@
                 <!-- #primary-nav -->
             </div>
         </header><!--/#header-->
+
+
+<?php
+
+$test = get_theme_support(  'custom-background' );
+nspre( $test );
+ ?>
