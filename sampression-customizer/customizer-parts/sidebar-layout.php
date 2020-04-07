@@ -48,7 +48,7 @@ function sampression_customize_sidebar_layout( $wp_customize ) {
 					<li style="display: inline;">
 					<label>
 						<input <?php $this->link(); ?>style = 'display:none' type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" <?php $this->link(); checked( $this->value(), $value ); ?> />
-						<img src = '<?php echo esc_html( $label ); ?>' class = '<?php echo $class; ?>' /><?php  //echo esc_attr( $value ); //name of option can be added here?>
+						<img src = '<?php echo esc_html( $label ); ?>' class = '<?php echo $class; ?>' />
 					</label>
 					</li>
 					<?php
@@ -105,11 +105,10 @@ function sampression_customize_sidebar_layout( $wp_customize ) {
 				'settings' => 'sampression_sidebar_layout',
 				'choices' => array(
 					'right' => get_template_directory_uri(). '/sampression-customizer/images/right-sidebar.png',
-					'left' => get_template_directory_uri(). '/sampression-customizer/images/left-sidebar.png',
-					'none'	=> get_template_directory_uri(). '/sampression-customizer/images/no-sidebar-full-width-layout.png',
-					//'no_sidebar_content_centered'	=> get_template_directory_uri(). '/sampression-customizer/images/no-sidebar-content-centered-layout.png'
+					'left'  => get_template_directory_uri(). '/sampression-customizer/images/left-sidebar.png',
+					'none'  => get_template_directory_uri(). '/sampression-customizer/images/no-sidebar-full-width-layout.png',
 				)
 	)));
-	 
+
 }
-add_action( 'customize_register', 'sampression_customize_sidebar_layout' );	
+add_action( 'customize_register', 'sampression_customize_sidebar_layout' );

@@ -6,10 +6,8 @@
  * @package sampression
  **/
 
-//$sampression_options_theme_option = sampression_options_theme_option();
-   //var_dump(get_theme_mod('social_icon_color'));
+
  function sampression_customize_register_social( $wp_customize ) {
-     //echo sampression_options_theme_option("social_twitter");
 
     $defaults = sampression_get_default_options_value();
      // Social Media
@@ -17,7 +15,6 @@
             array(
                 'title' => __('Social Media', 'naya-lite'),
                 'priority' => 140,
-                //'panel' => 'sampression_header_nav_panel',
             )
         );
         // Social Icon Color - Setting
@@ -121,7 +118,7 @@
             )
         );
 
-        
+
 
         // Linkedin URL - Setting
         //migration code
@@ -141,7 +138,7 @@
             )
         );
 
-        
+
         // Flickr URL - Setting
         //migration code
          if(get_theme_mod('sampression_socials_flickr') == '' && sampression_options_theme_option("social_flickr_url") != '') {

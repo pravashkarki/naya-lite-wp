@@ -101,26 +101,7 @@ if (!function_exists('sampression_home_layout_classes')) {
             $classes[] = 'twelve';
         }
 
-
         echo implode(' ', $classes);
-        /*
-        if( get_theme_mod( 'home_columns' ) ) {
-                switch ( get_theme_mod( 'home_columns' ) ) {
-                    case '1':
-                        $classes[] = 'twelve';
-                        break;
-                    case '2':
-                        $classes[] = 'six';
-                        break;
-                    case '3':
-                        $classes[] = 'four';
-                        break;
-                    default:
-                        $classes[] = 'three';
-                        break;
-                }
-            }
-         */
     }
 
 }
@@ -171,24 +152,6 @@ if (!function_exists('sampression_inner_layout_classes')) {
         }
 
         echo implode(' ', $classes);
-        /*
-        if( get_theme_mod( 'home_columns' ) ) {
-                switch ( get_theme_mod( 'home_columns' ) ) {
-                    case '1':
-                        $classes[] = 'twelve';
-                        break;
-                    case '2':
-                        $classes[] = 'six';
-                        break;
-                    case '3':
-                        $classes[] = 'four';
-                        break;
-                    default:
-                        $classes[] = 'three';
-                        break;
-                }
-            }
-         */
     }
 
 }
@@ -336,7 +299,7 @@ function sampression_font_family($family)
 {
     if (strpos($family, '=') !== false) {
         $family = explode('=', $family);
-        //print_r($family);
+
         $character = $family[1];
         $font = explode(':', $family[0]);
         $font = str_replace('+', ' ', $font[0]);
