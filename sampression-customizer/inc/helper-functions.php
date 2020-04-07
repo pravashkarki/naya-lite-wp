@@ -1237,7 +1237,8 @@ if (!function_exists('sampression_header_style')) {
         <?php
     }
 }
-add_action('wp_head', 'sampression_header_style', 999);
+// TODO
+// add_action('wp_head', 'sampression_header_style', 999);
 
 function sampression_header_code()
 {
@@ -1858,7 +1859,7 @@ if (!function_exists('sampression_post_entry_meta_single')) {
              if (!in_array('comment-count', $hide_metas) && in_array('date', $hide_metas)) {
                 sampression_entry_comment('meta_single');
             }
-            
+
             echo '</div>';
         }
     }

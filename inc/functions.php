@@ -14,27 +14,6 @@ if ( ! function_exists( 'sampression_setup' ) ):
 
 	function sampression_setup() {
 
-		global $content_width;
-
-		/**
-		 * Global content width.
-		 */
-		if ( ! isset( $content_width ) ) {
-			$content_width = 650;
-		}
-
-		/**
-		 * Add callback for custom TinyMCE editor stylesheets. (editor-style.css)
-		 * @see http://codex.wordpress.org/Function_Reference/add_editor_style
-		 */
-		add_editor_style();
-		/**
-		 * This feature enables custom background color and image support for a theme
-		 */
-		add_theme_support( 'custom-background', array(
-			'default-color' => '',
-		) );
-
 		/**
 		 * This feature enables custom header color and image support for a theme
 		 */
@@ -56,11 +35,9 @@ if ( ! function_exists( 'sampression_setup' ) ):
 		) );
 
 
-		add_theme_support( 'menus' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'automatic-feed-links' );
-		//add_theme_support( 'post-formats', array( 'image', 'gallery', 'video', 'quote', 'link', 'status', 'audio', 'chat' ) );
-		//array( 'aside', 'image', 'gallery', 'video', 'quote', 'link', 'status', 'audio', 'chat' )
+
 		if ( ! current_theme_supports( 'sampression-menus' ) ) {
 			add_theme_support( 'sampression-menus', array(
 				'primary' => __( 'Primary Navigation', 'naya-lite' )
@@ -416,28 +393,6 @@ function sampression_message_info() {
 }
 
 /**
- * generate javascript alert message
- *
- * @param $str message string
- */
-function sam_a( $str ) {
-	print "<script>\n";
-	print "alert('" . $str . "');";
-	print "</script>\n";
-}
-
-/**
- *  Php print_r function
- *
- * @param $array array
- */
-function sam_p( $array ) {
-	echo '<pre>';
-	print_r( $array );
-	echo '</pre>';
-}
-
-/**
  * restore theme options
  */
 if ( isset( $_POST['reset'] ) ) {
@@ -458,16 +413,6 @@ if ( isset( $_POST['reset'] ) ) {
 	wp_redirect( 'themes.php?page=sampression-options&settings-updated=reset' );
 	exit;
 }
-
-
-/**
- * sampression navigation
- */
-
-register_nav_menus( array(
-	'primary' => __( 'Primary Menu', 'naya-lite' ),
-) );
-
 
 function sampression_navigation() {
 	$args = array(
@@ -599,7 +544,7 @@ if ( ! function_exists( 'sampression_post_meta' ) ) :
 
 
 		$sm_meta = '';
-		
+
 		if ( ! in_array( 'author', $hide_metas ) ) {
 			global $authordata;
 			$sm_meta .= sprintf(
@@ -630,7 +575,7 @@ if ( ! function_exists( 'sampression_post_meta' ) ) :
 				$sm_meta .= '<span class="tags-links">' . get_the_tag_list( '', ', ', '' ) . '</span>';
 			}
 		}
-		
+
 		echo $sm_meta;
 		//echo $posted;// not in used
 	}
@@ -668,7 +613,7 @@ function sampression_post_meta_content(){
 
 
 		$sm_meta = '';
-		if (  in_array( 'tags', $hide_metas ) &&  in_array( 'categories', $hide_metas ) &&   in_array( 'date', $hide_metas )  && 
+		if (  in_array( 'tags', $hide_metas ) &&  in_array( 'categories', $hide_metas ) &&   in_array( 'date', $hide_metas )  &&
 		  in_array( 'author', $hide_metas )) {
 			$sm_meta .= '';
 		}else{
@@ -704,7 +649,7 @@ function sampression_post_meta_content(){
 				$sm_meta .= '<span class="tags-links">' . get_the_tag_list( '', ', ', '' ) . '</span>';
 			}
 		}
-		if ( ! in_array( 'tags', $hide_metas ) && ! in_array( 'categories', $hide_metas ) &&  ! in_array( 'date', $hide_metas )  && 
+		if ( ! in_array( 'tags', $hide_metas ) && ! in_array( 'categories', $hide_metas ) &&  ! in_array( 'date', $hide_metas )  &&
 		 ! in_array( 'author', $hide_metas )) {
 			$sm_meta .= '</div>';
 		}else{
