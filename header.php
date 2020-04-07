@@ -15,31 +15,17 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>"/>
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php
+<?php do_action( 'wp_body_open' ); ?>
 
-/**
- * sampression_after_body hook
- */
-do_action('sampression_after_body');
-
-?>
 <div id="wrapper">
     <div id="inner-wrapper">
-        <?php
-        /**
-         * sampression_before_header hook
-         */
 
-        do_action('sampression_before_header');
-
-        ?>
         <header id="header" class="block">
             <div class="container">
                 <div class="six columns">
@@ -96,12 +82,4 @@ do_action('sampression_after_body');
                 </nav>
                 <!-- #primary-nav -->
             </div>
-        </header>
-        <!--/#header-->
-        <?php
-        /**
-         * sampression_after_header hook
-         */
-        do_action('sampression_after_header');
-        ?>
-
+        </header><!--/#header-->

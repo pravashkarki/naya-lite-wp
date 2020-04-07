@@ -175,7 +175,6 @@ if (defined('JETPACK__VERSION')) {
     require get_template_directory() . '/inc/jetpack.php';
 }
 
-
 // Load files.
 require_once get_template_directory() . '/sampression-customizer/customizer.php';
 require_once get_template_directory() . '/inc/defaults.php';
