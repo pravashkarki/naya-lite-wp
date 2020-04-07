@@ -9,7 +9,7 @@
 if ( ! function_exists( 'sampression_add_info_customizer' ) ) {
 	function sampression_add_info_customizer( $wp_customize ) {
 
-			//get default values 
+			//get default values
             $defaults = sampression_get_default_options_value();
 
 			/*----------------------------
@@ -75,5 +75,5 @@ if ( ! function_exists( 'sampression_add_info_customizer' ) ) {
 
 	}
 }
-add_action( 'customize_register', 'sampression_add_info_customizer' );
+// add_action( 'customize_register', 'sampression_add_info_customizer' );
 

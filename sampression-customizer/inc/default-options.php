@@ -18,6 +18,10 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 
 		$defaults = array();
 
+		// Footer
+		$defaults['sampression_copyright_text']        = '';
+		$defaults['sampression_remove_copyright_text'] = false;
+
 		//font setting
 		$defaults['font']                       = 'Kreon, serif';
 		$defaults['font_size']                  = '14px';
