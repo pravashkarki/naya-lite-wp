@@ -1,0 +1,131 @@
+/*** ESSENTIAL STYLES ***/
+#primary-nav > div > ul, #primary-nav > div > ul * {
+    margin:			0;
+    padding:		0;
+    list-style:		none;
+}
+#primary-nav > div > ul {
+    line-height:	1.0;
+    position:		relative;
+}
+#primary-nav > div > ul ul {
+    position:		absolute;
+    top:			-999em;
+    width:			170px; /* left offset of submenus need to match (see below) */
+    z-index:		10;
+}
+#primary-nav > div > ul ul li {
+    width:			100%;
+}
+#primary-nav > div > ul li:hover {
+    visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+#primary-nav > div > ul li {
+    float:			left;
+    position:		relative;
+}
+#primary-nav > div > ul a {
+    display:		block;
+}
+#primary-nav > div > ul li:hover ul, #primary-nav > div > ul li.sfHover ul {
+    left:			10px;
+    top:			45px; /* match top ul list item height */
+    z-index:		99;
+}
+#primary-nav > div > ul li:hover li ul, #primary-nav > div > ul li.sfHover li ul {
+    top:			-999em;
+}
+#primary-nav > div > ul li li:hover ul, #primary-nav > div > ul li li.sfHover ul {
+    left:			170px; /* match ul width */
+    top:			0px;
+}
+#primary-nav > div > ul li li:hover li ul, #primary-nav > div > ul li li.sfHover li ul {
+    top:			-999em;
+}
+#primary-nav > div > ul li li li:hover ul, #primary-nav > div > ul li li li.sfHover ul {
+    left:			170px; /* match ul width */
+    top:			0;
+}
+/*** Skin ***/
+#primary-nav > div > ul {
+    float: right;
+}
+#primary-nav > div > ul li {
+    float:left;
+    height:45px;
+}
+#primary-nav > div > ul li a {
+    color:#000;
+    text-transform: uppercase;
+    padding:13px 12px;
+    text-decoration:none;
+    vertical-align:middle;
+    font-size: 14px;
+}
+#primary-nav > div > ul li:last-child a {
+    padding-right: 0;
+}
+#primary-nav > div > ul li li:last-child a {
+    padding-right: 12px;
+}
+#primary-nav > div > ul li a:hover, #primary-nav > div > ul li.current-menu-item a, #primary-nav > div > ul li:hover > a, #primary-nav > div > ul li.current-menu-ancestor a, #primary-nav > div > ul li.current-menu-parent a,
+#primary-nav > div > ul li.sfHover li li a:hover, #primary-nav > div > ul li.current_page_item > a {
+    color:#57b94a;
+    text-decoration: none;
+}
+
+#primary-nav > div > ul li a span {
+    display:block;
+}
+
+/*Second Level*/
+
+#primary-nav > div > ul ul{
+    border: 1px solid #57b94a;
+    background: #fff;
+    padding: 5px 0;
+}
+#primary-nav > div > ul li li{
+    padding:0px;
+    background-image:none;
+    height:auto;
+}
+#primary-nav > div > ul li li li{
+}
+
+#primary-nav > div > ul li li a,
+#primary-nav > div > ul li.sfHover li a,
+#primary-nav > div > ul li.current-menu-item li a,
+#primary-nav > div > ul li.current-menu-parent li a,
+#primary-nav > div > ul li.current-menu-ancestor li a,
+#primary-nav > div > ul li li.current-menu-item li a,
+#primary-nav > div > ul li li.current-menu-parent li a,
+/*3rd level*/
+#primary-nav > div > ul li.sfHover li li a:hover,
+#primary-nav > div > ul li.sfHover li li.current-menu-item a,
+#primary-nav > div > ul li li.current-menu-parent li.current-menu-item a
+{
+    zoom:1;
+    height:auto;
+    font-weight:normal;
+    font-size:14px;
+    padding:7px 20px ;
+    float:none;
+    display:block;
+    text-transform: inherit;
+	line-height:1.4;
+}
+
+#primary-nav.sixteen{
+   float: left;
+    margin-left: 0;
+    margin-top: 20px;	
+	}
+#primary-nav.sixteen > div > ul{float:left;}
+#primary-nav ul li.window-right ul {
+    left: auto !important;
+    right: 0 !important;
+}
+#primary-nav ul li.window-right ul ul {
+    left: -172px !important;
+}

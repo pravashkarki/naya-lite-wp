@@ -1,0 +1,59 @@
+.sampression-cat-lists input[type='number'] {
+	width: 60px;
+}
+
+.sampression-cat-lists li:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.sampression-cat-lists input {
+    float: left;
+    margin-top: 1px;
+}
+
+.sampression-cat-lists label {
+    float: left;
+    width: 175px;
+}
+#customize-control-widgetText_heading_label .customize-control-title,
+#customize-control-widgetText_label .customize-control-title,
+#customize-control-footerText_heading_label .customize-control-title,
+#customize-control-footerText_label .customize-control-title{
+    background: #fff;
+    padding: 5px 13px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+#customize-control-widgetText_heading_label .customize-control-title,
+#customize-control-footerText_heading_label .customize-control-title{
+    margin-top: 0;
+}
+/*
+#customize-control-webtitle_font_family select,
+#customize-control-webtitle_font_family select option {
+	background: url('http://sampression-pro.dev/wp-content/uploads/2016/02/Scarlett-Johansson-scarlett-johansson-8836765-1600-1200-150x150.jpg');
+	text-indent: -999em;
+}
+
+#customize-control-webtitle_font_family select option:hover {
+	opacity: 0.5;
+}*/
+.customize-partial-edit-shortcut-button{
+    left:-5px !important;
+}
+.customize-control-sampression-important-links p a {
+    background: #008ec2 !important;
+    display: block;
+    color: #fff;
+    border: solid 1px #ddd;
+    padding: 10px 20px;
+    width: 120px;
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+}
+#accordion-section-sampression_important_links{
+    background: #008ec2 ;
+}
