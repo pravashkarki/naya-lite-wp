@@ -62,7 +62,7 @@ $sampression_option_defaults = array(
     'show_meta_date' => 'yes',
     'show_meta_time' => 'yes',
     'show_meta_author' => 'yes',
-    'show_meta_categories' => 'yes',    
+    'show_meta_categories' => 'yes',
     'show_meta_tags' => 'yes',
     'show_meta_icon' => 'yes',
     'hide_blog_from_category' => '',
@@ -116,10 +116,4 @@ function sampression_fonts_style() {
         )
     );
     return $fonts;
-}
-
-//Sidebar Options to chose for
-function sampression_sidebar_options() {
-    $sidebar_options = array( 'right', 'none' );
-    return $sidebar_options;
 }

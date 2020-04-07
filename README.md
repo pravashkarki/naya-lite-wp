@@ -1,18 +1,18 @@
 Naya Lite
 -----------------------------------------
 
-Theme Description 
+Theme Description
 --------------------------------------------------
 Naya Lite is a minimal, clean, lightweight, modern & typographic theme created with focus on content. Being both responsive and retina-ready with great user experience on majority of desktop and mobile devices. Naya Lite comes with user-friendly customization options making it very easy to customize and use. Get free support at https://www.sampression.com/supports and View live demo site at https://www.demo.sampression.com/naya-lite
 
-Features 
+Features
 --------------------------------------
 Theme Options, Typography options, Custom logo, Google Fonts, Font Awesome Icon set, Responsive Mobile Sites, SEO Friendly, Custom Menu, Sticky Post, Social Media Supports
 
 
-Tags 
+Tags
 ----------------------------------------------
-Tags: blog, news, grid-layout, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: blog, news, grid-layout, one-column, two-columns, right-sidebar, custom-background, custom-menu, editor-style, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 
 
 Installation
@@ -38,7 +38,7 @@ Change Logo and Favicon:
 -------------------------------------------
  - Login to your wp-admin area and go to Appearance -> Customize.
  - Select General "Settings -> Site Identity" Tab.
- - Upload the logo, favicon 512 pixels must be square. 
+ - Upload the logo, favicon 512 pixels must be square.
  - Select for either Logo or website title to show.
 
 Layout
@@ -75,7 +75,7 @@ Custom Code
 -------------------------------------------
  - Login to your wp-admin area and go to Appearance -> Theme Options.
  - Select "Custom Code" Tab
- - Here you add link and third-party code i.e google analytics code, facebook pixel code. 
+ - Here you add link and third-party code i.e google analytics code, facebook pixel code.
 
 
 Copyright & License
@@ -85,7 +85,7 @@ Copyright & License
 
 ## Credits
 
-Fonts & Icons 
+Fonts & Icons
   - Icons: Fontawesome (https://http://fontawesome.io/) is licensed under SIL Open Font License, version 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
   - Google Web Fonts: Roboto+Slab (https://www.google.com/fonts/specimen/Roboto+Slab) is licensed under Apache License, version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)
   - Google Web Fonts: Roboto (https://www.google.com/fonts/specimen/Roboto) is licensed under Apache License, version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)
@@ -116,7 +116,7 @@ Fonts & Icons
   - Google Web Fonts: Bitter (https://www.google.com/fonts/specimen/Bitter) is licensed under SIL Open Font License, 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
   - Google Web Fonts: Cardo (https://www.google.com/fonts/specimen/Cardo) is licensed under SIL Open Font License, 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
   - Google Web Fonts: Arvo (https://www.google.com/fonts/specimen/Arvo) is licensed under SIL Open Font License, 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
-  - Google Web Fonts: PT+Serif (https://www.google.com/fonts/specimen/PT+Serif) is licensed under SIL Open Font License, 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFl) 
+  - Google Web Fonts: PT+Serif (https://www.google.com/fonts/specimen/PT+Serif) is licensed under SIL Open Font License, 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFl)
   - Google Web Fonts: Passion+One (https://www.google.com/fonts/specimen/Passion+One) is licensed under SIL Open Font License, 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web)
   - Google Web Fonts: Poiret+One (https://www.google.com/fonts/specimen/Poiret+One) is licensed under SIL Open Font License, 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web)
   - Google Web Fonts: Pacifico (https://www.google.com/fonts/specimen/Pacifico) is licensed under SIL Open Font License, 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web)
@@ -138,10 +138,10 @@ Fonts & Icons
   - Google Web Fonts: Josefin+Slab (https://www.google.com/fonts/specimen/Josefin+Slab) is licensed under SIL Open Font License, 1.1 (http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web)
 
 
-## CSS 
+## CSS
   - Skeleton: https://github.com/dhg/Skeleton/blob/master/LICENSE.md
 
-## JS 
+## JS
   - Shuffle.js by @Vestride (http://vestride.github.io/Shuffle/) - @license MIT license (https://opensource.org/licenses/MIT)
   - Modernizr: https://github.com/Modernizr/Modernizr - @license MIT license (https://opensource.org/licenses/MIT)
   - Selectivizr: https://github.com/keithclark/selectivizr - @license MIT license (https://opensource.org/licenses/MIT)
@@ -157,7 +157,7 @@ Fonts & Icons
 - Removed: Theme Options page
 - Removed: Custom CSS section removed.
 - Removed: Sidebar option from page removed.
-- Improved: Social media has a colour option along with more social icons. 
+- Improved: Social media has a colour option along with more social icons.
 - Improved: Genericons replaced with Font Awesome.
 
 ### Version 1.0.11
@@ -186,7 +186,7 @@ Fonts & Icons
  - Added some action hooks on header and footer.
  - Removed unwanted PHP funtions
  - Replaced deprecated live jQuery function by on function
- 
+
 ### Version 1.0.7
  - Error occured while editing post fixed
 
@@ -194,11 +194,11 @@ Fonts & Icons
  - Theme option datas are now saved in a single array.
 
 ### Version 1.0.5
- - home_url() escaped with esc_url() 
+ - home_url() escaped with esc_url()
  - data sanitazation, validation and escape fuctions used
  - PHP fixes for sidebar
  - CSS fixes for table font size
- 
+
 
 ### Version 1.0.4
  - get_stylesheet_uri() used instead of bloginfo() function for main stylesheet url.
@@ -210,27 +210,27 @@ Fonts & Icons
  - hooks sections removed that provided theme options for arbitrary header/footer scripts.
 
 ### Version 1.0.3
- - Removed: <meta> description and author removed from header.php 
- - Removed: Dashboard widgets removed 
+ - Removed: <meta> description and author removed from header.php
+ - Removed: Dashboard widgets removed
  - Fixed: wp_title filter used for title tag
- - Fixed: Google fonts enqueued without the protocol (http:). 
+ - Fixed: Google fonts enqueued without the protocol (http:).
  - Fixed: Favicon icons disable by default
- - Fixed: admin_print_scripts and admin_print_styles changed to admin_enqueue_scripts 
+ - Fixed: admin_print_scripts and admin_print_styles changed to admin_enqueue_scripts
  - Fixed: scripts and styles files enqueued directly without registering
  - Fixed: output of data by using escape function
  - Fixed: used ‘theme_location’ parameter instead of ‘menu’ in wp_nav_menu
- - Fixed: register_nav_menu(), add_theme_support, add_image_size, add_nav_menu, register_nav_menus and load_theme_textdomain hooked into after_setup_theme action. 
+ - Fixed: register_nav_menu(), add_theme_support, add_image_size, add_nav_menu, register_nav_menus and load_theme_textdomain hooked into after_setup_theme action.
 
 ### Version 1.0.2
  - Added: License information added on readme.txt file of bundled js files and icons.
 
 ### Version 1.0.1
 - Fixed: Non-printable characters were replaced by web save special characters.
-- Fixed: Enqueued comment-reply script.- Fixed: wp_head() template tag placed immediately before the closing HTML head tag. 
-- Fixed: wp_footer() template tag placed immediately before the closing HTML body tag. 
+- Fixed: Enqueued comment-reply script.- Fixed: wp_head() template tag placed immediately before the closing HTML head tag.
+- Fixed: wp_footer() template tag placed immediately before the closing HTML body tag.
 - Fixed: manage_options replaced by be edit_theme_options on setting page.
 - Fixed: Read more text field validated.
-- Fixed: sampression_right_sidebar() replaced by get_sidebar() function. 
+- Fixed: sampression_right_sidebar() replaced by get_sidebar() function.
  - Added: Function for custom header preview on admin panel.
 
 

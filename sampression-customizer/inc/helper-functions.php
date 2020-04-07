@@ -255,7 +255,6 @@ if (!function_exists('sampression_setup')) :
          * Enable support for Post Formats.
          */
         add_theme_support('post-formats', array(
-            //'aside',
             'image',
             'gallery',
             'video',
@@ -270,32 +269,16 @@ if (!function_exists('sampression_setup')) :
          * Set up the WordPress core custom background feature.
          */
         add_theme_support('custom-background', array(
-            'default-color' => 'F3F7F6',
-            'default-image' => '',
-            'wp-head-callback' => 'sampression_custom_background_cb'
-        ));
-
-        add_theme_support('custom-header', array(
-            // Text color and image (empty to use none).
-            'default-text-color' => 'FE6E41',
-            'default-image' => '',
-
-            // Set height and width, with a maximum value for the width.
-            'height' => 152,
-            'width' => 1200,
-            'max-width' => 2000,
-
-            // Support flexible height and width.
-            'flex-height' => true,
-            'flex-width' => true,
-            'header-text' => false
+			'default-color'    => 'F3F7F6',
+			'default-image'    => '',
+			'wp-head-callback' => 'sampression_custom_background_cb'
         ));
 
         add_theme_support('custom-logo', array(
-            'height' => 120,
-            'width' => 220,
-            'flex-height' => true,
-            'default-image' => '',
+			'height'        => 120,
+			'width'         => 220,
+			'flex-height'   => true,
+			'default-image' => '',
         ));
     }
 

@@ -14,27 +14,6 @@ if ( ! function_exists( 'sampression_setup' ) ):
 
 	function sampression_setup() {
 
-		/**
-		 * This feature enables custom header color and image support for a theme
-		 */
-		add_theme_support( 'custom-header', array(
-			// Text color and image (empty to use none).
-			'default-text-color'     => '',
-			'default-image'          => '',
-
-			// Set height and width, with a maximum value for the width.
-			'height'                 => 152,
-			'width'                  => 960,
-			'max-width'              => 2000,
-
-			// Support flexible height and width.
-			'flex-height'            => true,
-			'flex-width'             => true,
-			'admin-head-callback'    => 'sampression_admin_header_style',
-			'admin-preview-callback' => 'sampression_admin_header_image',
-		) );
-
-
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'automatic-feed-links' );
 
@@ -662,37 +641,6 @@ function sampression_post_meta_content(){
 
 endif;
 
-
-/*
- * Filter to support shortcode in widget
- */
-add_filter( 'widget_text', 'do_shortcode' );
-
-function sampression_exclude_categories( $query ) {
-	// global $sampression_options_settings;
-	// $options = $sampression_options_settings;
-	// $hidden_categories_value = esc_attr( $options['hide_blog_from_category'] ); // Get string value from database for hidden categories id
-	// $exclude = explode(',', $hidden_categories_value); // Convert string to array for hidden categories id
-	// if(count($exclude) > 0) {
-	//     if ($query->is_home) {
-	//         $query->set('category__not_in', $exclude);
-	//     }
-	//     if ($query->is_feed) {
-	//         $query->set('category__not_in', $exclude);
-	//     }
-	//     if ($query->is_search) {
-	//         $query->set('category__not_in', $exclude);
-	//     }
-	//     if (!is_admin() && $query->is_archive) {
-	//         $query->set('category__not_in', $exclude);
-	//     }
-	// }
-	// return $query;
-}
-
-
-add_filter( 'pre_get_posts', 'sampression_exclude_categories' );
-
 if ( ! function_exists( 'sampression_content_nav' ) ) :
 	/**
 	 * Display navigation to next/previous pages when applicable
@@ -851,9 +799,6 @@ function sampression_next_post_link( $url ) {
 function sampression_previous_post_link( $url ) {
 	return preg_replace( '/rel="prev"/', 'rel="next" class="nav-prev alignleft"', $url );
 }
-
-add_filter( 'pre_get_posts', 'sampression_exclude_categories' );
-
 
 /*=======================================================================
  * Comment Reply
@@ -1063,10 +1008,6 @@ function sampression_font_transformation_select( $name = '', $class = '', $defau
 	echo $return;
 }
 
-function sampression_get_template( $template_name ) {
-	include_once SAM_FW_TEMPLATE_DIR . '/' . $template_name;
-}
-
 function sampression_readmore_link() {
 	if ( get_the_excerpt() ) {
 		$more = 'Read more';
@@ -1093,105 +1034,3 @@ function sampression_get_post_format() {
 
 	return $format;
 }
-
-//Removing default inline style of [gallery] shortcode
-add_filter( 'use_default_gallery_style', '__return_false' );
-
-//function sampression_get_the_excerpt($post_id = '') {
-//    $excerpt = '';
-//    if($post_id !== '') {
-//        global $post;
-//        $post_id = $post->ID;
-//    }
-//    $post_data = get_the_content($post_id);
-//    $excerpt = $post_data->post_excerpt;
-//    return $excerpt;
-//}
-
-// 404 Page error messages
-function sampression_404_text() {
-	return __( "Sorry but we couldn't find the page you are looking for. Please check to make sure you've typed the URL correctly. You may also want to search for what you are looking for.", 'naya-lite' );
-}
-
-function sampression_nothing_found_text() {
-
-	return __( "You can start a new search by using the box below.", 'naya-lite' );
-
-}
-
-/*=======================================================================
- * Shows footer credits
- *=======================================================================*/
-function sampression_footer_text() {
-	?>
-	<?php _e( 'A theme by', 'naya-lite' ); ?> <a
-            href="<?php echo esc_url( __( 'http://sampression.com', 'naya-lite' ) ); ?>" target="_blank"
-            title="<?php esc_attr_e( 'Sampression', 'naya-lite' ); ?>"><?php _e( 'Sampression', 'naya-lite' ); ?></a>. <?php _e( 'Powered by', 'naya-lite' ); ?>
-    <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'naya-lite' ) ); ?>"
-       title="<?php esc_attr_e( 'WordPress', 'naya-lite' ); ?>"
-       target="_blank"><?php _e( 'WordPress', 'naya-lite' ); ?></a>.
-	<?php
-}
-
-add_filter( 'sampression_credits', 'sampression_footer_text' );
-
-
-/*=======================================================================
- * Custom Header Admin Preview
- *=======================================================================*/
-if ( ! function_exists( 'sampression_admin_header_style' ) ) :
-	/**
-	 * Styles the header image displayed on the Appearance > Header admin panel.
-	 *
-	 * @see sampression_custom_header_setup().
-	 */
-	function sampression_admin_header_style() {
-		global $sampression_options_settings;
-		$options = $sampression_options_settings;
-		?>
-        <style type="text/css">
-            .appearance_page_custom-header #admin-heading {
-                border: none;
-            }
-
-            #admin-heading h1 {
-                margin: 0;
-            }
-
-            #admin-heading h1.site-title a {
-                color: <?php echo esc_attr( $options['web_title_color'] ); ?>;
-                text-decoration: none;
-                font: <?php echo esc_attr( $options['web_title_style'] ).' '. absint( $options['web_title_size'] ) . 'px '. esc_attr( $options['web_title_font'] ); ?>;
-            }
-
-            #desc {
-                color: <?php echo esc_attr( $options['web_desc_color'] ); ?>;
-                font: <?php echo esc_attr( $options['web_desc_style'] ).' '. absint( $options['web_desc_size'] ) . 'px '. esc_attr( $options['web_desc_font'] ); ?>;
-                padding-top: 0;
-                padding-bottom: 10px;
-            }
-        </style>
-		<?php
-	}
-endif; // sampression_admin_header_style
-
-if ( ! function_exists( 'sampression_admin_header_image' ) ) :
-	/**
-	 * Custom header image markup displayed on the Appearance > Header admin panel.
-	 *
-	 * @see sampression_custom_header_setup().
-	 */
-	function sampression_admin_header_image() {
-		?>
-        <div id="admin-heading">
-            <h1 class="site-title"><a id="name" onclick="return false;"
-                                      href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-            </h1>
-            <h2 class="displaying-header-text" id="desc"><?php bloginfo( 'description' ); ?></h2>
-			<?php if ( get_header_image() ) : ?>
-                <img src="<?php header_image(); ?>" alt="">
-			<?php endif; ?>
-        </div>
-		<?php
-	}
-endif; // sampression_admin_header_image

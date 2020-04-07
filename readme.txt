@@ -10,7 +10,7 @@ Theme Options, Typography options, Custom logo, Google Fonts, Font Awesome Icon 
 
 #Tags
 
-Tags: Tags: blog, news, grid-layout, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: Tags: blog, news, grid-layout, one-column, two-columns, right-sidebar, custom-background, custom-menu, editor-style, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 
 #Installation
 
