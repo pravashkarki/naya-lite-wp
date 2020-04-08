@@ -79,7 +79,5 @@ function sampression_get_option( $key ) {
 
 	$current_default_value = isset( $default_options[ $key ] ) ? $default_options[ $key ] : null;
 
-	$value = get_theme_mod( $key );
-
-	return ! is_null( $value ) ? $value : $current_default_value;
+	return get_theme_mod( $key, $current_default_value );
 }

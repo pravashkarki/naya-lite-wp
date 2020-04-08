@@ -1018,7 +1018,7 @@ if (!function_exists('sampression_header_style')) {
     }
 }
 
-add_action('wp_head', 'sampression_header_style', 999);
+// add_action('wp_head', 'sampression_header_style', 999);
 
 function sampression_create_font_url($family)
 {
@@ -1056,18 +1056,9 @@ function sampression_fonts_url()
     return $fonts_url;
 }
 
-if (!function_exists('sampression_body_class')) {
-    function sampression_body_class($classes)
-    {
-        $classes[] = 'top';
-        return $classes;
-    }
-}
-add_filter('body_class', 'sampression_body_class');
+if (!function_exists('sampression_1comment')) :
 
-if (!function_exists('sampression_comment')) :
-
-    function sampression_comment($comment, $args, $depth)
+    function sampression_1comment($comment, $args, $depth)
     {
         //$GLOBALS['comment'] = $comment;
         switch ($comment->comment_type) :
@@ -1136,78 +1127,3 @@ if (!function_exists('sampression_comment')) :
         endswitch;
     }
 endif; // ends check for sampression_comment()
-
-if (!function_exists('sampression_posts_navi')) :
-    /**
-     * Displays post navigation
-     */
-    function sampression_posts_navi($nav_id)
-    {
-        global $wp_query;
-
-        if ($wp_query->max_num_pages > 1) : ?>
-            <nav id="<?php echo $nav_id; ?>" class="post-navigation clearfix" role="navigation">
-                <?php
-                /**
-                 * Navigation support for WP-PageNavi plugin
-                 * @https://wordpress.org/plugins/wp-pagenavi/
-                 */
-                if (function_exists('wp_pagenavi')) {
-                    wp_pagenavi();
-                } else {
-                    if (!get_theme_mod('page_navigation') || get_theme_mod('page_navigation') === 'default') {
-                        ?>
-                        <div class="container">
-                            <div class="nav-previous alignleft">
-                                <?php next_posts_link(__('<span class="meta-nav">&larr;</span> Older posts', 'naya-lite')); ?>
-                            </div>
-                            <div class="nav-next alignright">
-                                <?php previous_posts_link(__('Newer posts <span class="meta-nav">&rarr;</span>', 'naya-lite')); ?>
-                            </div>
-                        </div>
-                        <?php
-                    } else {
-                        $big = 999999999; // need an unlikely integer
-                        echo paginate_links(array(
-                            'prev_text' => __('<span class="meta-nav">&larr;</span> Previous', 'naya-lite'),
-                            'next_text' => __('Next <span class="meta-nav">&rarr;</span>', 'naya-lite'),
-                            'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-                            'format' => '?paged=%#%',
-                            'current' => max(1, get_query_var('paged')),
-                            'total' => $wp_query->max_num_pages
-                        ));
-
-                    }
-                }
-                ?>
-            </nav>
-        <?php endif;
-    }
-endif;
-
-function sampression_sticky_ping()
-{
-    $code = '';
-    $code .= '<svg version="1.1" class="sticky-icon" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
-     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="12px" height="20px"
-     viewBox="0 0 12 20" enable-background="new 0 0 12 20" xml:space="preserve">
-            <g id="Mockups" sketch:type="MSPage">
-                <g id="sam-lite---home-typography" transform="translate(-408.000000, -239.000000)" sketch:type="MSArtboardGroup">
-                    <path id="Rectangle-202" sketch:type="MSShapeGroup" fill="#333333" fill-opacity="1" d="M408,239h12v20l-5.708-4L408,259V239z"
-                        />
-                </g>
-            </g>
-       </svg>';
-    return $code;
-
-}
-
-function customizer_widgets_section_args_nayalite($args)
-{
-    $args['active_callback'] = '__return_true';
-    return $args;
-}
-
-add_filter('customizer_widgets_section_args', 'customizer_widgets_section_args_nayalite');
-
-
