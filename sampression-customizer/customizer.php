@@ -127,3 +127,5 @@ function sampression_customize_partial_blogname() {
 function sampression_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
+
+require get_template_directory() . '/sampression-customizer/inc/dynamic-css.php';
