@@ -57,11 +57,19 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 		$defaults['webtagline_font_color']  = '000000';
 
 		// Header Text.
-		$defaults['title_font']  = 'Kreon';
+		$defaults['title_font']            = 'Kreon';
 		$defaults['headertext_font_size']  = '21';
-		$defaults['headertext_font_style']  = array();
-		$defaults['title_textcolor']  = '000000';
-		$defaults['headertext_link_color']  = '006799';
+		$defaults['headertext_font_style'] = array();
+		$defaults['title_textcolor']       = '000000';
+		$defaults['headertext_link_color'] = '006799';
+
+		// Body.
+		$defaults['body_font']           = 'Kreon';
+		$defaults['bodytext_font_size']  = '14';
+		$defaults['bodytext_font_style'] = array();
+		$defaults['body_textcolor']      = '000000';
+		$defaults['body_link_color']      = '006799';
+
 
 		// OLD
 		//font setting

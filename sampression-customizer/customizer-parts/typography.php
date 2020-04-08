@@ -269,6 +269,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 		'priority' => 5
 	)));
 
+
 	// Body Text - Section
 	$wp_customize->add_section('sampression_bodytext_section',
 		array(
@@ -279,21 +280,10 @@ function sampression_customize_register_typography( $wp_customize ) {
 	);
 
 	// Body Text Font Family - Setting
-
-
-	//migration code
-	if(get_theme_mod('body_font') == '' && sampression_options_theme_option("body_font_family") != '') {
-		$body_font_family = sampression_options_theme_option("body_font_family");
-	} else {
-		$body_font_family = $defaults['font'];
-	}
-	//migration code end
 	$wp_customize->add_setting('body_font',
 		array(
+			'default'           => $defaults['body_font'],
 			'sanitize_callback' => 'sampression_sanitize_fonts',
-			'default' => $body_font_family,
-			//'transport' => 'postMessage'
-			'sanitize_callback' => 'sampression_sanitize_fonts'
 		)
 	);
 
@@ -317,8 +307,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 	//migration code end
 	$wp_customize->add_setting('bodytext_font_size',
 		array(
-			'default' => $body_font_size,
-			//'transport' => 'postMessage',
+			'default'           => $defaults['bodytext_font_size'],
 			'sanitize_callback' => 'absint'
 		)
 	);
@@ -341,9 +330,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 	// Body Text Font Style - Setting
 	$wp_customize->add_setting('bodytext_font_style',
 		array(
+			'default'           => $defaults['bodytext_font_style'],
 			'sanitize_callback' => 'sampression_sanitize_checkboxes',
-			'default' => $defaults['font_style'],//italic,underline
-			//'transport' => 'postMessage'
 		)
 	);
 
@@ -359,10 +347,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 
 	// Body Text Font Color - Setting
 	$wp_customize->add_setting('body_textcolor', array(
-		'default' => $defaults['font_color'],
+		'default' => '#'.$defaults['body_textcolor'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'body_textcolor', array(
@@ -373,12 +359,9 @@ function sampression_customize_register_typography( $wp_customize ) {
 	)));
 
 	// Body Text Link Color - Setting
-
 	$wp_customize->add_setting('body_link_color', array(
-		'default' => $defaults['link_color'],
+		'default' => '#'.$defaults['body_link_color'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'body_link_color', array(
