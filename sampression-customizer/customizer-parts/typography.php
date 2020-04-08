@@ -157,7 +157,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 
 	// Website Tagline Font Color - Setting
 	$wp_customize->add_setting('webtagline_font_color', array(
-		'default'           => $defaults['webtagline_font_color'],
+		'default'           => '#'.$defaults['webtagline_font_color'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
 	));
 
@@ -168,21 +168,20 @@ function sampression_customize_register_typography( $wp_customize ) {
 		'priority' => 8
 	)));
 
+	// Header Text - Section
+	$wp_customize->add_section('sampression_headertext_section',
+		array(
+			'title' => __('Header Text','naya-lite'),
+			'priority' => 2,
+			'panel' => 'sampression_typography_panel',
+		)
+	);
 
 	// Header Text Font Family - Setting
-	//migration code
-	if(get_theme_mod('title_font') == '' && sampression_options_theme_option("post_title_font_family") != '') {
-		$title_font = sampression_options_theme_option("post_title_font_family");
-	} else {
-		$title_font = $defaults['font'];
-	}
-	//migration code end
 	$wp_customize->add_setting('title_font',
 		array(
+			'default'           => $defaults['title_font'],
 			'sanitize_callback' => 'sampression_sanitize_fonts',
-			'default' => $title_font,
-			//'transport' => 'postMessage'
-			'sanitize_callback' => 'sampression_sanitize_fonts'
 		)
 	);
 
@@ -196,15 +195,6 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'label' => 'Font Family'
 		));
 
-	// Header Text - Section
-	$wp_customize->add_section('sampression_headertext_section',
-		array(
-			'title' => __('Header Text','naya-lite'),
-			'priority' => 2,
-			'panel' => 'sampression_typography_panel',
-		)
-	);
-
 
 	// Header Text Font Size  - Setting
 	//migration code
@@ -216,9 +206,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 	//migration code end
 	$wp_customize->add_setting('headertext_font_size',
 		array(
-			'default' => $headertext_font_size,
-			//'transport' => 'postMessage',
-			'sanitize_callback' => 'absint'
+			'default'           => $defaults['headertext_font_size'],
+			'sanitize_callback' => 'absint',
 		)
 	);
 
@@ -240,9 +229,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 	// Header Text Font Style - Setting
 	$wp_customize->add_setting('headertext_font_style',
 		array(
+			'default'           => $defaults['headertext_font_style'],
 			'sanitize_callback' => 'sampression_sanitize_checkboxes',
-			'default' => $defaults['font_style'],//italic,underline
-			//'transport' => 'postMessage'
 		)
 	);
 	$wp_customize->add_control(new Sampression_Checkboxes_Control($wp_customize, 'headertext_font_style',
@@ -257,10 +245,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 
 	// Header Text Font Color - Setting
 	$wp_customize->add_setting('title_textcolor', array(
-		'default' => $defaults['font_color'],
+		'default' => '#'.$defaults['title_textcolor'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'title_textcolor', array(
@@ -272,10 +258,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 
 	// Header Text Link Color - Setting
 	$wp_customize->add_setting('headertext_link_color', array(
-		'default' => $defaults['link_color'],
+		'default' => '#'.$defaults['headertext_link_color'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'headertext_link_color', array(

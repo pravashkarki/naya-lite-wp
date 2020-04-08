@@ -46,6 +46,7 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 		$defaults['sampression_socials_pinterest']  = '';
 
 		// Fonts.
+		// Title and tagline.
 		$defaults['webtitle_font_family']   = 'Kreon';
 		$defaults['webtitle_font_size']     = '42';
 		$defaults['webtitle_font_style']    = array();
@@ -55,6 +56,14 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 		$defaults['webtagline_font_style']  = array();
 		$defaults['webtagline_font_color']  = '000000';
 
+		// Header Text.
+		$defaults['title_font']  = 'Kreon';
+		$defaults['headertext_font_size']  = '21';
+		$defaults['headertext_font_style']  = array();
+		$defaults['title_textcolor']  = '000000';
+		$defaults['headertext_link_color']  = '006799';
+
+		// OLD
 		//font setting
 		$defaults['font']                       = 'Kreon, serif';
 		$defaults['font_size']                  = '14px';
