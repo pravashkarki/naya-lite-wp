@@ -45,6 +45,15 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 		$defaults['sampression_socials_tumblr']     = '';
 		$defaults['sampression_socials_pinterest']  = '';
 
+		// Fonts.
+		$defaults['webtitle_font_family']   = 'Kreon';
+		$defaults['webtitle_font_size']     = '42';
+		$defaults['webtitle_font_style']    = array();
+		$defaults['webtitle_font_color']    = '000000';
+		$defaults['webtagline_font_family'] = 'Kreon';
+		$defaults['webtagline_font_size']   = '14';
+		$defaults['webtagline_font_style']  = array();
+		$defaults['webtagline_font_color']  = '000000';
 
 		//font setting
 		$defaults['font']                       = 'Kreon, serif';

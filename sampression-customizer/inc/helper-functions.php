@@ -67,7 +67,7 @@ function sampression_fonts()
     );
 }
 
-function font_style()
+function samression_get_font_style()
 {
     return $font_style = array(
         'bold' => 'Bold',

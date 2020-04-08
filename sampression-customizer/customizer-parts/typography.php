@@ -6,8 +6,6 @@
  * @package sampression
  **/
 function sampression_customize_register_typography( $wp_customize ) {
-
-	//get default values
 	$defaults = sampression_get_default_options_value();
 
 	//Typography - Panel
@@ -29,17 +27,10 @@ function sampression_customize_register_typography( $wp_customize ) {
 
 
 	//website title and tags font setting
-	//migration code
-	if(get_theme_mod('webtitle_font_family') == '' && sampression_options_theme_option("web_title_font") != '') {
-		$webtitle_font_family = sampression_options_theme_option("web_title_font");
-	} else {
-		$webtitle_font_family = $defaults['font'];
-	}
-	//migration code end
 	$wp_customize->add_setting('webtitle_font_family',
 		array(
 			'sanitize_callback' => 'sampression_sanitize_fonts',
-			'default' => $webtitle_font_family,
+			'default'           => $defaults['webtitle_font_family'],
 		)
 	);
 	$wp_customize->add_control('webtitle_font_family',
@@ -55,18 +46,9 @@ function sampression_customize_register_typography( $wp_customize ) {
 		));
 
 	// Website Title Font Size  - Setting
-
-	//migration code
-	if(get_theme_mod('webtitle_font_size') == '' && sampression_options_theme_option("web_title_size") != '') {
-		$webtitle_font_size = sampression_options_theme_option("web_title_size");
-	} else {
-		$webtitle_font_size = $defaults['font_size_large'];
-	}
-	//migration code end
 	$wp_customize->add_setting('webtitle_font_size',
 		array(
-			'default' => $webtitle_font_size,
-			//'transport' => 'postMessage',
+			'default'           => $defaults['webtitle_font_size'],
 			'sanitize_callback' => 'absint'
 		)
 	);
@@ -86,43 +68,26 @@ function sampression_customize_register_typography( $wp_customize ) {
 	);
 
 	// Title Font Style - Setting
-	//migration code
-	if(get_theme_mod('webtitle_font_style') == '' && sampression_options_theme_option("web_title_style") != '') {
-		$webtitle_font_size = sampression_options_theme_option("webtitle_font_style");
-	} else {
-		$webtitle_font_size = $defaults['font_style'];
-	}
-	//migration code end
 	$wp_customize->add_setting('webtitle_font_style',
 		array(
+			'default'           => $defaults['webtitle_font_style'],
 			'sanitize_callback' => 'sampression_sanitize_checkboxes',
-			'default' => '',
-			//'transport' => 'postMessage'
 		)
 	);
 	$wp_customize->add_control(new Sampression_Checkboxes_Control($wp_customize, 'webtitle_font_style',
-			array(
-				'priority' => 3,
-				'settings' => 'webtitle_font_style',
-				'section' => 'sampression_title_tag_section',
-				'label' => 'Site Title Font Style',
-				'choices' => font_style()
-			))
-	);
+		array(
+			'priority' => 3,
+			'settings' => 'webtitle_font_style',
+			'section' => 'sampression_title_tag_section',
+			'label' => 'Site Title Font Style',
+			'choices' => samression_get_font_style(),
+		))
+);
 
 	// Title Font Color - Setting
-	//migration code
-	if(get_theme_mod('webtitle_font_color') == '' && sampression_options_theme_option("web_title_color") != '') {
-		$webtitle_font_color = sampression_options_theme_option("webtitle_font_color");
-	} else {
-		$webtitle_font_color = $defaults['font_color'];
-	}
-	//migration code end
 	$wp_customize->add_setting('webtitle_font_color', array(
-		'default' => $webtitle_font_color,
+		'default'           => '#'.$defaults['webtitle_font_color'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'webtitle_font_color', array(
@@ -133,18 +98,10 @@ function sampression_customize_register_typography( $wp_customize ) {
 	)));
 
 	// Website Tagline Font Family - Setting
-	//migration code
-	if(get_theme_mod('webtagline_font_family') == '' && sampression_options_theme_option("web_desc_font") != '') {
-		$webtagline_font_family = sampression_options_theme_option("web_desc_font");
-	} else {
-		$webtagline_font_family = $defaults['font'];
-	}
-	//migration code end
 	$wp_customize->add_setting('webtagline_font_family',
 		array(
+			'default'           => $defaults['webtagline_font_family'],
 			'sanitize_callback' => 'sampression_sanitize_fonts',
-			'default' => $webtagline_font_family,
-			//'transport' => 'postMessage'
 		)
 	);
 
@@ -159,18 +116,10 @@ function sampression_customize_register_typography( $wp_customize ) {
 		));
 
 	// Website Tagline Font Size  - Setting
-	//migration code
-	if(get_theme_mod('webtagline_font_size') == '' && sampression_options_theme_option("web_desc_size") != '') {
-		$webtagline_font_size = sampression_options_theme_option("web_desc_size");
-	} else {
-		$webtagline_font_size = $defaults['font_size'];
-	}
-	//migration code end
 	$wp_customize->add_setting('webtagline_font_size',
 		array(
-			'default' => $webtagline_font_size,
-			//'transport' => 'postMessage',
-			'sanitize_callback' => 'absint'
+			'default'           => $defaults['webtagline_font_size'],
+			'sanitize_callback' => 'absint',
 		)
 	);
 
@@ -190,18 +139,10 @@ function sampression_customize_register_typography( $wp_customize ) {
 	);
 
 	// Website Tagline Font Style - Setting
-	//migration code
-	if(get_theme_mod('webtagline_font_style') == '' && sampression_options_theme_option("web_desc_style") != '') {
-		$webtagline_font_style = sampression_options_theme_option("web_desc_style");
-	} else {
-		$webtagline_font_style = $defaults['font_style'];
-	}
-	//migration code end
 	$wp_customize->add_setting('webtagline_font_style',
 		array(
+			'default'           => $defaults['webtagline_font_style'],
 			'sanitize_callback' => 'sampression_sanitize_checkboxes',
-			'default' => $webtagline_font_style,//italic,underline
-			//'transport' => 'postMessage'
 		)
 	);
 	$wp_customize->add_control(new Sampression_Checkboxes_Control($wp_customize, 'webtagline_font_style',
@@ -210,23 +151,14 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'webtagline_font_style',
 				'section' => 'sampression_title_tag_section',
 				'label' => ' Tagline Font Style',
-				'choices' => font_style()
+				'choices' => samression_get_font_style(),
 			))
 	);
 
 	// Website Tagline Font Color - Setting
-	//migration code
-	if(get_theme_mod('webtagline_font_color') == '' && sampression_options_theme_option("web_desc_color") != '') {
-		$webtagline_font_color = sampression_options_theme_option("web_desc_color");
-	} else {
-		$webtagline_font_color = $defaults['font_color'];
-	}
-	//migration code end
 	$wp_customize->add_setting('webtagline_font_color', array(
-		'default' => $webtagline_font_color,
+		'default'           => $defaults['webtagline_font_color'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'webtagline_font_color', array(
@@ -319,7 +251,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'headertext_font_style',
 				'section' => 'sampression_headertext_section',
 				'label' => 'Font Style',
-				'choices' => font_style()
+				'choices' => samression_get_font_style(),
 			))
 	);
 
@@ -437,7 +369,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'bodytext_font_style',
 				'section' => 'sampression_bodytext_section',
 				'label' => 'Font Style',
-				'choices' => font_style()
+				'choices' => samression_get_font_style(),
 			))
 	);
 
@@ -553,7 +485,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'metatext_font_style',
 				'section' => 'sampression_metatext_section',
 				'label' => 'Font Style',
-				'choices' => font_style()
+				'choices' => samression_get_font_style(),
 			))
 	);
 
@@ -671,7 +603,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'widgetText_heading_font_style',
 				'section' => 'sampression_widgetText_section',
 				'label' => 'Font Style',
-				'choices' => font_style()
+				'choices' => samression_get_font_style(),
 			))
 	);
 
@@ -767,7 +699,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'widgetText_font_style',
 				'section' => 'sampression_widgetText_section',
 				'label' => 'Font Style',
-				'choices' => font_style()
+				'choices' => samression_get_font_style(),
 			))
 	);
 
