@@ -26,6 +26,10 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 		$defaults['sampression_copyright_text']        = '';
 		$defaults['sampression_remove_copyright_text'] = false;
 
+		// Blog.
+		$defaults['hide_post_metas'] = array();
+
+
 		//font setting
 		$defaults['font']                       = 'Kreon, serif';
 		$defaults['font_size']                  = '14px';

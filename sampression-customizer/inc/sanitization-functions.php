@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Sanitization callback for  type controls
  * @param  string $input Slug to sanitize.
@@ -6,7 +6,7 @@
  * @return string Sanitized slug if it is a valid choice; otherwise, the setting default
  */
 
-//Sanitizes Fonts 
+//Sanitizes Fonts
 function sampression_sanitize_fonts($input)
 {
     $valid = array(
@@ -80,34 +80,11 @@ function sampression_sanitize_fonts($input)
     }
 }
 
-function sampression_sanitize_customcss($input)
-{
-
-    $allowed_html = array(
-        'style' => array(
-            'id' => array(),
-            'type' => array()
-        ),
-        'script' => array(
-            'src' => array(),
-            'type' => array()
-        ),
-        'link' => array(
-            'rel' => array(),
-            'id' => array(),
-            'href' => array(),
-            'media' => array(),
-            'type' => array()
-        ),
-    );
-    return wp_kses($input, $allowed_html);
-
-}
-
-function sampression_sanitize_checkboxes($values)
-{
+function sampression_sanitize_checkboxes($values) {
 
     $multi_values = !is_array($values) ? explode(',', $values) : $values;
+
+    $multi_values = array_filter( $multi_values );
 
     return !empty($multi_values) ? array_map('sanitize_text_field', $multi_values) : array();
 }
