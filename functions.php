@@ -66,23 +66,10 @@ function naya_lite_widgets_init() {
 
 add_action( 'widgets_init', 'naya_lite_widgets_init' );
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
 // Load files.
+require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/sampression-customizer/customizer.php';
 require get_template_directory() . '/inc/defaults.php';
-require get_template_directory() . '/inc/functions.php';
+require get_template_directory() . '/inc/helpers.php';
 require get_template_directory() . '/inc/theme-page.php';
