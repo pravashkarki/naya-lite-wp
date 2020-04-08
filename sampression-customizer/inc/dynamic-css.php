@@ -1,20 +1,15 @@
 <?php
 if (!function_exists('sampression_header_style')) {
 
-    function sampression_header_style()
-    {
-        global $sampression_options_settings;
+    function sampression_header_style() {
         $webtitle = $webtitle_color = $webtagline = $primary_nav  = $social_media_icon = '';
+
         // Website Title Style
         if ((get_theme_mod('webtitle_font_family'))) {
             $webtitle .= 'font-family: ' . sampression_get_font_family(get_theme_mod('webtitle_font_family')) . ';';
         } else {
             if (get_theme_mod('body_font')) {
                 $webtitle .= 'font-family: ' . sampression_get_font_family(get_theme_mod('body_font')) . ';';
-            } else {
-                if ($sampression_options_settings['web_title_font'] != '') {
-                    $webtitle .= 'font-family: ' . sampression_get_font_family($sampression_options_settings['web_title_font']) . ';';
-                }
             }
         }
         if (null !== get_theme_mod('webtitle_font_style')) {
@@ -25,22 +20,15 @@ if (!function_exists('sampression_header_style')) {
         } else {
             if (get_theme_mod('title_textcolor')) {
                 $webtitle_color .= 'color: ' . get_theme_mod('title_textcolor') . ';';
-            } else {
-                //web_title_color
-                $webtitle_color .= 'color: ' . $sampression_options_settings['web_title_color'] . ';';
             }
-
         }
+
         // Website Tagline Style
         if ((get_theme_mod('webtagline_font_family'))) {
             $webtagline .= 'font-family: ' . sampression_get_font_family(get_theme_mod('webtagline_font_family')) . ';';
         } else {
             if (get_theme_mod('body_font')) {
                 $webtagline .= 'font-family: ' . sampression_get_font_family(get_theme_mod('body_font')) . ';';
-            } else {
-                if ($sampression_options_settings['web_desc_font'] != '') {
-                    $webtagline .= 'font-family: ' . sampression_get_font_family($sampression_options_settings['web_desc_font']) . ';';
-                }
             }
         }
         if (get_theme_mod('webtagline_font_style')) {
@@ -51,10 +39,6 @@ if (!function_exists('sampression_header_style')) {
         } else {
             if (get_theme_mod('body_textcolor') && get_theme_mod('webtagline_font_color') == '') {
                 $webtagline .= 'color: ' . get_theme_mod('body_textcolor') . ';';
-            } else {
-                if ($sampression_options_settings['web_desc_color'] != '') {
-                    $webtagline .= 'color: ' . $sampression_options_settings['web_desc_color'] . ';';
-                }
             }
         }
 
@@ -83,11 +67,8 @@ if (!function_exists('sampression_header_style')) {
         $header_text = $header_text_hover = '';
         if ((get_theme_mod('title_font'))) {
             $header_text .= 'font-family: ' . sampression_get_font_family(get_theme_mod('title_font')) . ';';
-        } else {
-            if (!empty($sampression_options_settings['blog_post_title_font_family'])) {
-                $header_text .= 'font-family: ' . sampression_get_font_family($sampression_options_settings['blog_post_title_font_family']) . ';';
-            }
         }
+
         $header_text .= sampression_font_style(get_theme_mod('headertext_font_style', 'bold'));
         if (get_theme_mod('title_textcolor')) {
             if (strpos(get_theme_mod('title_textcolor'), '#') !== false) {
@@ -103,11 +84,8 @@ if (!function_exists('sampression_header_style')) {
         $bodytext_link_color_hover = '';
         if ((get_theme_mod('body_font'))) {
             $body_text .= 'font-family: ' . sampression_get_font_family(get_theme_mod('body_font')) . ';';
-        } else {
-            if (($sampression_options_settings['body_font_family'])) {
-                $body_text .= 'font-family: ' . sampression_get_font_family($sampression_options_settings['body_font_family']) . ';';
-            }
         }
+
         $body_text .= sampression_font_style(get_theme_mod('bodytext_font_style'));
         if (get_theme_mod('body_textcolor')) {
             if (strpos(get_theme_mod('body_textcolor'), '#') !== false) {
@@ -115,11 +93,8 @@ if (!function_exists('sampression_header_style')) {
             } else {
                 $body_text .= 'color: #' . get_theme_mod('body_textcolor') . ';';
             }
-        } else {
-            if (isset($sampression_options_settings['body_font_color'])) {
-                $body_text .= 'color: ' . $sampression_options_settings['body_font_color'] . ';';
-            }
         }
+
         if (get_theme_mod('bodytext_font_size')) {
             if ((get_theme_mod('bodytext_font_size'))) {
                 $body_text .= 'font-size: ' . sampression_get_font_family(get_theme_mod('bodytext_font_size')) . 'px;';
@@ -132,16 +107,10 @@ if (!function_exists('sampression_header_style')) {
         } else {
             if (get_theme_mod('link_color')) {
                 $bodytext_link_color .= 'color: ' . get_theme_mod('link_color') . ';';
-            } else {
-                if (isset($sampression_options_settings['body_link_color'])) {
-                    $bodytext_link_color .= 'color: ' . $sampression_options_settings['body_link_color'] . ';';
-                }
             }
         }
 
         $filter_icon = $filter_text = '';
-
-
 
 
         $meta_text = $meta_text_color = $meta_text_color_hover = '';
@@ -207,14 +176,8 @@ if (!function_exists('sampression_header_style')) {
                 $webtitle_font_size = 'font-size: ' . get_theme_mod( 'webtitle_font_size' ) . 'px; ';
                 $webtitle_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  #site-title { $webtitle_font_size } }" . PHP_EOL;
-            } else {
-                if($sampression_options_settings['web_title_size'] != '') {
-                    $size = $sampression_options_settings['web_title_size'] / 10;
-                    $webtitle_font_size = 'font-size: ' . $sampression_options_settings['web_title_size'] . 'px; ';
-                    $webtitle_font_size .= 'font-size: ' . $size . 'rem;';
-                    echo "@media (min-width: 769px) {  #site-title { $webtitle_font_size } }" . PHP_EOL;
-                }
             }
+
             if($webtitle_color != '' ) {
             echo "#site-title a { $webtitle_color }" . PHP_EOL;
             }
@@ -226,14 +189,8 @@ if (!function_exists('sampression_header_style')) {
                 $webtagline_font_size = 'font-size: ' . get_theme_mod( 'webtagline_font_size' ) . 'px; ';
                 $webtagline_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  #site-description { $webtagline_font_size } }" . PHP_EOL;
-            } else {
-                if($sampression_options_settings['web_desc_size'] != '') {
-                    $size = (int)$sampression_options_settings['web_desc_size'] / 10;
-                    $webtagline_font_size = 'font-size: ' . $sampression_options_settings['web_desc_size'] . 'px; ';
-                    $webtagline_font_size .= 'font-size: ' . $size . 'rem;';
-                    echo "@media (min-width: 769px) {  #site-description { $webtagline_font_size } }" . PHP_EOL;
-                }
             }
+
             if($primary_nav != '' ) {
             echo "#top-nav ul li a, #top-nav ul li li a,  #top-nav .sub-menu li a, #top-nav .sub-menu .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a{ $primary_nav }" . PHP_EOL;
             }
@@ -246,13 +203,6 @@ if (!function_exists('sampression_header_style')) {
                 $primary_nav_font_size = 'font-size: ' . get_theme_mod( 'primarynav_font_size' ) . 'px; ';
                 $primary_nav_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  #top-nav ul li a, #top-nav ul li li a,  #top-nav .sub-menu li a, #top-nav .sub-menu .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a { $primary_nav_font_size } }" . PHP_EOL;
-            } else {
-                if(!empty($sampression_options_settings['nav_font_size'] )) {
-                    $size = (int)$sampression_options_settings['nav_font_size'] / 10;
-                    $primary_nav_font_size = 'font-size: ' . $sampression_options_settings['nav_font_size'] . 'px; ';
-                    $primary_nav_font_size .= 'font-size: ' . $size . 'rem;';
-                    echo "@media (min-width: 769px) {  #top-nav ul li a, #top-nav ul li li a,  #top-nav .sub-menu li a, #top-nav .sub-menu .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a { $primary_nav_font_size } }" . PHP_EOL;
-                }
             }
 
             if(!empty($social_media_icon) ) {
@@ -306,13 +256,6 @@ if (!function_exists('sampression_header_style')) {
                 $headertext_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  #page-not-found-message h2, article.post .post-title a, #page-not-found-message h3 a, body.single article.post .post-title, body.page article.post .post-title ,
                 .entry-header .entry-title,.page-title,.entry-title,.comments-title,.entry-title a{ $headertext_font_size } }" . PHP_EOL;
-            } else {
-                if(!empty($sampression_options_settings['blog_post_title_font_size'] )) {
-                    $size = (int)$sampression_options_settings['blog_post_title_font_size'] / 10;
-                    $headertext_font_size = 'font-size: ' . $sampression_options_settings['blog_post_title_font_size'] . 'px; ';
-                    $headertext_font_size .= 'font-size: ' . $size . 'rem;';
-                    echo "@media (min-width: 769px) {  #page-not-found-message h2, article.post .post-title a, #page-not-found-message h3 a, body.single article.post .post-title, body.page article.post .post-title { $headertext_font_size } }" . PHP_EOL;
-                }
             }
 
             if( !empty($header_text_hover) ) {
@@ -341,28 +284,6 @@ if (!function_exists('sampression_header_style')) {
                 echo "body .entry h5{ font-size: ".$h5_font_size . "px; }" . PHP_EOL;
                 echo "body .entry h6{ font-size: ".$h6_font_size . "px; }" . PHP_EOL;
                 echo "}". PHP_EOL;
-            } else {
-                if(!empty($sampression_options_settings['body_font_size'] )) {
-                    $h1_font_size = $sampression_options_settings['body_font_size'] + 10;
-                    $h2_font_size = $sampression_options_settings['body_font_size'] + 8;
-                    $h3_font_size = $sampression_options_settings['body_font_size'] + 6;
-                    $h4_font_size = $sampression_options_settings['body_font_size'] + 4;
-                    $h5_font_size = $sampression_options_settings['body_font_size'] + 2;
-                    $h6_font_size = $sampression_options_settings['body_font_size'] + 1;
-
-                    $size = $sampression_options_settings['body_font_size'] / 10;
-                    $bodytext_font_size = 'font-size: ' . $sampression_options_settings['body_font_size'] . 'px; ';
-                    $bodytext_font_size .= 'font-size: ' . $size . 'rem;';
-                    echo "@media (min-width: 769px) {  body .entry, body .comment-content{ $bodytext_font_size }" . PHP_EOL;
-
-                    echo "body .entry h1{ font-size: ".$h1_font_size . "px; }" . PHP_EOL;
-                    echo "body .entry h2{ font-size: ".$h2_font_size . "px; }" . PHP_EOL;
-                    echo "body .entry h3{ font-size: ".$h3_font_size . "px; }" . PHP_EOL;
-                    echo "body .entry h4{ font-size: ".$h4_font_size . "px; }" . PHP_EOL;
-                    echo "body .entry h5{ font-size: ".$h5_font_size . "px; }" . PHP_EOL;
-                    echo "body .entry h6{ font-size: ".$h6_font_size . "px; }" . PHP_EOL;
-                    echo "}". PHP_EOL;
-                }
             }
             if( ($bodytext_link_color ) ) {
             echo "body .entry a, body .comment-content a, .pingback a,.entry-content  a{ $bodytext_link_color }" . PHP_EOL;
@@ -393,18 +314,8 @@ if (!function_exists('sampression_header_style')) {
                 echo "@media (min-width: 769px) {  .post-author:before, .posted-on:before, .edit:before, .cats:before, .tags:before, .cats:before, .count-comment:before{ font-size: ".$meta_icon_size ."px; }" . PHP_EOL;
                 echo ".meta a, .comment-meta a, .logged-in-as a ,.entry-meta span{ ".$metatext_font_size ."px; }" . PHP_EOL;
                 echo "}". PHP_EOL;
-
-            } else {
-                if(($sampression_options_settings['blog_meta_font_size'] )) {
-                    $meta_icon_size = (int)$sampression_options_settings['blog_meta_font_size'] + 8;
-                    $size = (int)$sampression_options_settings['blog_meta_font_size'] / 10;
-                    $metatext_font_size = 'font-size: ' . $sampression_options_settings['blog_meta_font_size'] . 'px; ';
-                    $metatext_font_size .= 'font-size: ' . $size . 'rem;';
-                    echo "@media (min-width: 769px) {  .post-author:before, .posted-on:before, .edit:before, .cats:before, .tags:before, .cats:before, .count-comment:before{ font-size: ".$meta_icon_size ."px; }" . PHP_EOL;
-                    echo ".meta a, .comment-meta a, .logged-in-as a { ".$metatext_font_size ."px; }" . PHP_EOL;
-                    echo "}". PHP_EOL;
-                }
             }
+
             if( ($meta_text_color )) {
             echo ".xmeta, .meta a, .comment-meta a, .logged-in-as a, body .genericon-edit .post-edit-link,.entry-meta a  { $meta_text_color }" . PHP_EOL;
             }
@@ -419,14 +330,8 @@ if (!function_exists('sampression_header_style')) {
                 $widgetText_heading_font_size = 'font-size: ' . get_theme_mod( 'widgetText_heading_font_size' ) . 'px; ';
                 $widgetText_heading_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  .sidebar .widget .widget-title,.widget .widget-title { $widgetText_heading_font_size } } .sidebar .widget .widget-title,.widget .widget-title,.widget select { $widgetText_heading_font_size }" . PHP_EOL;
-            } else {
-                if(($sampression_options_settings['widget_header_font_size'])) {
-                    $size = (int)$sampression_options_settings['widget_header_font_size'] / 10;
-                    $widgetText_heading_font_size = 'font-size: ' . $sampression_options_settings['widget_header_font_size'] . 'px; ';
-                    $widgetText_heading_font_size .= 'font-size: ' . $size . 'rem;';
-                    echo "@media (min-width: 769px) {  .sidebar .widget .widget-title,.widget .widget-title { $widgetText_heading_font_size } } .sidebar .widget .widget-title,.widget .widget-title { $widgetText_heading_font_size }" . PHP_EOL;
-                }
             }
+
             if( ($widget_text )) {
             echo ".sidebar .widget { $widget_text } .widget ,.widget select { $widget_text }" . PHP_EOL;
             }

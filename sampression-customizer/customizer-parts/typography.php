@@ -241,13 +241,6 @@ function sampression_customize_register_typography( $wp_customize ) {
 	);
 
 	// Header Text Font Size  - Setting
-	// migration code
-	if ( get_theme_mod( 'headertext_font_size' ) == '' && sampression_options_theme_option( 'post_title_font_size' ) != '' ) {
-		$headertext_font_size = sampression_options_theme_option( 'post_title_font_size' );
-	} else {
-		$headertext_font_size = $defaults['font_size_large'];
-	}
-	// migration code end
 	$wp_customize->add_setting(
 		'headertext_font_size',
 		array(
@@ -263,7 +256,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'priority'    => 2,
 			'settings'    => 'headertext_font_size',
 			'section'     => 'sampression_headertext_section',
-			'label'       => 'Font Size',
+			'label'       => 'Font Size1111',
 			'input_attrs' => array(
 				'min'  => 12,
 				'max'  => 36,
@@ -370,13 +363,6 @@ function sampression_customize_register_typography( $wp_customize ) {
 	);
 
 	// Body Text Font Size  - Setting
-	// migration code
-	if ( get_theme_mod( 'bodytext_font_size' ) == '' && sampression_options_theme_option( 'body_font_size' ) != '' ) {
-		$body_font_size = sampression_options_theme_option( 'body_font_family' );
-	} else {
-		$body_font_size = $defaults['font_size'];
-	}
-	// migration code end
 	$wp_customize->add_setting(
 		'bodytext_font_size',
 		array(

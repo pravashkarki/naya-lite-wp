@@ -33,19 +33,6 @@ foreach ( $sampression_customizer_settings as $customizer_setting ) {
 }
 
 /**
- *
- * Theme option settings
- **/
-function sampression_options_theme_option( $option_name ) {
-	$sampression_options_settings = get_option( 'sampression_theme_options' );
-	if ( isset( $sampression_options_settings[ $option_name ] ) ) {
-		$all_option = $sampression_options_settings[ $option_name ];
-		return $all_option;
-	}
-
-}
-
-/**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function sampression_customize_preview_js() {
@@ -55,7 +42,7 @@ function sampression_customize_preview_js() {
 add_action( 'customize_preview_init', 'sampression_customize_preview_js' );
 
 /**
- * Enqueue Scripts for customize controls
+ * Enqueue Scripts for customize controls.
  */
 function sampression_customize_scripts() {
 	wp_enqueue_script( 'sampression-customize-control', get_template_directory_uri() . '/sampression-customizer/js/customizer-control.js', array( 'jquery' ), '', true );
