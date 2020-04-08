@@ -5,108 +5,108 @@ if (!function_exists('sampression_header_style')) {
         $webtitle = $webtitle_color = $webtagline = $primary_nav  = $social_media_icon = '';
 
         // Website Title Style
-        if ((get_theme_mod('webtitle_font_family'))) {
-            $webtitle .= 'font-family: ' . sampression_get_font_family(get_theme_mod('webtitle_font_family')) . ';';
+        if ((sampression_get_option('webtitle_font_family'))) {
+            $webtitle .= 'font-family: ' . sampression_get_font_family(sampression_get_option('webtitle_font_family')) . ';';
         } else {
-            if (get_theme_mod('body_font')) {
-                $webtitle .= 'font-family: ' . sampression_get_font_family(get_theme_mod('body_font')) . ';';
+            if (sampression_get_option('body_font')) {
+                $webtitle .= 'font-family: ' . sampression_get_font_family(sampression_get_option('body_font')) . ';';
             }
         }
-        if (null !== get_theme_mod('webtitle_font_style')) {
-            $webtitle .= sampression_font_style(get_theme_mod('webtitle_font_style'));
+        if (null !== sampression_get_option('webtitle_font_style')) {
+            $webtitle .= sampression_font_style(sampression_get_option('webtitle_font_style'));
         }
-        if (get_theme_mod('webtitle_font_color')) {
-            $webtitle_color .= 'color: #' . get_theme_mod('webtitle_font_color', '') . ';';
+        if (sampression_get_option('webtitle_font_color')) {
+            $webtitle_color .= 'color: #' . sampression_get_option('webtitle_font_color', '') . ';';
         } else {
-            if (get_theme_mod('title_textcolor')) {
-                $webtitle_color .= 'color: ' . get_theme_mod('title_textcolor') . ';';
+            if (sampression_get_option('title_textcolor')) {
+                $webtitle_color .= 'color: ' . sampression_get_option('title_textcolor') . ';';
             }
         }
 
         // Website Tagline Style
-        if ((get_theme_mod('webtagline_font_family'))) {
-            $webtagline .= 'font-family: ' . sampression_get_font_family(get_theme_mod('webtagline_font_family')) . ';';
+        if ((sampression_get_option('webtagline_font_family'))) {
+            $webtagline .= 'font-family: ' . sampression_get_font_family(sampression_get_option('webtagline_font_family')) . ';';
         } else {
-            if (get_theme_mod('body_font')) {
-                $webtagline .= 'font-family: ' . sampression_get_font_family(get_theme_mod('body_font')) . ';';
+            if (sampression_get_option('body_font')) {
+                $webtagline .= 'font-family: ' . sampression_get_font_family(sampression_get_option('body_font')) . ';';
             }
         }
-        if (get_theme_mod('webtagline_font_style')) {
-            $webtagline .= sampression_font_style(get_theme_mod('webtagline_font_style'));
+        if (sampression_get_option('webtagline_font_style')) {
+            $webtagline .= sampression_font_style(sampression_get_option('webtagline_font_style'));
         }
-        if (get_theme_mod('webtagline_font_color')) {
-            $webtagline .= 'color: #' . get_theme_mod('webtagline_font_color') . ';';
+        if (sampression_get_option('webtagline_font_color')) {
+            $webtagline .= 'color: #' . sampression_get_option('webtagline_font_color') . ';';
         } else {
-            if (get_theme_mod('body_textcolor') && get_theme_mod('webtagline_font_color') == '') {
-                $webtagline .= 'color: ' . get_theme_mod('body_textcolor') . ';';
+            if (sampression_get_option('body_textcolor') && sampression_get_option('webtagline_font_color') == '') {
+                $webtagline .= 'color: ' . sampression_get_option('body_textcolor') . ';';
             }
         }
 
 
 
-        if ((get_theme_mod('use_social_default_color') === false)) {
-            $social_media_icon .= 'color: #' . get_theme_mod('social_icon_color', '') . ';';
+        if ((sampression_get_option('use_social_default_color') === false)) {
+            $social_media_icon .= 'color: #' . sampression_get_option('social_icon_color', '') . ';';
         }
         $full_width_nav = $full_width_nav_a = $full_width_nav_a_hover = '';
-        if (get_theme_mod('sec_nav_background_color')) {
-            $full_width_nav .= 'background-color: #' . get_theme_mod('sec_nav_background_color') . ';';
+        if (sampression_get_option('sec_nav_background_color')) {
+            $full_width_nav .= 'background-color: #' . sampression_get_option('sec_nav_background_color') . ';';
         }
-        if ((get_theme_mod('secondarynav_font_family'))) {
-            $full_width_nav_a .= 'font-family: ' . sampression_get_font_family(get_theme_mod('secondarynav_font_family')) . ';';
+        if ((sampression_get_option('secondarynav_font_family'))) {
+            $full_width_nav_a .= 'font-family: ' . sampression_get_font_family(sampression_get_option('secondarynav_font_family')) . ';';
         }
 
-        if (get_theme_mod('secondarynav_font_style')) {
-            $full_width_nav_a .= sampression_font_style(get_theme_mod('secondarynav_font_style', 'all-caps'));
+        if (sampression_get_option('secondarynav_font_style')) {
+            $full_width_nav_a .= sampression_font_style(sampression_get_option('secondarynav_font_style', 'all-caps'));
         }
-        if (get_theme_mod('secondarynav_font_color')) {
-            $full_width_nav_a .= 'color: #' . get_theme_mod('secondarynav_font_color') . ';';
+        if (sampression_get_option('secondarynav_font_color')) {
+            $full_width_nav_a .= 'color: #' . sampression_get_option('secondarynav_font_color') . ';';
         }
-        if (get_theme_mod('secondarynav_font_color_hover')) {
-            $full_width_nav_a_hover .= 'color: #' . get_theme_mod('secondarynav_font_color_hover') . ';';
+        if (sampression_get_option('secondarynav_font_color_hover')) {
+            $full_width_nav_a_hover .= 'color: #' . sampression_get_option('secondarynav_font_color_hover') . ';';
         }
         $header_text = $header_text_hover = '';
-        if ((get_theme_mod('title_font'))) {
-            $header_text .= 'font-family: ' . sampression_get_font_family(get_theme_mod('title_font')) . ';';
+        if ((sampression_get_option('title_font'))) {
+            $header_text .= 'font-family: ' . sampression_get_font_family(sampression_get_option('title_font')) . ';';
         }
 
-        $header_text .= sampression_font_style(get_theme_mod('headertext_font_style', 'bold'));
-        if (get_theme_mod('title_textcolor')) {
-            if (strpos(get_theme_mod('title_textcolor'), '#') !== false) {
-                $header_text .= 'color: ' . get_theme_mod('title_textcolor') . ';';
+        $header_text .= sampression_font_style(sampression_get_option('headertext_font_style', 'bold'));
+        if (sampression_get_option('title_textcolor')) {
+            if (strpos(sampression_get_option('title_textcolor'), '#') !== false) {
+                $header_text .= 'color: ' . sampression_get_option('title_textcolor') . ';';
             } else {
-                $header_text .= 'color: #' . get_theme_mod('title_textcolor') . ';';
+                $header_text .= 'color: #' . sampression_get_option('title_textcolor') . ';';
             }
         }
-        if (get_theme_mod('headertext_link_color')) {
-            $header_text_hover .= 'color: #' . get_theme_mod('headertext_link_color') . ';';
+        if (sampression_get_option('headertext_link_color')) {
+            $header_text_hover .= 'color: #' . sampression_get_option('headertext_link_color') . ';';
         }
         $body_text = $bodytext_link_color = '';
         $bodytext_link_color_hover = '';
-        if ((get_theme_mod('body_font'))) {
-            $body_text .= 'font-family: ' . sampression_get_font_family(get_theme_mod('body_font')) . ';';
+        if ((sampression_get_option('body_font'))) {
+            $body_text .= 'font-family: ' . sampression_get_font_family(sampression_get_option('body_font')) . ';';
         }
 
-        $body_text .= sampression_font_style(get_theme_mod('bodytext_font_style'));
-        if (get_theme_mod('body_textcolor')) {
-            if (strpos(get_theme_mod('body_textcolor'), '#') !== false) {
-                $body_text .= 'color: ' . get_theme_mod('body_textcolor') . ';';
+        $body_text .= sampression_font_style(sampression_get_option('bodytext_font_style'));
+        if (sampression_get_option('body_textcolor')) {
+            if (strpos(sampression_get_option('body_textcolor'), '#') !== false) {
+                $body_text .= 'color: ' . sampression_get_option('body_textcolor') . ';';
             } else {
-                $body_text .= 'color: #' . get_theme_mod('body_textcolor') . ';';
+                $body_text .= 'color: #' . sampression_get_option('body_textcolor') . ';';
             }
         }
 
-        if (get_theme_mod('bodytext_font_size')) {
-            if ((get_theme_mod('bodytext_font_size'))) {
-                $body_text .= 'font-size: ' . sampression_get_font_family(get_theme_mod('bodytext_font_size')) . 'px;';
+        if (sampression_get_option('bodytext_font_size')) {
+            if ((sampression_get_option('bodytext_font_size'))) {
+                $body_text .= 'font-size: ' . sampression_get_font_family(sampression_get_option('bodytext_font_size')) . 'px;';
             }
         }
 
-        if (get_theme_mod('body_link_color')) {
-            //if (strpos(get_theme_mod( 'link_color'), '#') !== false) {
-            $bodytext_link_color .= 'color: #' . get_theme_mod('body_link_color') . ';';
+        if (sampression_get_option('body_link_color')) {
+            //if (strpos(sampression_get_option( 'link_color'), '#') !== false) {
+            $bodytext_link_color .= 'color: #' . sampression_get_option('body_link_color') . ';';
         } else {
-            if (get_theme_mod('link_color')) {
-                $bodytext_link_color .= 'color: ' . get_theme_mod('link_color') . ';';
+            if (sampression_get_option('link_color')) {
+                $bodytext_link_color .= 'color: ' . sampression_get_option('link_color') . ';';
             }
         }
 
@@ -114,54 +114,54 @@ if (!function_exists('sampression_header_style')) {
 
 
         $meta_text = $meta_text_color = $meta_text_color_hover = '';
-        if ((get_theme_mod('metatext_font_family'))) {
-            $meta_text .= 'font-family: ' . sampression_get_font_family(get_theme_mod('metatext_font_family')) . ';';
+        if ((sampression_get_option('metatext_font_family'))) {
+            $meta_text .= 'font-family: ' . sampression_get_font_family(sampression_get_option('metatext_font_family')) . ';';
         }
-        $meta_text .= sampression_font_style(get_theme_mod('metatext_font_style'));
-        if (get_theme_mod('metatext_font_color')) {
-            $meta_text_color .= 'color: #' . get_theme_mod('metatext_font_color') . ';';
+        $meta_text .= sampression_font_style(sampression_get_option('metatext_font_style'));
+        if (sampression_get_option('metatext_font_color')) {
+            $meta_text_color .= 'color: #' . sampression_get_option('metatext_font_color') . ';';
         } else {
-            if (get_theme_mod('link_color')) {
-                $meta_text_color .= 'color: ' . get_theme_mod('link_color') . ';';
+            if (sampression_get_option('link_color')) {
+                $meta_text_color .= 'color: ' . sampression_get_option('link_color') . ';';
             }
         }
-        if (get_theme_mod('metatext_link_color')) {
-            $meta_text_color_hover .= 'color: #' . get_theme_mod('metatext_link_color') . ';';
+        if (sampression_get_option('metatext_link_color')) {
+            $meta_text_color_hover .= 'color: #' . sampression_get_option('metatext_link_color') . ';';
         }
 
 
         $widget_text = $widget_text_link = $widget_heading_text = $widget_text_link_hover = '';
-        if ((get_theme_mod('widgetText_heading_font_family'))) {
-            $widget_heading_text .= 'font-family: ' . sampression_get_font_family(get_theme_mod('widgetText_heading_font_family')) . ';';
+        if ((sampression_get_option('widgetText_heading_font_family'))) {
+            $widget_heading_text .= 'font-family: ' . sampression_get_font_family(sampression_get_option('widgetText_heading_font_family')) . ';';
         }
 
-        $widget_heading_text .= sampression_font_style(get_theme_mod('widgetText_heading_font_style'));
+        $widget_heading_text .= sampression_font_style(sampression_get_option('widgetText_heading_font_style'));
 
-        if (get_theme_mod('widgetText_heading_font_color')) {
-            $widget_heading_text .= 'color: #' . get_theme_mod('widgetText_heading_font_color') . ';';
+        if (sampression_get_option('widgetText_heading_font_color')) {
+            $widget_heading_text .= 'color: #' . sampression_get_option('widgetText_heading_font_color') . ';';
         } else {
-            if (get_theme_mod('title_textcolor')) {
-                $widget_heading_text .= 'color: ' . get_theme_mod('title_textcolor') . ';';
+            if (sampression_get_option('title_textcolor')) {
+                $widget_heading_text .= 'color: ' . sampression_get_option('title_textcolor') . ';';
             }
         }
 
-        if ((get_theme_mod('widgetText_font_family'))) {
-            $widget_text .= 'font-family: ' . sampression_get_font_family(get_theme_mod('widgetText_font_family')) . ';';
+        if ((sampression_get_option('widgetText_font_family'))) {
+            $widget_text .= 'font-family: ' . sampression_get_font_family(sampression_get_option('widgetText_font_family')) . ';';
         }
 
-        $widget_text .= sampression_font_style(get_theme_mod('widgetText_font_style'));
-        if (get_theme_mod('widgetText_font_color')) {
-            $widget_text .= 'color: #' . get_theme_mod('widgetText_font_color') . ';';
+        $widget_text .= sampression_font_style(sampression_get_option('widgetText_font_style'));
+        if (sampression_get_option('widgetText_font_color')) {
+            $widget_text .= 'color: #' . sampression_get_option('widgetText_font_color') . ';';
         }
-        if (get_theme_mod('widgetText_link_color')) {
-            $widget_text_link .= 'color: #' . get_theme_mod('widgetText_link_color') . ';';
+        if (sampression_get_option('widgetText_link_color')) {
+            $widget_text_link .= 'color: #' . sampression_get_option('widgetText_link_color') . ';';
         } else {
-            if (get_theme_mod('link_color')) {
-                $widget_text_link .= 'color: ' . get_theme_mod('link_color') . ';';
+            if (sampression_get_option('link_color')) {
+                $widget_text_link .= 'color: ' . sampression_get_option('link_color') . ';';
             }
         }
-        if (get_theme_mod('widgetText_hover_color')) {
-            $widget_text_link_hover .= 'color: #' . get_theme_mod('widgetText_hover_color') . ';';
+        if (sampression_get_option('widgetText_hover_color')) {
+            $widget_text_link_hover .= 'color: #' . sampression_get_option('widgetText_hover_color') . ';';
         }
         ?>
 
@@ -171,9 +171,9 @@ if (!function_exists('sampression_header_style')) {
             if($webtitle != '' ) {
             echo "#site-title { $webtitle }" . PHP_EOL;
             }
-            if( get_theme_mod( 'webtitle_font_size' ) ) {
-                $size = (int)get_theme_mod( 'webtitle_font_size' ) / 10;
-                $webtitle_font_size = 'font-size: ' . get_theme_mod( 'webtitle_font_size' ) . 'px; ';
+            if( sampression_get_option( 'webtitle_font_size' ) ) {
+                $size = (int)sampression_get_option( 'webtitle_font_size' ) / 10;
+                $webtitle_font_size = 'font-size: ' . sampression_get_option( 'webtitle_font_size' ) . 'px; ';
                 $webtitle_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  #site-title { $webtitle_font_size } }" . PHP_EOL;
             }
@@ -184,9 +184,9 @@ if (!function_exists('sampression_header_style')) {
             if($webtagline != '') {
             echo "#site-description { $webtagline }" . PHP_EOL;
             }
-            if( get_theme_mod( 'webtagline_font_size' ) ) {
-                $size = (int)get_theme_mod( 'webtagline_font_size' ) / 10;
-                $webtagline_font_size = 'font-size: ' . get_theme_mod( 'webtagline_font_size' ) . 'px; ';
+            if( sampression_get_option( 'webtagline_font_size' ) ) {
+                $size = (int)sampression_get_option( 'webtagline_font_size' ) / 10;
+                $webtagline_font_size = 'font-size: ' . sampression_get_option( 'webtagline_font_size' ) . 'px; ';
                 $webtagline_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  #site-description { $webtagline_font_size } }" . PHP_EOL;
             }
@@ -194,13 +194,13 @@ if (!function_exists('sampression_header_style')) {
             if($primary_nav != '' ) {
             echo "#top-nav ul li a, #top-nav ul li li a,  #top-nav .sub-menu li a, #top-nav .sub-menu .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a{ $primary_nav }" . PHP_EOL;
             }
-            if(get_theme_mod( 'primarynav_font_color' )){
-                echo ".sub-menu-toggle { color: #".get_theme_mod( 'primarynav_font_color' ) . "; }" . PHP_EOL;
-                echo ".toggle-nav .ico-bar { background-color: #".get_theme_mod( 'primarynav_font_color' ) . "; }" . PHP_EOL;
+            if(sampression_get_option( 'primarynav_font_color' )){
+                echo ".sub-menu-toggle { color: #".sampression_get_option( 'primarynav_font_color' ) . "; }" . PHP_EOL;
+                echo ".toggle-nav .ico-bar { background-color: #".sampression_get_option( 'primarynav_font_color' ) . "; }" . PHP_EOL;
             }
-            if(get_theme_mod( 'primarynav_font_size' )){
-                $size = (int)get_theme_mod( 'primarynav_font_size' ) / 10;
-                $primary_nav_font_size = 'font-size: ' . get_theme_mod( 'primarynav_font_size' ) . 'px; ';
+            if(sampression_get_option( 'primarynav_font_size' )){
+                $size = (int)sampression_get_option( 'primarynav_font_size' ) / 10;
+                $primary_nav_font_size = 'font-size: ' . sampression_get_option( 'primarynav_font_size' ) . 'px; ';
                 $primary_nav_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  #top-nav ul li a, #top-nav ul li li a,  #top-nav .sub-menu li a, #top-nav .sub-menu .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a { $primary_nav_font_size } }" . PHP_EOL;
             }
@@ -213,19 +213,19 @@ if (!function_exists('sampression_header_style')) {
             if( !empty($full_width_nav ) ) {
             echo ".full-width #full-width-nav { $full_width_nav }" . PHP_EOL;
             echo "#full-width-nav ul ul { $full_width_nav }" . PHP_EOL;
-            echo "#full-width-nav ul ul ul:before { border-right-color: #".get_theme_mod( 'sec_nav_background_color' ) . "; }" . PHP_EOL;
-            echo "#full-width-nav ul li.edge ul ul:before { border-left-color: #".get_theme_mod( 'sec_nav_background_color' ) . "; }" . PHP_EOL;
+            echo "#full-width-nav ul ul ul:before { border-right-color: #".sampression_get_option( 'sec_nav_background_color' ) . "; }" . PHP_EOL;
+            echo "#full-width-nav ul li.edge ul ul:before { border-left-color: #".sampression_get_option( 'sec_nav_background_color' ) . "; }" . PHP_EOL;
             }
             if(!empty( $full_width_nav_a )) {
             echo ".full-width #full-width-nav ul li a, .full-width #full-width-nav ul li li a,  .full-width #full-width-nav .sub-menu li a, .full-width #full-width-nav .sub-menu .sub-menu li a, .full-width #full-width-nav .sub-menu li:last-child > .sub-menu li a, .full-width #full-width-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a, .full-width #full-width-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a{ $full_width_nav_a }" . PHP_EOL;
 
             }
-            if(get_theme_mod( 'secondarynav_font_color' )){
-                echo "#full-width-nav .sub-menu-toggle:before, #full-width-nav .sub-menu-toggle.menu-open:before { color: #".get_theme_mod( 'secondarynav_font_color' ) . "; }" . PHP_EOL;
+            if(sampression_get_option( 'secondarynav_font_color' )){
+                echo "#full-width-nav .sub-menu-toggle:before, #full-width-nav .sub-menu-toggle.menu-open:before { color: #".sampression_get_option( 'secondarynav_font_color' ) . "; }" . PHP_EOL;
             }
-            if(get_theme_mod( 'secondarynav_font_size' )){
-                $size = (int)get_theme_mod( 'secondarynav_font_size' ) / 10;
-                $secondarynav_font_size = 'font-size: ' . get_theme_mod( 'secondarynav_font_size' ) . 'px; ';
+            if(sampression_get_option( 'secondarynav_font_size' )){
+                $size = (int)sampression_get_option( 'secondarynav_font_size' ) / 10;
+                $secondarynav_font_size = 'font-size: ' . sampression_get_option( 'secondarynav_font_size' ) . 'px; ';
                 $secondarynav_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  .full-width #full-width-nav ul li a, .full-width #full-width-nav ul li li a,  .full-width #full-width-nav .sub-menu li a, .full-width #full-width-nav .sub-menu .sub-menu li a, .full-width #full-width-nav .sub-menu li:last-child > .sub-menu li a, .full-width #full-width-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a, .full-width #full-width-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a { $secondarynav_font_size } }" . PHP_EOL;
 
@@ -250,9 +250,9 @@ if (!function_exists('sampression_header_style')) {
             echo "#page-not-found-message h2, article.post .post-title a, #page-not-found-message h3 a, body.single article.post .post-title, body.page article.post .post-title,
             .entry-header .entry-title ,.page-title,.entry-title,.comments-title,.entry-title a,h1,h2,h3,h4,h5,h6{ $header_text }" . PHP_EOL;
             }
-            if( get_theme_mod( 'headertext_font_size' ) ) {
-                $size = (int)get_theme_mod( 'headertext_font_size' ) / 10;
-                $headertext_font_size = 'font-size: ' . get_theme_mod( 'headertext_font_size' ) . 'px; ';
+            if( sampression_get_option( 'headertext_font_size' ) ) {
+                $size = (int)sampression_get_option( 'headertext_font_size' ) / 10;
+                $headertext_font_size = 'font-size: ' . sampression_get_option( 'headertext_font_size' ) . 'px; ';
                 $headertext_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  #page-not-found-message h2, article.post .post-title a, #page-not-found-message h3 a, body.single article.post .post-title, body.page article.post .post-title ,
                 .entry-header .entry-title,.page-title,.entry-title,.comments-title,.entry-title a{ $headertext_font_size } }" . PHP_EOL;
@@ -264,16 +264,16 @@ if (!function_exists('sampression_header_style')) {
             if( !empty($body_text ) ) {
             echo "body .entry, body .comment-content , body .comment-content p,body .entry-content,body .entry-content p ,.entry-summary p,.page-content p,textarea{ $body_text }" . PHP_EOL;
             }
-            if(get_theme_mod( 'bodytext_font_size' )){
-                $h1_font_size = (int)get_theme_mod( 'bodytext_font_size' ) + 10;
-                $h2_font_size = (int)get_theme_mod( 'bodytext_font_size' ) + 8;
-                $h3_font_size = (int)get_theme_mod( 'bodytext_font_size' ) + 6;
-                $h4_font_size = (int)get_theme_mod( 'bodytext_font_size' ) + 4;
-                $h5_font_size = (int)get_theme_mod( 'bodytext_font_size' ) + 2;
-                $h6_font_size = (int)get_theme_mod( 'bodytext_font_size' ) + 1;
+            if(sampression_get_option( 'bodytext_font_size' )){
+                $h1_font_size = (int)sampression_get_option( 'bodytext_font_size' ) + 10;
+                $h2_font_size = (int)sampression_get_option( 'bodytext_font_size' ) + 8;
+                $h3_font_size = (int)sampression_get_option( 'bodytext_font_size' ) + 6;
+                $h4_font_size = (int)sampression_get_option( 'bodytext_font_size' ) + 4;
+                $h5_font_size = (int)sampression_get_option( 'bodytext_font_size' ) + 2;
+                $h6_font_size = (int)sampression_get_option( 'bodytext_font_size' ) + 1;
 
-                $size = (int)get_theme_mod( 'bodytext_font_size' ) / 10;
-                $bodytext_font_size = 'font-size: ' . get_theme_mod( 'bodytext_font_size' ) . 'px; ';
+                $size = (int)sampression_get_option( 'bodytext_font_size' ) / 10;
+                $bodytext_font_size = 'font-size: ' . sampression_get_option( 'bodytext_font_size' ) . 'px; ';
                 $bodytext_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  body .entry, body .comment-content{ $bodytext_font_size }" . PHP_EOL;
 
@@ -289,8 +289,8 @@ if (!function_exists('sampression_header_style')) {
             echo "body .entry a, body .comment-content a, .pingback a,.entry-content  a{ $bodytext_link_color }" . PHP_EOL;
             }
 
-            if((get_theme_mod( 'bodytext_font_color' ))){
-            echo "body .entry a:hover { color: #".get_theme_mod( 'bodytext_font_color' ) . "; }" . PHP_EOL;
+            if((sampression_get_option( 'bodytext_font_color' ))){
+            echo "body .entry a:hover { color: #".sampression_get_option( 'bodytext_font_color' ) . "; }" . PHP_EOL;
             }
             if( ($filter_icon ) ) {
             echo "#primary-nav ul.nav-listing li a span { $filter_icon }" . PHP_EOL;
@@ -299,17 +299,17 @@ if (!function_exists('sampression_header_style')) {
             echo "#primary-nav .nav-label, #filter a { $filter_text }" . PHP_EOL;
             }
 
-            if(( get_theme_mod( 'bodytext_font_color' ) ) ) {
-            echo "#primary-nav .nav-label { color: #".get_theme_mod( 'bodytext_font_color' ) . "; }" . PHP_EOL;
-            echo "input[type='submit']:hover { background-color: #".get_theme_mod( 'bodytext_font_color' ) . "; }" . PHP_EOL;
+            if(( sampression_get_option( 'bodytext_font_color' ) ) ) {
+            echo "#primary-nav .nav-label { color: #".sampression_get_option( 'bodytext_font_color' ) . "; }" . PHP_EOL;
+            echo "input[type='submit']:hover { background-color: #".sampression_get_option( 'bodytext_font_color' ) . "; }" . PHP_EOL;
             }
             if( ($meta_text ) ) {
             echo ".meta a, .comment-meta a, .logged-in-as a,.entry-meta a ,.entry-meta span{ ".$meta_text." }" . PHP_EOL;
             }
-            if( (get_theme_mod( 'metatext_font_size' )  )) {
-                $meta_icon_size = (int)get_theme_mod( 'metatext_font_size' ) + 8;
-                $size = (int)get_theme_mod( 'metatext_font_size' ) / 10;
-                $metatext_font_size = 'font-size: ' . get_theme_mod( 'metatext_font_size' ) . 'px; ';
+            if( (sampression_get_option( 'metatext_font_size' )  )) {
+                $meta_icon_size = (int)sampression_get_option( 'metatext_font_size' ) + 8;
+                $size = (int)sampression_get_option( 'metatext_font_size' ) / 10;
+                $metatext_font_size = 'font-size: ' . sampression_get_option( 'metatext_font_size' ) . 'px; ';
                 $metatext_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  .post-author:before, .posted-on:before, .edit:before, .cats:before, .tags:before, .cats:before, .count-comment:before{ font-size: ".$meta_icon_size ."px; }" . PHP_EOL;
                 echo ".meta a, .comment-meta a, .logged-in-as a ,.entry-meta span{ ".$metatext_font_size ."px; }" . PHP_EOL;
@@ -325,9 +325,9 @@ if (!function_exists('sampression_header_style')) {
             if( ($widget_heading_text )) {
             echo ".sidebar .widget .widget-title ,.widget .widget-title,.widget select{ $widget_heading_text }" . PHP_EOL;
             }
-            if( get_theme_mod( 'widgetText_heading_font_size' ) ) {
-                $size = (int)get_theme_mod( 'widgetText_heading_font_size' ) / 10;
-                $widgetText_heading_font_size = 'font-size: ' . get_theme_mod( 'widgetText_heading_font_size' ) . 'px; ';
+            if( sampression_get_option( 'widgetText_heading_font_size' ) ) {
+                $size = (int)sampression_get_option( 'widgetText_heading_font_size' ) / 10;
+                $widgetText_heading_font_size = 'font-size: ' . sampression_get_option( 'widgetText_heading_font_size' ) . 'px; ';
                 $widgetText_heading_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  .sidebar .widget .widget-title,.widget .widget-title { $widgetText_heading_font_size } } .sidebar .widget .widget-title,.widget .widget-title,.widget select { $widgetText_heading_font_size }" . PHP_EOL;
             }
@@ -335,9 +335,9 @@ if (!function_exists('sampression_header_style')) {
             if( ($widget_text )) {
             echo ".sidebar .widget { $widget_text } .widget ,.widget select { $widget_text }" . PHP_EOL;
             }
-            if( get_theme_mod( 'widgetText_font_size' ) ) {
-                $size = (int)get_theme_mod( 'widgetText_font_size' ) / 10;
-                $widgetText_font_size = 'font-size: ' . get_theme_mod( 'widgetText_font_size' ) . 'px; ';
+            if( sampression_get_option( 'widgetText_font_size' ) ) {
+                $size = (int)sampression_get_option( 'widgetText_font_size' ) / 10;
+                $widgetText_font_size = 'font-size: ' . sampression_get_option( 'widgetText_font_size' ) . 'px; ';
                 $widgetText_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  .sidebar .widget,.widget select { $widgetText_font_size } } .widget { $widgetText_font_size }" . PHP_EOL;
             }
