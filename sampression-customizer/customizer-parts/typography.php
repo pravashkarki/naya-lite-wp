@@ -92,7 +92,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'webtitle_font_style',
 				'section'  => 'sampression_title_tag_section',
 				'label'    => 'Site Title Font Style',
-				'choices'  => samression_get_font_style(),
+				'choices'  => sampression_get_font_style_options(),
 			)
 		)
 	);
@@ -182,7 +182,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'webtagline_font_style',
 				'section'  => 'sampression_title_tag_section',
 				'label'    => ' Tagline Font Style',
-				'choices'  => samression_get_font_style(),
+				'choices'  => sampression_get_font_style_options(),
 			)
 		)
 	);
@@ -289,7 +289,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'headertext_font_style',
 				'section'  => 'sampression_headertext_section',
 				'label'    => 'Font Style',
-				'choices'  => samression_get_font_style(),
+				'choices'  => sampression_get_font_style_options(),
 			)
 		)
 	);
@@ -419,7 +419,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'bodytext_font_style',
 				'section'  => 'sampression_bodytext_section',
 				'label'    => 'Font Style',
-				'choices'  => samression_get_font_style(),
+				'choices'  => sampression_get_font_style_options(),
 			)
 		)
 	);
@@ -541,7 +541,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'metatext_font_style',
 				'section'  => 'sampression_metatext_section',
 				'label'    => 'Font Style',
-				'choices'  => samression_get_font_style(),
+				'choices'  => sampression_get_font_style_options(),
 			)
 		)
 	);
@@ -682,7 +682,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'widgetText_heading_font_style',
 				'section'  => 'sampression_widgetText_section',
 				'label'    => 'Font Style',
-				'choices'  => samression_get_font_style(),
+				'choices'  => sampression_get_font_style_options(),
 			)
 		)
 	);
@@ -794,7 +794,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'settings' => 'widgetText_font_style',
 				'section'  => 'sampression_widgetText_section',
 				'label'    => 'Font Style',
-				'choices'  => samression_get_font_style(),
+				'choices'  => sampression_get_font_style_options(),
 			)
 		)
 	);

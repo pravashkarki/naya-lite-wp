@@ -1,6 +1,6 @@
 <?php
 
-function samression_get_font_style() {
+function sampression_get_font_style_options() {
     return $font_style = array(
 		'bold'      => __( 'Bold' ),
 		'italic'    => __( 'Italic' ),
