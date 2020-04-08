@@ -29,6 +29,9 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 		// Blog.
 		$defaults['hide_post_metas'] = array();
 
+		// Sidebar.
+		$defaults['sampression_sidebar_layout'] = 'right';
+
 
 		//font setting
 		$defaults['font']                       = 'Kreon, serif';

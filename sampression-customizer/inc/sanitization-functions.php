@@ -1,14 +1,14 @@
 <?php
 /**
  * Sanitization callback for  type controls
+ *
  * @param  string $input Slug to sanitize.
  * @param  WP_Customize_Setting $setting Setting instance
  * @return string Sanitized slug if it is a valid choice; otherwise, the setting default
  */
 
 //Sanitizes Fonts
-function sampression_sanitize_fonts($input)
-{
+function sampression_sanitize_fonts($input) {
     $valid = array(
         'Arial, sans-serif' => 'Arial',
         'Verdana, Geneva, sans-serif' => 'Verdana',
@@ -90,25 +90,6 @@ function sampression_sanitize_checkboxes($values) {
 }
 
 /**
- * Sanitization callback for 'select' and 'radio' type controls
- * @param  string $input Slug to sanitize.
- * @param  WP_Customize_Setting $setting Setting instance
- * @return string           Sanitized slug if it is a valid choice; otherwise, the setting default
- */
-function sampression_sanitize_select_radio($input, $setting)
-{
-
-    // Ensure input is a slug.
-    $input = sanitize_key($input);
-
-    // Get list of choices from the control associated with the setting.
-    $choices = $setting->manager->get_control($setting->id)->choices;
-
-    // If the input is a valid key, return it; otherwise, return the default.
-    return (array_key_exists($input, $choices) ? $input : $setting->default);
-}
-
-/**
  * Sanitization callback for checkbox as a boolean value, either TRUE or FALSE.
  * @param  bool $checked Whether the checkbox is checked
  * @return bool          Whether the checkbox is checked
@@ -130,22 +111,21 @@ function sampression_sanitize_text($input)
 }
 
 /**
- * Checks the image's file extension and mime type against a whitelist. If they're allowed,
- * send back the filename, otherwise, return the setting default
- * @param  string $image Image File Path
- * @param  WP_Customize_Setting $setting Setting Instance
- * @return string                            Image file path if the extension is allowed; otherwise, the setting default
+ * Sanitize select.
+ *
+ * @since 1.0.0
+ *
+ * @param mixed                $input The value to sanitize.
+ * @param WP_Customize_Setting $setting WP_Customize_Setting instance.
+ * @return mixed Sanitized value.
  */
-function sampression_sanitize_image($image, $setting)
-{
-    $mimes = array(
-        'jpg|jpeg|jpe' => 'image/jpeg',
-        'gif' => 'image/gif',
-        'png' => 'image/png',
-        'bmp' => 'image/bmp',
-        'tif|tiff' => 'image/tiff',
-        'ico' => 'image/x-icon'
-    );
-    $file = wp_check_filetype($image, $mimes);
-    return ($file['ext'] ? $image : $setting->default);
+function sampression_sanitize_select( $input, $setting ) {
+	// Ensure input is clean.
+	$input = sanitize_text_field( $input );
+
+	// Get list of choices from the control associated with the setting.
+	$choices = $setting->manager->get_control( $setting->id )->choices;
+
+	// If the input is a valid key, return it; otherwise, return the default.
+	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 }

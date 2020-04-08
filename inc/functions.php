@@ -240,41 +240,7 @@ function sampression_content_class( $classes = array() ) {
  * Sampression sidebar postition/ layout
  */
 function sampression_sidebar_position() {
-	global $sampression_options_settings;
-	$options = $sampression_options_settings;
-	if ( ( is_front_page() && is_home() ) || is_author() || is_category() || is_tag() || is_404() || is_page() || is_single() || is_archive() ) {
-		//new customizeer option check
-
-		if ( get_theme_mod( 'sampression_sidebar_layout' ) ) {
-			$position = esc_attr( get_theme_mod( 'sampression_sidebar_layout' ) );
-
-			return $position;
-		} else {
-			$position = esc_attr( $options['sidebar_active'] );
-
-			return $position;
-		}
-
-	} else {
-		global $post;
-		//$post_id = $post->ID;
-		$post_id = get_the_ID();
-		if ( is_front_page() ) {
-			$post_id = get_option( 'page_on_front' );
-		}
-		if ( is_home() ) {
-			$post_id = get_option( 'page_for_posts' );
-		}
-		$position = '';
-		if ( is_page() || is_single() || is_front_page() || is_home() ) {
-			$position = get_post_meta( $post_id, 'sam_sidebar_by_post', true );
-		}
-		if ( $position == '' || $position == 'default' ) {
-			$position = esc_attr( $options['sidebar_active'] );
-		}
-
-		return $position;
-	}
+	return sampression_get_option( 'sampression_sidebar_layout' );
 }
 
 
@@ -348,7 +314,7 @@ if ( ! function_exists( 'sampression_post_meta' ) ) :
 
 		$sm_meta = '';
 
-		$hide_metas = sampression_get_option( 'hide_post_metas' );
+		$hide_metas = (array) sampression_get_option( 'hide_post_metas' );
 
 		if ( ! in_array( 'author', $hide_metas ) ) {
 			global $authordata;
@@ -393,7 +359,7 @@ if ( ! function_exists( 'sampression_post_meta_content' ) ) :
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
 	function sampression_post_meta_content(){
-		$hide_metas = sampression_get_option( 'hide_post_metas' );
+		$hide_metas = (array) sampression_get_option( 'hide_post_metas' );
 
 		$sm_meta = '';
 
