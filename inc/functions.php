@@ -430,8 +430,6 @@ if ( ! function_exists( 'sampression_post_meta' ) ) :
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
 	function sampression_post_meta() {
-		global $sampression_options_settings;
-		$options     = $sampression_options_settings;
 		$posted      = '';
 		$post_format = 'Posted';
 		if ( get_post_format() === 'chat' ) {
@@ -441,86 +439,10 @@ if ( ! function_exists( 'sampression_post_meta' ) ) :
 		} elseif ( get_post_format() === 'video' ) {
 			$post_format = 'video';
 		}
-		//var_dump(sampression_options_theme_option('show_meta_author'));
-		if ( sampression_options_theme_option( 'show_meta_author' ) == "yes" ) {
-			global $authordata;
-			$posted .= sprintf(
-				'<span class="author">%4$s by <a href="%1$s" title="%2$s" rel="author">%3$s</a></span> ',
-				esc_url( get_author_posts_url( $authordata->ID, $authordata->user_nicename ) ),
-				esc_attr( sprintf( __( 'Posts by %s', 'naya-lite' ), get_the_author() ) ),
-				get_the_author(),
-				$post_format
-			);
-			//echo "teset";
-		} elseif ( $options['show_meta_author'] === 'yes' ) {
-			global $authordata;
-			$posted .= sprintf(
-				'<span class="author">%4$s by <a href="%1$s" title="%2$s" rel="author">%3$s</a></span> ',
-				esc_url( get_author_posts_url( $authordata->ID, $authordata->user_nicename ) ),
-				esc_attr( sprintf( __( 'Posts by %s', 'naya-lite' ), get_the_author() ) ),
-				get_the_author(),
-				$post_format
-			);
-		}
-
-		if ( sampression_options_theme_option( 'show_meta_date' ) == "yes" ) {
-			$time   = '';
-			$posted .= sprintf(
-				'<time datetime="%2$s" class="entry-date"><a href="%3$s">%1$s' . $time . '</a></time>',
-				get_the_date(),
-				get_the_date( 'c' ),
-				get_permalink()
-			);
-
-		} elseif ( $options['show_meta_date'] === 'yes' ) {
-			$time = '';
-			if ( $options['show_meta_time'] === 'yes' ) {
-				$time = ' ' . get_the_time();
-			}
-			$posted .= sprintf(
-				'<time datetime="%2$s" class="entry-date"><a href="%3$s">%1$s' . $time . '</a></time>',
-				get_the_date(),
-				get_the_date( 'c' ),
-				get_permalink()
-			);
-		}
-
-
-		if ( $options['show_meta_categories'] === 'yes' ) {
-			if ( get_the_category_list() ) {
-				$posted .= '<span class="categories-links"> under ' . get_the_category_list( __( ', ', 'naya-lite' ) ) . '</span> ';
-			}
-		}
-		if ( $options['show_meta_tags'] === 'yes' ) {
-			if ( get_the_tag_list() ) {
-				$posted .= '<span class="tags-links">' . get_the_tag_list( '', ', ', '' ) . '</span>';
-			}
-		}
-
-		global $sampression_options_settings;
-		$hide_metas = array();
-		if ( ( get_theme_mod( 'hide_post_metas' ) ) ) {
-			$hide_metas = get_theme_mod( 'hide_post_metas' );
-		} else {
-			if ( $sampression_options_settings['show_meta_date'] != 'yes' ) {
-				$hide_metas[] = 'date';
-			}
-			if ( $sampression_options_settings['show_meta_author'] != 'yes' ) {
-				$hide_metas[] = 'author';
-			}
-			if ( $sampression_options_settings['show_meta_categories'] != 'yes' ) {
-				$hide_metas[] = 'categories';
-			}
-			if ( $sampression_options_settings['show_meta_tags'] != 'yes' ) {
-				$hide_metas[] = 'tags';
-			}
-			if ( $sampression_options_settings['show_meta_comment_count'] != 'yes' ) {
-				$hide_metas[] = 'comment-count';
-			}
-		}
-
 
 		$sm_meta = '';
+
+		$hide_metas = sampression_get_option( 'hide_post_metas' );
 
 		if ( ! in_array( 'author', $hide_metas ) ) {
 			global $authordata;
@@ -554,7 +476,6 @@ if ( ! function_exists( 'sampression_post_meta' ) ) :
 		}
 
 		echo $sm_meta;
-		//echo $posted;// not in used
 	}
 
 endif;
@@ -565,31 +486,20 @@ if ( ! function_exists( 'sampression_post_meta_content' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-function sampression_post_meta_content(){
-	global $sampression_options_settings;
-		$hide_metas = array();
-		if ( ( get_theme_mod( 'hide_post_metas' ) ) ) {
-			$hide_metas = get_theme_mod( 'hide_post_metas' );
-		} else {
-			if ( $sampression_options_settings['show_meta_date'] != 'yes' ) {
-				$hide_metas[] = 'date';
-			}
-			if ( $sampression_options_settings['show_meta_author'] != 'yes' ) {
-				$hide_metas[] = 'author';
-			}
-			if ( $sampression_options_settings['show_meta_categories'] != 'yes' ) {
-				$hide_metas[] = 'categories';
-			}
-			if ( $sampression_options_settings['show_meta_tags'] != 'yes' ) {
-				$hide_metas[] = 'tags';
-			}
-			if ( $sampression_options_settings['show_meta_comment_count'] != 'yes' ) {
-				$hide_metas[] = 'comment-count';
-			}
-		}
-
+	function sampression_post_meta_content(){
+		$hide_metas = sampression_get_option( 'hide_post_metas' );
 
 		$sm_meta = '';
+
+		$post_format = 'Posted';
+		if ( get_post_format() === 'chat' ) {
+			$post_format = 'chat';
+		} elseif ( get_post_format() === 'status' ) {
+			$post_format = 'status';
+		} elseif ( get_post_format() === 'video' ) {
+			$post_format = 'video';
+		}
+
 		if (  in_array( 'tags', $hide_metas ) &&  in_array( 'categories', $hide_metas ) &&   in_array( 'date', $hide_metas )  &&
 		  in_array( 'author', $hide_metas )) {
 			$sm_meta .= '';
@@ -632,11 +542,8 @@ function sampression_post_meta_content(){
 		}else{
 			$sm_meta .= '';
 		}
-		//  if (!in_array('comment-count', $hide_metas)) {
-		//     $sm_meta .= "<span class='tags-links '>".comments_popup_link(('0'), __('1 comment', 'naya-lite'), __('% comments', 'naya-lite'))."</span>";
-		// }
+
 		echo $sm_meta;
-		//echo $posted;// not in used
 	}
 
 endif;
