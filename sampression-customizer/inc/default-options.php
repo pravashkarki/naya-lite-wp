@@ -103,18 +103,6 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 		$defaults['hover_color']                ='#0085ba';
 		$defaults['link_color']                 ='#006799';
 
-		//checkbox setting
-		$defaults['checkbox']		            = false;
-
-		//website-layout setting
-		$defaults['website_layout']		        = 'right';
-		$defaults['inner_sidebar_position']		= 'right';
-
-		//Home layout
-		$defaults['home_column']		         = 1;//1,2,3
-		$defaults['home_sidebar']		         = 'right';//left or right or none
-
-		// Pass through filter.
 		return $defaults;
 	}
 

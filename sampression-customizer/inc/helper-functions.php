@@ -86,26 +86,6 @@ function categories_lists()
     return $data_str = implode('&', $data);
 }
 
-if (!function_exists('sampression_home_layout_classes')) {
-
-    function sampression_home_layout_classes()
-    {
-        $classes = array();
-        $classes[] = 'columns';
-        if (get_theme_mod('home_sidebar') === 'left') {
-            $classes[] = 'alignright';
-            $classes[] = 'nine';
-        } elseif (get_theme_mod('home_sidebar') === 'right') {
-            $classes[] = 'nine';
-        } else {
-            $classes[] = 'twelve';
-        }
-
-        echo implode(' ', $classes);
-    }
-
-}
-
 if (!function_exists('sampression_inner_layout_classes')) {
 
     function sampression_inner_layout_classes()
@@ -1106,46 +1086,6 @@ function sampression_fonts_url()
     return $fonts_url;
 }
 
-/**
- * Enqueue scripts and styles.
- */
-function sampression_scripts()
-{
-    global $sampression_options_settings;
-    wp_enqueue_style('sampression-fonts', sampression_fonts_url(), array(), null);
-    wp_enqueue_style('sampression-style', get_stylesheet_uri());
-
-    global $post;
-    $columns_var = 4;
-    if (get_theme_mod('home_columns')) {
-        $columns_var = get_theme_mod('home_columns');
-    } else {
-        if ($sampression_options_settings['column_active'] != '') {
-            if ($sampression_options_settings['column_active'] === 'one') {
-                $columns_var = '1';
-            } else if ($sampression_options_settings['column_active'] === 'two') {
-                $columns_var = '2';
-            } else if ($sampression_options_settings['column_active'] === 'three') {
-                $columns_var = '3';
-            } else if ($sampression_options_settings['column_active'] === 'four') {
-                $columns_var = '4';
-            }
-        }
-    }
-    if (is_archive()) {
-        $columns_var = 3;
-    }
-
-    wp_localize_script('sampression-scripts', 'SampressionVar',
-        array(
-            'SampressionColumnsVar' => $columns_var
-        )
-    );
-
-}
-
-//add_action( 'wp_enqueue_scripts', 'sampression_scripts' );
-
 /*
  * Localizing template directory path to customizer js
  */
@@ -1244,20 +1184,10 @@ if (is_admin() && (isset($_GET['activated']) && $_GET['activated'] == 'true' || 
     endif;
 endif;
 
-/* Redirect to custom theme page after activate */
-global $pagenow;
-if (is_admin() && $pagenow == 'themes.php' && isset($_GET['activated'])) {
-    wp_redirect(admin_url('themes.php?page=about-sampression'));
-    exit;
-}
-
 if (!function_exists('sampression_body_class')) {
     function sampression_body_class($classes)
     {
         $classes[] = 'top';
-        if (get_theme_mod('website_layout') === 'full-width-layout') {
-            $classes[] = 'full-width-layout';
-        }
         return $classes;
     }
 }
