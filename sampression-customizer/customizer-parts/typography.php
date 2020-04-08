@@ -382,18 +382,10 @@ function sampression_customize_register_typography( $wp_customize ) {
 	);
 
 	// Meta Text Font Family - Setting
-	//migration code
-	if(get_theme_mod('metatext_font_family') == '' && sampression_options_theme_option("meta_font_family") != '') {
-		$meta_font_family = sampression_options_theme_option("meta_font_family");
-	} else {
-		$meta_font_family = $defaults['font'];
-	}
-	//migration code end
 	$wp_customize->add_setting('metatext_font_family',
 		array(
+			'default' => $defaults['metatext_font_family'],
 			'sanitize_callback' => 'sampression_sanitize_fonts',
-			'default' => $meta_font_family,
-			//'transport' => 'postMessage'
 		)
 	);
 
@@ -408,17 +400,9 @@ function sampression_customize_register_typography( $wp_customize ) {
 		));
 
 	// Meta Text Font Size  - Setting
-	//migration code
-	if(get_theme_mod('metatext_font_size') == '' && sampression_options_theme_option("meta_font_size") != '') {
-		$meta_font_size = sampression_options_theme_option("meta_font_size");
-	} else {
-		$meta_font_size = $defaults['font_size'];
-	}
-	//migration code end
 	$wp_customize->add_setting('metatext_font_size',
 		array(
-			'default' => $meta_font_size,
-			//'transport' => 'postMessage',
+			'default' => $defaults['metatext_font_size'],
 			'sanitize_callback' => 'absint'
 		)
 	);
@@ -441,9 +425,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 	// Meta Text Font Style - Setting
 	$wp_customize->add_setting('metatext_font_style',
 		array(
+			'default' => $defaults['metatext_font_style'],
 			'sanitize_callback' => 'sampression_sanitize_checkboxes',
-			'default' => $defaults['font_style'],//italic,underline
-			//'transport' => 'postMessage'
 		)
 	);
 	$wp_customize->add_control(new Sampression_Checkboxes_Control($wp_customize, 'metatext_font_style',
@@ -458,10 +441,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 
 	// Meta Text Font Color - Setting
 	$wp_customize->add_setting('metatext_font_color', array(
-		'default' => $defaults['font_color'],
+		'default' => '#'.$defaults['metatext_font_color'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'metatext_font_color', array(
@@ -473,10 +454,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 
 	// Meta Text Link Color - Setting
 	$wp_customize->add_setting('metatext_link_color', array(
-		'default' => $defaults['link_color'],
+		'default' => '#'.$defaults['metatext_link_color'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'metatext_link_color', array(
