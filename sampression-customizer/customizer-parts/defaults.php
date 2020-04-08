@@ -12,10 +12,6 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function sampression_customize_register_default( $wp_customize ) {
-	/** Default Settings */
-	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-
 	// Get default values.
 	$defaults = sampression_get_default_options_value();
 
