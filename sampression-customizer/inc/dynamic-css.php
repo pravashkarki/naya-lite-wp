@@ -4,7 +4,7 @@ if (!function_exists('sampression_header_style')) {
     function sampression_header_style()
     {
         global $sampression_options_settings;
-        $webtitle = $webtitle_color = $webtagline = $primary_nav = $primary_nav_col_hover = $social_media_icon = '';
+        $webtitle = $webtitle_color = $webtagline = $primary_nav  = $social_media_icon = '';
         // Website Title Style
         if ((get_theme_mod('webtitle_font_family'))) {
             $webtitle .= 'font-family: ' . sampression_font_family(get_theme_mod('webtitle_font_family')) . ';';
@@ -278,23 +278,7 @@ if (!function_exists('sampression_header_style')) {
                     echo "@media (min-width: 769px) {  #top-nav ul li a, #top-nav ul li li a,  #top-nav .sub-menu li a, #top-nav .sub-menu .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a, #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li a { $primary_nav_font_size } }" . PHP_EOL;
                 }
             }
-            if(!empty($primary_nav_col_hover ) ) {
-            echo "#top-nav ul li a:hover,
-            #top-nav ul li.current-menu-item > a,
-            #top-nav ul li:hover > a,
-            #top-nav .sub-menu li:hover > a,
-            #top-nav .sub-menu .sub-menu li:hover > a,
-            #top-nav .sub-menu li:last-child > .sub-menu li:hover > a,
-            #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:hover > a,
-            #top-nav .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:last-child > .sub-menu li:hover > a,
-            #top-nav ul li.current-menu-ancestor a,
-            #top-nav ul li.current-menu-parent a,
-            #top-nav ul li li li a:hover,
-            #top-nav ul li.current_page_item > a,
-            #top-nav ul li.current_page_parent > a,
-            #top-nav ul li.current_page_parent ul li.current_page_item > a { $primary_nav_col_hover }" . PHP_EOL;
-            }
-            //echo"aaaaaaaaaa"; var_dump($social_media_icon);
+
             if(!empty($social_media_icon) ) {
             echo ".sm-top li.sm-top-fb a, .sm-top li.sm-top-tw a, .sm-top li.sm-top-youtube a, .sm-top li.sm-top-gplus a, .sm-top li.sm-top-tumblr a,
              .sm-top li.sm-top-pinterest a, .sm-top li.sm-top-linkedin a, .sm-top li.sm-top-github a, .sm-top li.sm-top-instagram a, .sm-top li.sm-top-flickr a,
@@ -417,12 +401,7 @@ if (!function_exists('sampression_header_style')) {
             if( !empty($filter_text )) {
             echo "#primary-nav .nav-label, #filter a { $filter_text }" . PHP_EOL;
             }
-            if( get_theme_mod( 'filterby_font_size' ) ) {
-                $size = (int)get_theme_mod( 'filterby_font_size' ) / 10;
-                $filterby_font_size = 'font-size: ' . get_theme_mod( 'filterby_font_size' ) . 'px; ';
-                $filterby_font_size .= 'font-size: ' . $size . 'rem;';
-                echo "@media (min-width: 769px) {  #primary-nav .nav-label, #filter a { $filterby_font_size } }" . PHP_EOL;
-            }
+
             if(( get_theme_mod( 'bodytext_font_color' ) ) ) {
             echo "#primary-nav .nav-label { color: #".get_theme_mod( 'bodytext_font_color' ) . "; }" . PHP_EOL;
             echo "input[type='submit']:hover { background-color: #".get_theme_mod( 'bodytext_font_color' ) . "; }" . PHP_EOL;
@@ -489,25 +468,7 @@ if (!function_exists('sampression_header_style')) {
             }
 
 
-            if( get_theme_mod( 'paginationtext_font_size' ) ) {
-                $size = (int)get_theme_mod( 'paginationtext_font_size' ) / 10;
-                $paginationtext_font_size = 'font-size: ' . get_theme_mod( 'paginationtext_font_size' ) . 'px; ';
-                $paginationtext_font_size .= 'font-size: ' . $size . 'rem;';
-                echo "@media (min-width: 769px) {  #nav-above a, #nav-below a, #nav-below span { $paginationtext_font_size } }" . PHP_EOL;
-            }
 
-            if(($pin_color)){
-                echo ".sticky-icon path{ $pin_color }" . PHP_EOL;
-            }
-            if( ($button_bg ) ) {
-            echo ".button, button, input[type=\"submit\"], input[type=\"reset\"], input[type=\"button\"] { $button_bg }" . PHP_EOL;
-            }
-
-            if( get_theme_mod( 'filterby_font_size' ) ) {
-                $filter = (int)get_theme_mod( 'filterby_font_size' ) * 6;
-                $filter_margin = $filter. 'px;';
-                echo "@media (min-width: 769px) { #primary-nav ul.nav-listing{ margin: 0 0 0 ".$filter_margin. "} }" . PHP_EOL;
-            }
             ?>
         </style>
         <?php
