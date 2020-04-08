@@ -769,16 +769,6 @@ function font_family( to ) {
 		} );
 	} );
 
-	//Custom CSS
-	wp.customize( 'sampression_custom_css', function( value ) {
-		value.bind( function( to ) {
-			$( '#sampression-custom-css' ).html( to );
-		} );
-	} );
-
-
-
-
 
 
 

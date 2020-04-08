@@ -11,7 +11,6 @@
 function naya_lite_scripts() {
 	wp_enqueue_style( 'gfont-kreon', '//fonts.googleapis.com/css?family=Kreon:400,700' );
 	wp_enqueue_style( 'gfont-droid', '//fonts.googleapis.com/css?family=Droid+Serif:400,400italic' );
-	wp_enqueue_style( 'custom', get_template_directory_uri() . '/lib/css/custom-css.css' );
 	wp_enqueue_style( 'font', get_template_directory_uri() . '/lib/css/fonts-sampression.css' );
 	wp_enqueue_style( 'superfish', get_template_directory_uri() . '/lib/css/base-960.css' );
 	wp_enqueue_style( 'base', get_template_directory_uri() . '/lib/css/superfish.css' );

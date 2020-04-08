@@ -74,8 +74,8 @@
 
 <?php
 
-// $sampression_copyright_text = sampression_get_option( 'sampression_copyright_text'  );
-// nsdump( $sampression_copyright_text );
+// $hide_post_metas = sampression_get_option( 'hide_post_metas'  );
+// nspre( $hide_post_metas );
 
 // $back = get_theme_support( 'custom-background' );
 // nspre( $back );

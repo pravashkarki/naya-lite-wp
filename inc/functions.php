@@ -169,48 +169,6 @@ function sampression_social_media_icons() {
 	}
 }
 
-/*
- *  Menu of theme option
- */
-function sampression_option_menu() {//SAM_FW_CURRENT_PAGE
-
-	$menus = array(
-		'logos-icons'  => array(
-			'slug'  => 'logos-icons',
-			'label' => __( 'Logos &amp; Icons', 'naya-lite' )
-		),
-		'styling'      => array(
-			'slug'  => 'styling',
-			'label' => __( 'Styling', 'naya-lite' )
-		),
-		'typography'   => array(
-			'slug'  => 'typography',
-			'label' => __( 'Typography', 'naya-lite' )
-		),
-		'social-media' => array(
-			'slug'  => 'social-media',
-			'label' => __( 'Social Media', 'naya-lite' )
-		),
-		'custom-css'   => array(
-			'slug'  => 'custom-css',
-			'label' => __( 'Custom CSS', 'naya-lite' )
-		),
-		'blog'         => array(
-			'slug'  => 'blog',
-			'label' => __( 'Blog', 'naya-lite' )
-		)
-	);
-
-	foreach ( (array) $menus as $key => $val ) {
-		?>
-        <li><a href="#<?php echo $val['slug']; ?>"><i
-                        class="icon-sam-<?php echo $key; ?>"></i><?php echo $val['label']; ?></a></li>
-		<?php
-	}
-
-}
-
-//require_once SAM_FW_ADMIN_DIR . '/theme-options.php';
 /**
  * Sampression Post thumbnail
  *
@@ -337,58 +295,6 @@ function sampression_blog_title() {
 	} else {
 		echo '<div id="logo"><a href="' . esc_url( home_url() ) . '" class="home-link"><img src="' . esc_url( $options['logo_url'] ) . '" title="' . get_bloginfo( 'name' ) . '" alt="' . get_bloginfo( 'name' ) . '" /></a></div>';
 	}
-}
-
-
-/**
- * message info
- */
-function sampression_message_info() {
-	if ( ( isset( $_GET['settings-updated'] ) ) && ( $_GET['settings-updated'] == 'reset' ) ) {
-		echo '<div id="self-destroy" class="restore-info">Successfully restored to default.</div>';
-	}
-
-	if ( ( isset( $_GET['settings-updated'] ) ) && ( $_GET['settings-updated'] == 'error' ) && ( $_GET['errormessage'] == 4 ) ) {
-		echo '<div id="self-destroy" class="restore-info">' . SAM_FW_CSS_DIR . '/custom-css.css is not writeable. Please erase all CSS from the existing file.</div>';
-	}
-	if ( isset( $_GET['message'] ) ) {// class="message success auto-close"
-		switch ( $_GET['message'] ) {
-			case 3:
-				echo '<div id="self-destroy" class="restore-info">Your site is using default settings.</div>';
-				break;
-			case 5:
-				echo '<div id="self-destroy" class="restore-info">Imported file contain error.</div>';
-				break;
-			case 6:
-				echo '<div id="self-destroy" class="restore-info">Imported file is invalid.</div>';
-				break;
-			default :
-				echo '';
-				break;
-		}
-	}
-}
-
-/**
- * restore theme options
- */
-if ( isset( $_POST['reset'] ) ) {
-	require_once( ABSPATH . 'wp-admin/includes/file.php' );
-	WP_Filesystem();
-	global $wp_filesystem;
-	$message = 0;
-	if ( get_option( 'sampression_theme_options' ) ) {
-		delete_option( 'sampression_theme_options' );
-		$message = 2;
-	}
-	$file = SAM_FW_CSS_DIR . '/custom-css.css';
-	$css  = ' ';
-	if ( ! is_writable( $file ) ) {
-		$message = 4;
-		wp_redirect( 'themes.php?page=sampression-options&settings-updated=error&errormessage=4' );
-	}
-	wp_redirect( 'themes.php?page=sampression-options&settings-updated=reset' );
-	exit;
 }
 
 function sampression_navigation() {
