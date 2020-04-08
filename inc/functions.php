@@ -1,49 +1,5 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit( 'restricted access' );
-}
-
-/*=======================================================================
- * Fire up the engines to start theme setup.
- *=======================================================================*/
-
-add_action( 'after_setup_theme', 'sampression_setup' );
-
-if ( ! function_exists( 'sampression_setup' ) ):
-
-	function sampression_setup() {
-
-		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'automatic-feed-links' );
-
-		if ( ! current_theme_supports( 'sampression-menus' ) ) {
-			add_theme_support( 'sampression-menus', array(
-				'primary' => __( 'Primary Navigation', 'naya-lite' )
-			) );
-		}
-
-		if ( ! current_theme_supports( 'sampression-sidebars' ) ) {
-			add_theme_support( 'sampression-sidebars', array(
-				'primary-sidebar' => array(
-					'column' => '1 Column',
-					'name'   => __( 'Primary Sidebar', 'naya-lite' ),
-					'slug'   => 'primary-sidebar',
-					'desc'   => __( 'The Primary Widget.', 'naya-lite' )
-				)
-			) );
-		}
-
-		$menus = get_theme_support( 'sampression-menus' );
-
-		/** Register supported menus */
-		foreach ( (array) $menus[0] as $id => $name ) {
-			register_nav_menu( $id, $name );
-		}
-	}
-
-endif;
-
 /*
  * Sampression - Social Media Icons
  * @param $location header / footer
