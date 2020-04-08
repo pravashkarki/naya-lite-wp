@@ -477,7 +477,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 	//widget heading label
 	$wp_customize->add_setting('widgetText_heading_label',
 		array(
-			'sanitize_callback' => 'sampression_sanitize_fonts',
+			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 	$wp_customize->add_control('widgetText_heading_label',
@@ -490,12 +490,10 @@ function sampression_customize_register_typography( $wp_customize ) {
 		));
 
 	//widget heading font family
-
 	$wp_customize->add_setting('widgetText_heading_font_family',
 		array(
+			'default' => $defaults['widgetText_heading_font_family'],
 			'sanitize_callback' => 'sampression_sanitize_fonts',
-			'default' => $defaults['font'],
-			//'transport' => 'postMessage'
 		)
 	);
 
@@ -510,11 +508,9 @@ function sampression_customize_register_typography( $wp_customize ) {
 		));
 
 	//widget heading font size
-
 	$wp_customize->add_setting('widgetText_heading_font_size',
 		array(
-			'default' => $defaults['font_size_large'],
-			//'transport' => 'postMessage',
+			'default' => $defaults['widgetText_heading_font_size'],
 			'sanitize_callback' => 'absint'
 		)
 	);
@@ -537,9 +533,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 	//widget heading font style
 	$wp_customize->add_setting('widgetText_heading_font_style',
 		array(
+			'default' => $defaults['widgetText_heading_font_style'],
 			'sanitize_callback' => 'sampression_sanitize_checkboxes',
-			'default' => $defaults['font_style'],//italic,underline
-			//'transport' => 'postMessage'
 		)
 	);
 
@@ -554,13 +549,10 @@ function sampression_customize_register_typography( $wp_customize ) {
 	);
 
 	// widget heading color
-
 	$wp_customize->add_setting('widgetText_heading_font_color',
 		array(
-			'default' => $defaults['font_color'],
+			'default' => '#'.$defaults['widgetText_heading_font_color'],
 			'sanitize_callback' => 'sanitize_hex_color_no_hash',
-			'sanitize_js_callback' => 'maybe_hash_hex_color',
-			//'transport' => 'postMessage'
 		)
 	);
 
@@ -571,10 +563,11 @@ function sampression_customize_register_typography( $wp_customize ) {
 		'priority' => 5
 	)));
 
-	//Widget Text label
+	// Widget Text label
 	$wp_customize->add_setting('widgetText_label',
 		array(
-			'sanitize_callback' => 'sampression_sanitize_fonts',
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 
@@ -590,9 +583,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 	// Widget Text Font Family - Setting
 	$wp_customize->add_setting('widgetText_font_family',
 		array(
+			'default'           => $defaults['widgetText_font_family'],
 			'sanitize_callback' => 'sampression_sanitize_fonts',
-			'default' => $defaults['font'],
-			//'transport' => 'postMessage'
 		)
 	);
 
@@ -610,7 +602,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 	$wp_customize->add_setting('widgetText_font_size',
 		array(
 			'default' => 14,
-			//'transport' => 'postMessage',
+			'default'           => $defaults['widgetText_font_size'],
 			'sanitize_callback' => 'absint'
 		)
 	);
@@ -633,9 +625,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 	// Widget Text Font Style - Setting
 	$wp_customize->add_setting('widgetText_font_style',
 		array(
+			'default' => $defaults['widgetText_font_style'],
 			'sanitize_callback' => 'sampression_sanitize_checkboxes',
-			'default' => $defaults['font_style'],//italic,underline
-			//'transport' => 'postMessage'
 		)
 	);
 
@@ -651,10 +642,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 
 	// Widget Text Font Color - Setting
 	$wp_customize->add_setting('widgetText_font_color', array(
-		'default' => $defaults['font_color'],
+		'default' => '#'.$defaults['widgetText_font_color'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'widgetText_font_color', array(
@@ -666,10 +655,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 
 	// Widget Text Link Color - Setting
 	$wp_customize->add_setting('widgetText_link_color', array(
-		'default' => $defaults['link_color'],
+		'default' => '#'.$defaults['widgetText_link_color'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'widgetText_link_color', array(
@@ -681,10 +668,8 @@ function sampression_customize_register_typography( $wp_customize ) {
 
 	// Widget Text Link hover color
 	$wp_customize->add_setting('widgetText_hover_color', array(
-		'default' => $defaults['hover_color'],
+		'default' => '#'.$defaults['widgetText_hover_color'],
 		'sanitize_callback' => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-		//'transport' => 'postMessage'
 	));
 
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'widgetText_hover_color', array(
@@ -693,7 +678,6 @@ function sampression_customize_register_typography( $wp_customize ) {
 		'settings' => 'widgetText_hover_color',
 		'priority' => 12
 	)));
-	//end
-
 }
+
 add_action( 'customize_register', 'sampression_customize_register_typography' );

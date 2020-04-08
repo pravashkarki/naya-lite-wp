@@ -68,14 +68,26 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 		$defaults['bodytext_font_size']  = '14';
 		$defaults['bodytext_font_style'] = array();
 		$defaults['body_textcolor']      = '000000';
-		$defaults['body_link_color']      = '006799';
+		$defaults['body_link_color']     = '006799';
 
 		// Meta.
 		$defaults['metatext_font_family'] = 'Kreon';
-		$defaults['metatext_font_size'] = '14';
-		$defaults['metatext_font_style'] = array();
-		$defaults['metatext_font_color']      = '000000';
-		$defaults['metatext_link_color']      = '006799';
+		$defaults['metatext_font_size']   = '14';
+		$defaults['metatext_font_style']  = array();
+		$defaults['metatext_font_color']  = '000000';
+		$defaults['metatext_link_color']  = '006799';
+
+		// General.
+		$defaults['widgetText_heading_font_family'] = 'Kreon';
+		$defaults['widgetText_heading_font_size']   = '21';
+		$defaults['widgetText_heading_font_style']  = array();
+		$defaults['widgetText_heading_font_color']  = '000000';
+		$defaults['widgetText_font_family']         = 'Kreon';
+		$defaults['widgetText_font_size']           = '14';
+		$defaults['widgetText_font_style']          = array();
+		$defaults['widgetText_font_color']          = '000000';
+		$defaults['widgetText_link_color']          = '006799';
+		$defaults['widgetText_hover_color']         = '0085ba';
 
 		// OLD
 		//font setting
