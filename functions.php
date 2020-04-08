@@ -159,4 +159,5 @@ require get_template_directory() . '/sampression-customizer/customizer.php';
 require get_template_directory() . '/sampression-customizer/theme-functions.php';
 require get_template_directory() . '/sampression-customizer/theme-hooks.php';
 require get_template_directory() . '/inc/defaults.php';
+require get_template_directory() . '/inc/custom.php';
 require get_template_directory() . '/inc/theme-page.php';

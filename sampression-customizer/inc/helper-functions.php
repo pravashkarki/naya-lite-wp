@@ -9,7 +9,7 @@ function sampression_get_font_style_options() {
     );
 }
 
-function sampression_font_family($family)
+function sampression_get_font_family($family)
 {
     if (strpos($family, '=') !== false) {
         $family = explode('=', $family);
