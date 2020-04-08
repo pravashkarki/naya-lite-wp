@@ -12,8 +12,7 @@
     </header>
     <div class="entry-meta">
         <i class="icon-bubbles8"></i>
-         <?php sampression_post_meta();
-        //sampression_post_entry_meta_single(); ?>
+         <?php sampression_post_meta(); ?>
     </div>
     <div class="entry-content" itemprop="articleBody">
         <?php
@@ -27,5 +26,5 @@
             ) );
         ?>
     </div>
-    
+
 </article>

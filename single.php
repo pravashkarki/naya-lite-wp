@@ -48,10 +48,6 @@ get_header(); ?>
 
                                         <?php sampression_post_meta(); ?>
 
-                                        <?php
-                                        //sampression_post_entry_meta_single();
-                                        ?>
-
                                     <div class="entry-content" itemprop="articleBody">
                                         <?php
                                         the_content();

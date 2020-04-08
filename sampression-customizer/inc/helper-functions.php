@@ -1496,65 +1496,6 @@ if (!function_exists('sampression_post_entry_meta')) {
 
 }
 
-if (!function_exists('sampression_post_entry_meta_single')) {
-    function sampression_post_entry_meta_single()
-    {
-        global $sampression_options_settings;
-        $hide_metas = array();
-        if (get_theme_mod('hide_post_metas')) {
-            $hide_metas = get_theme_mod('hide_post_metas');
-        } else {
-            if (isset($sampression_options_settings['show_meta_date'])) {
-                $hide_metas[] = 'date';
-            }
-            if (isset($sampression_options_settings['show_meta_author'])) {
-                $hide_metas[] = 'author';
-            }
-            if (isset($sampression_options_settings['show_meta_categories'])) {
-                $hide_metas[] = 'categories';
-            }
-            if (isset($sampression_options_settings['show_meta_tags'])) {
-                $hide_metas[] = 'tags';
-            }
-            if (isset($sampression_options_settings['show_meta_comment_count'])) {
-                $hide_metas[] = 'comment-count';
-            }
-
-
-        }
-
-        if (!in_array('date', $hide_metas) || !in_array('author', $hide_metas) || !in_array('categories', $hide_metas) || !in_array('tags', $hide_metas)) {
-            echo '<div class="meta clearfix">';
-            if (!in_array('author', $hide_metas)) {
-                sampression_entry_author();
-            }
-            if (!in_array('date', $hide_metas) && in_array('comment-count', $hide_metas)) {
-                //echo '<div class="meta clearfix">';
-                sampression_entry_date();
-                //echo '</div>';
-            }
-            if (!in_array('categories', $hide_metas)) {
-                sampression_entry_category();
-            }
-            if (!in_array('tags', $hide_metas)) {
-                sampression_entry_tag();
-            }
-
-            if (!in_array('comment-count', $hide_metas) && !in_array('date', $hide_metas)) {
-                //echo '<div class="meta clearfix">';
-                sampression_entry_date_comment();
-                //echo '</div>';
-            }
-             if (!in_array('comment-count', $hide_metas) && in_array('date', $hide_metas)) {
-                sampression_entry_comment('meta_single');
-            }
-
-            echo '</div>';
-        }
-    }
-
-}
-
 if (!function_exists('sampression_has_embed')) {
     /**
      * Check for the URL if the_content have any video support url

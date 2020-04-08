@@ -12,10 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) exit('restricted access');
     </header>
     <div class="entry-meta">
         <i class="icon-link"></i>
-         <?php sampression_post_meta();
-        //sampression_post_entry_meta_single(); ?>
+         <?php sampression_post_meta(); ?>
     </div>
-    <div class="entry-content" itemprop="articleBody"> 
+    <div class="entry-content" itemprop="articleBody">
        <?php
        sampression_post_thumbnail();
        the_content();
