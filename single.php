@@ -34,9 +34,9 @@ get_header(); ?>
 
                             $single_format = array('standard');
 
-                            if (in_array(sampression_get_post_format(), $single_format)) { //sam_p(sampression_post_class());
+                            if (in_array(sampression_get_post_format(), $single_format)) {
                                 ?>
-                                <article id="post-<?php the_ID(); ?>" <?php post_class();//sampression_post_class() ?>
+                                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>
                                          itemscope="itemscope" itemtype="http://schema.org/Article" role="article">
                                     <header class="entry-header">
 

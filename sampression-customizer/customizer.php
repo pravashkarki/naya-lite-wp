@@ -65,3 +65,21 @@ function sampression_customize_scripts() {
 }
 
 add_action( 'customize_controls_enqueue_scripts', 'sampression_customize_scripts' );
+
+/**
+ * Get theme option.
+ *
+ * @since 1.0.0
+ *
+ * @param string $key Option key.
+ * @return mixed Option value.
+ */
+function sampression_get_option( $key ) {
+	$default_options = sampression_get_default_options_value();
+
+	$current_default_value = isset( $default_options[ $key ] ) ? $default_options[ $key ] : null;
+
+	$value = get_theme_mod( $key );
+
+	return ! is_null( $value ) ? $value : $current_default_value;
+}

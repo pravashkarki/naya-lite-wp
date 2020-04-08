@@ -113,26 +113,6 @@ function sampression_sidebar_position() {
 	return sampression_get_option( 'sampression_sidebar_layout' );
 }
 
-
-/**
- * Get blog title if use-title is set in sampression backend
- * else get logo icon
- *
- * @global type $sampression_logo_icon
- */
-function sampression_blog_title() {
-	global $sampression_options_settings;
-	$options = $sampression_options_settings;
-	if ( esc_attr( $options['use_logo_title'] ) === 'use_title' ) {
-		echo '<h1 class="site-title"><a href="' . esc_url( home_url() ) . '" class="home-link">' . get_bloginfo( 'name' ) . '</a></h1>';
-		if ( esc_attr( $options['use_web_desc'] ) === 'yes' ) {
-			echo '<h2 class="site-description">' . get_bloginfo( 'description' ) . '</h2>';
-		}
-	} else {
-		echo '<div id="logo"><a href="' . esc_url( home_url() ) . '" class="home-link"><img src="' . esc_url( $options['logo_url'] ) . '" title="' . get_bloginfo( 'name' ) . '" alt="' . get_bloginfo( 'name' ) . '" /></a></div>';
-	}
-}
-
 function sampression_navigation() {
 	$args = array(
 		'menu_class'      => 'main-nav clearfix',
@@ -361,11 +341,11 @@ endif;
 function sampression_get_previous_image_id( $prev = true ) {
 	$post        = get_post();
 	$attachments = array_values( get_children( array( 'post_parent'    => $post->post_parent,
-	                                                  'post_status'    => 'inherit',
-	                                                  'post_type'      => 'attachment',
-	                                                  'post_mime_type' => 'image',
-	                                                  'order'          => 'ASC',
-	                                                  'orderby'        => 'menu_order ID'
+		'post_status'    => 'inherit',
+		'post_type'      => 'attachment',
+		'post_mime_type' => 'image',
+		'order'          => 'ASC',
+		'orderby'        => 'menu_order ID'
 	) ) );
 
 	foreach ( $attachments as $k => $attachment ) {
@@ -448,17 +428,6 @@ function sampression_next_post_link( $url ) {
 function sampression_previous_post_link( $url ) {
 	return preg_replace( '/rel="prev"/', 'rel="next" class="nav-prev alignleft"', $url );
 }
-
-/*=======================================================================
- * Comment Reply
- *=======================================================================*/
-function sampression_enqueue_comment_reply() {
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-
-add_action( 'wp_enqueue_scripts', 'sampression_enqueue_comment_reply' );
 
 if ( ! function_exists( 'sampression_comment' ) ) :
 	/**
@@ -659,20 +628,13 @@ function sampression_font_transformation_select( $name = '', $class = '', $defau
 
 function sampression_readmore_link() {
 	if ( get_the_excerpt() ) {
-		$more = 'Read more';
-		printf( '<div class="entry-footer"><a href="%2$s">%1$s</a></div>', $more, get_permalink() );
+		$more = __( 'Read more' );
+		printf( '<div class="entry-footer"><a href="%2$s">%1$s</a></div>', $more, esc_url( get_permalink() ) );
 	}
 }
 
 function sampression_post_class() {
-	global $sampression_options_settings;
-	$options = $sampression_options_settings;
-	if ( $options['show_meta_icon'] == 'yes' ) {
-		return array( 'format-icon', 'clearfix' );
-	}
-
 	return array( 'clearfix' );
-
 }
 
 function sampression_get_post_format() {

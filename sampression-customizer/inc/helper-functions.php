@@ -1136,8 +1136,6 @@ function sampression_scripts()
         $columns_var = 3;
     }
 
-    if (is_singular()) wp_enqueue_script("comment-reply");
-
     wp_localize_script('sampression-scripts', 'SampressionVar',
         array(
             'SampressionColumnsVar' => $columns_var
@@ -1252,78 +1250,6 @@ if (is_admin() && $pagenow == 'themes.php' && isset($_GET['activated'])) {
     wp_redirect(admin_url('themes.php?page=about-sampression'));
     exit;
 }
-
-// if( !function_exists( 'sampression_post_class' ) ) :
-//     /**
-//      * Filter for post_class
-//      */
-//     function sampression_post_class( $classes ) {
-//         global $post, $sampression_options_settings;
-//         if( is_sticky($post->ID) ) {
-//             $classes[] = '';
-//         }
-//         foreach ( ( get_the_category( $post->ID ) ) as $category ) {
-//             $classes[] = $category->category_nicename;
-//         }
-//         if( is_home() ) {
-//             if( get_theme_mod( 'home_columns' ) ) {
-//                 switch ( get_theme_mod( 'home_columns' ) ) {
-//                     case '1':
-//                         $classes[] = 'twelve';
-//                         break;
-//                     case '2':
-//                         $classes[] = 'six';
-//                         break;
-//                     case '3':
-//                         $classes[] = 'four';
-//                         break;
-//                     default:
-//                         $classes[] = 'three';
-//                         break;
-//                 }
-//             } else if($sampression_options_settings['column_active'] != '') {
-//                 if($sampression_options_settings['column_active'] === 'one') {
-//                     $columns = '1';
-//                 } else if($sampression_options_settings['column_active'] === 'two') {
-//                     $columns = '2';
-//                 } else if($sampression_options_settings['column_active'] === 'three') {
-//                     $columns = '3';
-//                 } else if($sampression_options_settings['column_active'] === 'four') {
-//                     $columns = '4';
-//                 }
-//                 switch ( $columns ) {
-//                     case '1':
-//                         $classes[] = 'twelve';
-//                         break;
-//                     case '2':
-//                         $classes[] = 'six';
-//                         break;
-//                     case '3':
-//                         $classes[] = 'four';
-//                         break;
-//                     default:
-//                         $classes[] = 'three';
-//                         break;
-//                 }
-//             } else {
-//                 $classes[] = 'three';
-//             }
-//             $classes[] = 'columns item';
-//         }
-//         if( is_archive() ) {
-//             $classes[] = 'four columns item';
-//         }
-//         if( is_search() ) {
-//             $classes[] = 'twelve columns item';
-//         }
-//         if( is_attachment() ) {
-//             $classes[] = 'post';
-//         }
-//         return $classes;
-//     }
-
-// endif;
-// add_filter( 'post_class', 'sampression_post_class' );
 
 if (!function_exists('sampression_body_class')) {
     function sampression_body_class($classes)
