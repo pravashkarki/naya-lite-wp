@@ -64,32 +64,6 @@ function font_family( to ) {
 			$( '#site-description' ).text( to );
 		} );
 	} );
-	
-	// Body background color
-	wp.customize( 'background_color', function( value ) {
-		value.bind( function( to ) {
-			//console.log($('#content-wrapper'));
-			$('#content-wrapper').css({
-    			'background-color': to
-			});
-			$('body.custom-background').css({
-				'background': 'none'
-			});
-		});
-	} );
-
-	// Body background cover
-	wp.customize( 'sampression_background_cover', function( value ) {
-		value.bind( function( to ) {
-			if(to == true) {
-				$('#content-wrapper').css('background-size', 'cover');
-			} else {
-				$('#content-wrapper').css('background-size', 'initial');
-			}
-		} );
-	} );	
-
-
 
 	// Header text font.
 	wp.customize( 'title_font', function( value ) {
@@ -109,18 +83,6 @@ function font_family( to ) {
 			//console.log(to);
 		} );
 	} );
-	// wp.customize( 'webtitle_font_size', function( value ) {
-	// 	value.bind( function( to ) {
-	// 		
-	// 		return;
-	// 		google_web_fonts();
-	// 		var family = font_family( to );
-	// 		$( '#site-title a' ).css( {
-	// 			'font-family': family
-	// 		});
-	// 	});
-	// });
-
 
 	( function( $ ) {
     wp.customizerCtrlEditor = {
@@ -225,7 +187,7 @@ function font_family( to ) {
 			});
 		});
 	});
-	
+
 	// Header Font Size
 	wp.customize( 'webtitle_font_size', function( value ) {
 		value.bind( function( to ) {
@@ -305,7 +267,7 @@ function font_family( to ) {
 		});
 	});
 
-	
+
 	wp.customize( 'webtitle_font_color', function( value ) {
 		value.bind( function( to ) {
 			console.log(to);

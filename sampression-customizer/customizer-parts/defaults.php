@@ -71,25 +71,6 @@ function sampression_customize_register_default( $wp_customize ) {
 
 	$wp_customize->get_control( 'background_color' )->section = 'background_image';
 
-	// Background Image Cover - Setting
-	$wp_customize->add_setting(
-		'sampression_background_cover',
-		array(
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sampression_sanitize_checkbox',
-		)
-	);
-	$wp_customize->add_control(
-		'sampression_background_cover',
-		array(
-			'type'     => 'checkbox',
-			'label'    => __( 'Use Background As Cover', 'naya-lite' ),
-			'section'  => 'background_image',
-			'settings' => 'sampression_background_cover',
-			'priority' => 10,
-		)
-	);
-
 	/** Add selective part pencil tool here */
 	$wp_customize->selective_refresh->add_partial(
 		'blogname',

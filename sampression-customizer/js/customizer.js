@@ -65,32 +65,6 @@ function font_family( to ) {
 		} );
 	} );
 
-	// Body background color
-	wp.customize( 'background_color', function( value ) {
-		value.bind( function( to ) {
-			//console.log($('#content-wrapper'));
-			$('#content-wrapper').css({
-    			'background-color': to
-			});
-			$('body.custom-background').css({
-				'background': 'none'
-			});
-		});
-	} );
-
-	// Body background cover
-	wp.customize( 'sampression_background_cover', function( value ) {
-		value.bind( function( to ) {
-			if(to == true) {
-				$('#content-wrapper').css('background-size', 'cover');
-			} else {
-				$('#content-wrapper').css('background-size', 'initial');
-			}
-		} );
-	} );
-
-
-
 	// Header text font.
 	wp.customize( 'title_font', function( value ) {
 		value.bind( function( to ) {

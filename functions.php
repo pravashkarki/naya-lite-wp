@@ -74,9 +74,8 @@ function naya_lite_setup() {
 	add_theme_support(
 		'custom-background',
 		array(
-			'default-color'    => 'F3F7F6',
-			'default-image'    => '',
-			'wp-head-callback' => 'naya_lite_custom_background_cb',
+			'default-color' => 'F3F7F6',
+			'default-image' => '',
 		)
 	);
 

@@ -22,7 +22,7 @@ function sampression_customize_register_social( $wp_customize ) {
 	$wp_customize->add_setting(
 		'social_icon_color',
 		array(
-			'default'              => $defaults['social_color'],
+			'default'              => $defaults['social_icon_color'],
 			'sanitize_callback'    => 'sanitize_hex_color_no_hash',
 			'sanitize_js_callback' => 'maybe_hash_hex_color',
 			'transport'            => 'postMessage',
@@ -46,7 +46,7 @@ function sampression_customize_register_social( $wp_customize ) {
 	$wp_customize->add_setting(
 		'use_social_default_color',
 		array(
-			'default'           => 1,
+			'default'           => $defaults['use_social_default_color'],
 			'sanitize_callback' => 'sampression_sanitize_checkbox',
 		)
 	);
