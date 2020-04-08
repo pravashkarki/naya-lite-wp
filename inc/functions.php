@@ -35,45 +35,14 @@ if ( ! function_exists( 'sampression_setup' ) ):
 		}
 
 		$menus = get_theme_support( 'sampression-menus' );
+
 		/** Register supported menus */
 		foreach ( (array) $menus[0] as $id => $name ) {
 			register_nav_menu( $id, $name );
 		}
-
-		// Remove text color option from header options
-		define( 'NO_HEADER_TEXT', true );
-
 	}
+
 endif;
-
-/**
- * Displays title. @uses wp_title()
- */
-add_filter( 'wp_title', 'sampression_filter_wp_title', 10, 2 );
-
-function sampression_filter_wp_title( $title, $sep = '|' ) {
-	global $paged, $page;
-
-	if ( is_feed() ) {
-		return $title;
-	}
-
-	// Add the site name.
-	$title .= get_bloginfo( 'name' );
-
-	// Add the site description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title = "$title $sep $site_description";
-	}
-
-	// Add a page number if necessary.
-	if ( $paged >= 2 || $page >= 2 ) {
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'naya-lite' ), max( $paged, $page ) );
-	}
-
-	return $title;
-}
 
 /*
  * Sampression - Social Media Icons
@@ -81,16 +50,12 @@ function sampression_filter_wp_title( $title, $sep = '|' ) {
  * @return Social Media Links
  */
 function sampression_social_media_icons() {
-	global $sampression_options_settings;
-	$options = $sampression_options_settings;
-
-	//new customizer options
-	if ( get_theme_mod( 'sampression_socials_facebook' ) || get_theme_mod( 'sampression_socials_twitter' ) ||
-	     get_theme_mod( 'sampression_socials_linkedin' ) || get_theme_mod( 'sampression_socials_youtube' ) ||
-	     get_theme_mod( 'sampression_socials_googleplus' ) || get_theme_mod( 'sampression_socials_flicker' ) ||
-	     get_theme_mod( 'sampression_socials_github' ) || get_theme_mod( 'sampression_socials_instagram' ) ||
-	     get_theme_mod( 'sampression_socials_tumblr' ) || get_theme_mod( 'sampression_socials_pinterest' ) ||
-	     get_theme_mod( 'sampression_socials_vimeo' )
+	if ( sampression_get_option( 'sampression_socials_facebook' ) || sampression_get_option( 'sampression_socials_twitter' ) ||
+	     sampression_get_option( 'sampression_socials_linkedin' ) || sampression_get_option( 'sampression_socials_youtube' ) ||
+	     sampression_get_option( 'sampression_socials_googleplus' ) || sampression_get_option( 'sampression_socials_flicker' ) ||
+	     sampression_get_option( 'sampression_socials_github' ) || sampression_get_option( 'sampression_socials_instagram' ) ||
+	     sampression_get_option( 'sampression_socials_tumblr' ) || sampression_get_option( 'sampression_socials_pinterest' ) ||
+	     sampression_get_option( 'sampression_socials_vimeo' )
 	) {
 		$social_arr = array(
 			'sampression_socials_facebook'   => 'facebook',
@@ -106,65 +71,14 @@ function sampression_social_media_icons() {
 			'sampression_socials_vimeo'      => 'vimeo'
 		);
 
-		//var_dump($social_arr);
 		foreach ( $social_arr as $key => $value ) {
-			// echo $value;
-			if ( get_theme_mod( $key ) ) {
+			if ( sampression_get_option( $key ) ) {
 				?>
-                <a href="<?php echo esc_url( get_theme_mod( $key ) ); ?>" target="_blank"
-                   class="social-<?php echo $value; ?>">
-                    <i class="fa fa-<?php echo $value; ?>"></i> </a>
+                <a href="<?php echo esc_url( sampression_get_option( $key ) ); ?>" target="_blank"
+                   class="<?php echo esc_attr( 'social-' . $value ); ?>">
+                    <i class="fa fa-<?php echo esc_attr( $value ); ?>"></i> </a>
 				<?php
 			}
-		}
-		//new customizer options end
-
-	} else {
-
-		if ( $options['social_facebook_url'] || $options['social_twitter_url'] || $options['social_linkedin_url'] || $options['social_youtube_url'] || $options['social_googleplus_url'] || $options['social_flickr_url'] || $options['social_vimeo_url'] ) {
-			if ( $options['social_facebook_url'] ) {
-				?>
-                <a href="<?php echo esc_url( $options['social_facebook_url'] ); ?>" target="_blank"
-                   class="social-facebook"> <i class="icon-social-facebook"></i> </a>
-				<?php
-			}
-			if ( $options['social_twitter_url'] ) {
-				?>
-                <a href="<?php echo esc_url( $options['social_twitter_url'] ); ?>" target="_blank"
-                   class="social-twitter"> <i class="icon-social-twitter"></i> </a>
-				<?php
-			}
-			if ( $options['social_linkedin_url'] ) {
-				?>
-                <a href="<?php echo esc_url( $options['social_linkedin_url'] ); ?>" target="_blank"
-                   class="social-linkedin"> <i class="icon-social-linkedin"></i> </a>
-				<?php
-			}
-			if ( $options['social_youtube_url'] ) {
-				?>
-                <a href="<?php echo esc_url( $options['social_youtube_url'] ); ?>" target="_blank"
-                   class="social-youtube"> <i class="icon-social-youtube"></i> </a>
-				<?php
-			}
-			if ( $options['social_googleplus_url'] ) {
-				?>
-                <a href="<?php echo esc_url( $options['social_googleplus_url'] ); ?>" target="_blank"
-                   class="social-googleplus"> <i class="icon-social-googleplus"></i> </a>
-				<?php
-			}
-			if ( $options['social_flickr_url'] ) {
-				?>
-                <a href="<?php echo esc_url( $options['social_flickr_url'] ); ?>" target="_blank" class="social-flickr">
-                    <i class="icon-social-flicker"></i> </a>
-				<?php
-			}
-			if ( $options['social_vimeo_url'] ) {
-				?>
-                <a href="<?php echo esc_url( $options['social_vimeo_url'] ); ?>" target="_blank" class="social-vimeo">
-                    <i class="icon-social-viemo"></i> </a>
-				<?php
-			}
-
 		}
 	}
 }
