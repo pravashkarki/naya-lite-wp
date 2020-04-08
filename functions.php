@@ -6,6 +6,94 @@
  */
 
 /**
+ * Sets up theme defaults and registers support for various WordPress features.
+ */
+function naya_lite_setup() {
+	/**
+	 * Make theme available for translation.
+	 */
+	load_theme_textdomain( 'naya-lite', get_template_directory() . '/languages' );
+
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
+
+	/**
+	 * Let WordPress manage the document title.
+	 */
+	add_theme_support( 'title-tag' );
+
+	/**
+	 * Enable support for Post Thumbnails on posts and pages.
+	 */
+	add_theme_support( 'post-thumbnails' );
+
+	/**
+	 * Sampression Uses uses wp_nav_menu() in below assigned locations
+	 */
+	register_nav_menus(
+		array(
+			'primary' => __( 'Primary Menu', 'naya-lite' ),
+		)
+	);
+
+	/**
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
+	add_theme_support(
+		'html5',
+		array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
+
+	/**
+	 * Enable support for Post Formats.
+	 */
+	add_theme_support(
+		'post-formats',
+		array(
+			'image',
+			'gallery',
+			'video',
+			'quote',
+			'link',
+			'status',
+			'audio',
+			'chat',
+		)
+	);
+
+	/**
+	 * Set up the WordPress core custom background feature.
+	 */
+	add_theme_support(
+		'custom-background',
+		array(
+			'default-color'    => 'F3F7F6',
+			'default-image'    => '',
+			'wp-head-callback' => 'naya_lite_custom_background_cb',
+		)
+	);
+
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'        => 120,
+			'width'         => 220,
+			'flex-height'   => true,
+			'default-image' => '',
+		)
+	);
+}
+
+add_action( 'after_setup_theme', 'naya_lite_setup' );
+
+/**
  * Enqueue scripts and styles.
  */
 function naya_lite_scripts() {
