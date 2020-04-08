@@ -140,12 +140,6 @@ function sampression_customize_register_default( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
-		'footerText_heading_label',
-		array(
-			'selector' => '.footer-widget', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
 		'sampression_copyright_text',
 		array(
 			'selector' => '.copyright', // You can also select a css class

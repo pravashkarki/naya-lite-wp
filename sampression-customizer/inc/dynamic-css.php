@@ -57,34 +57,9 @@ if (!function_exists('sampression_header_style')) {
                 }
             }
         }
-//        if( !empty(get_theme_mod( 'primarynav_font_family' )) ) {
-//            $primary_nav .= 'font-family: ' . sampression_font_family( get_theme_mod( 'primarynav_font_family' ) ) . ';';
-//        } else {
-//            if($sampression_options_settings['nav_font_family'] != '') {
-//                $primary_nav .= 'font-family: ' . sampression_font_family( $sampression_options_settings['nav_font_family'] ) . ';';
-//            }
-//        }
-//        if( get_theme_mod( 'primarynav_font_style' ) ) {
-//            $primary_nav .= sampression_font_style( get_theme_mod( 'primarynav_font_style' ) );
-//        }
-//        if( get_theme_mod( 'primarynav_font_color' ) ) {
-//            $primary_nav .= 'color: #' . get_theme_mod( 'primarynav_font_color' ) . ';';
-//        } else {
-//            if(get_theme_mod( 'link_color' )) {
-//                $primary_nav .= 'color: ' . get_theme_mod('link_color') . ';';
-//            } else {
-//                if($sampression_options_settings['nav_font_color'] != '') {
-//                    $primary_nav .= 'color: ' . $sampression_options_settings['nav_font_color'] . ';';
-//                }
-//            }
-//        }
-//        if( get_theme_mod( 'primarynav_font_color_hover' ) ) {
-//            $primary_nav_col_hover .= 'color: #' . get_theme_mod( 'primarynav_font_color_hover' ) . ';';
-//        } else {
-//            if($sampression_options_settings['nav_font_color_hover'] != '') {
-//                $primary_nav_col_hover .= 'color: ' . $sampression_options_settings['nav_font_color_hover'] . ';';
-//            }
-//        }
+
+
+
         if ((get_theme_mod('use_social_default_color') === false)) {
             $social_media_icon .= 'color: #' . get_theme_mod('social_icon_color', '') . ';';
         }
@@ -170,26 +145,8 @@ if (!function_exists('sampression_header_style')) {
 
         $filter_icon = $filter_text = '';
 
-//        if( !empty(get_theme_mod( 'filterby_font_family' )) ) {
-//            $filter_text .= 'font-family: ' . sampression_font_family( get_theme_mod( 'filterby_font_family' ) ) . ';';
-//        }
-//
-//        $filter_text .= sampression_font_style( get_theme_mod( 'filterby_font_style', array('all-caps') ) );
-//
-//        if( get_theme_mod( 'filterby_font_color' ) ) {
-//            $filter_text .= 'color: #' .get_theme_mod( 'filterby_font_color' ) . ';';
-//            $filter_icon .= 'background-color: #' .get_theme_mod( 'filterby_font_color' ) . ';';
-//        } else {
-//            if(get_theme_mod( 'link_color' )) {
-//                $filter_text .= 'color: ' . get_theme_mod('link_color') . ';';
-//                $filter_icon .= 'background-color: ' . get_theme_mod('link_color') . ';';
-//            } else {
-//                if($sampression_options_settings['filter_by_color'] != '') {
-//                    $filter_text .= 'color: ' . $sampression_options_settings['filter_by_color'] . ';';
-//                    $filter_icon .= 'background-color: ' . $sampression_options_settings['filter_by_color'] . ';';
-//                }
-//            }
-//        }
+
+
 
         $meta_text = $meta_text_color = $meta_text_color_hover = '';
         if ((get_theme_mod('metatext_font_family'))) {
@@ -261,110 +218,9 @@ if (!function_exists('sampression_header_style')) {
         if (get_theme_mod('widgetText_hover_color')) {
             $widget_text_link_hover .= 'color: #' . get_theme_mod('widgetText_hover_color') . ';';
         }
-
-        //footer widget
-//        $footer_text = $footer_text_link = $footer_heading_text = $footer_text_link_hover = '';
-//        if( !empty(get_theme_mod( 'footerText_heading_font_family' )) ) {
-//            $footer_heading_text .= 'font-family: ' . sampression_font_family( get_theme_mod( 'footerText_heading_font_family' ) ) . ';';
-//        } else {
-//            if($sampression_options_settings['widget_header_font_family'] != '') {
-//                $footer_heading_text .= 'font-family: ' . sampression_font_family( $sampression_options_settings['widget_header_font_family'] ) . ';';
-//            }
-//        }
-//
-//        $footer_heading_text .= sampression_font_style( get_theme_mod( 'footerText_heading_font_style' ) );
-//
-//        if( get_theme_mod( 'footerText_heading_font_color' ) ) {
-//            $footer_heading_text .= 'color: #' . get_theme_mod( 'footerText_heading_font_color' ) . ';';
-//        } else {
-//            if (strpos(get_theme_mod( 'title_textcolor'), '#') !== false) {
-//                    $footer_heading_text .= 'color: ' . get_theme_mod('title_textcolor') . ';';
-//            } else {
-//                if ($sampression_options_settings['widget_header_font_color'] != '') {
-//                    $footer_heading_text .= 'color: ' . $sampression_options_settings['widget_header_font_color'] . ';';
-//                }
-//            }
-//        }
-//
-//        if( !empty(get_theme_mod( 'footerText_font_family' )) ) {
-//            $footer_text .= 'font-family: ' . sampression_font_family( get_theme_mod( 'footerText_font_family' ) ) . ';';
-//        }
-//
-//        $footer_text .= sampression_font_style( get_theme_mod( 'footerText_font_style' ) );
-//        if( get_theme_mod( 'footerText_font_color' ) ) {
-//            $footer_text .= 'color: #' .get_theme_mod( 'footerText_font_color' ) . ';';
-//        }
-//        if( get_theme_mod( 'footerText_link_color' ) ) {
-//            $footer_text_link .= 'color: #' .get_theme_mod( 'footerText_link_color' ) . ';';
-//        } else {
-//            if(get_theme_mod( 'link_color' )) {
-//                $footer_text_link .= 'color: ' . get_theme_mod('link_color') . ';';
-//            } else {
-//                if($sampression_options_settings['link_font_color'] != '') {
-//                    $footer_text_link .= 'color: ' . $sampression_options_settings['link_font_color'] . ';';
-//                }
-//            }
-//        }
-//
-//        $footer_a = '';
-//        if(get_theme_mod( 'link_color' ) && get_theme_mod('footer_link_color') == '') {
-//            $footer_a = 'color: ' . get_theme_mod('link_color') . ';';
-//        } else {
-//            if(get_theme_mod('footer_link_color')) {
-//                $footer_a = 'color: #' . get_theme_mod('footer_link_color') . ';';
-//            } else {
-//                if ($sampression_options_settings['link_font_color'] != '') {
-//                    $footer_a = 'color: ' . $sampression_options_settings['link_font_color'] . ';';
-//                }
-//            }
-//        }
-//
-//        if( get_theme_mod( 'footerText_hover_color' ) ) {
-//            $footer_text_link_hover .= 'color: #' .get_theme_mod( 'footerText_hover_color' ) . ';';
-//        } else {
-//            $footer_text_link_hover .= 'color: #333333;';
-//        }
-
-        //end
-
-//        $pagination_text = $pagination_text_link = '';
-//        if( !empty(get_theme_mod( 'paginationtext_font_family', 'Roboto:400,400italic,700,700italic=sans-serif' )) ) {
-//            $pagination_text .= 'font-family: ' . sampression_font_family( get_theme_mod( 'paginationtext_font_family', 'Roboto:400,400italic,700,700italic=sans-serif' ) ) . ';';
-//        }
-//        $pagination_text .= sampression_font_style( get_theme_mod( 'paginationtext_font_style' ) );
-//        if( get_theme_mod( 'paginationtext_font_color') ) {
-//            $pagination_text .= 'color: #' . get_theme_mod( 'paginationtext_font_color' ) . ';';
-//        } else {
-//            if (get_theme_mod( 'link_color')) {
-//                $pagination_text .= 'color: ' . get_theme_mod( 'link_color') . ';';
-//            } else {
-//                if($sampression_options_settings['link_font_color'] != '') {
-//                    $pagination_text .= 'color: ' . $sampression_options_settings['link_font_color'] . ';';
-//                }
-//            }
-//        }
-//        if( get_theme_mod( 'paginationtext_font_color_hover') ) {
-//            $pagination_text_link .= 'color: #' . get_theme_mod( 'paginationtext_font_color_hover') . ';';
-//        }
-//        $pin_color = '';
-//        if( get_theme_mod( 'sticky_pin_color' ) ) {
-//            $pin_color .= 'fill: #' . get_theme_mod( 'sticky_pin_color' ) . ';';
-//        } else {
-//            if($sampression_options_settings['sticky_bgcolor'] != '') {
-//                $pin_color .= 'fill: #' . $sampression_options_settings['sticky_bgcolor'] . ';';
-//            }
-//        }
-//        $button_bg = '';
-//        if( get_theme_mod( 'button_bg_color' ) ) {
-//            $button_bg .= 'background-color: #' . get_theme_mod( 'button_bg_color' ) . ';';
-//        } else {
-//            if($sampression_options_settings['button_bgcolor'] != '') {
-//                $button_bg .= 'background-color: ' . $sampression_options_settings['button_bgcolor'] . ';';
-//            }
-//        }
-
-        //echo $full_width_nav_a;
         ?>
+
+
         <style id="sampression-header-style" type="text/css">
             <?php
             if($webtitle != '' ) {
@@ -631,52 +487,15 @@ if (!function_exists('sampression_header_style')) {
             if( ($widget_text_link_hover )) {
             echo ".sidebar .widget a:hover,.widget a:hover { $widget_text_link_hover }" . PHP_EOL;
             }
-            if( ($footer_heading_text ) ) {
-            echo ".footer-widget .widget .widget-title { $footer_heading_text }" . PHP_EOL;
-            }
-            if( get_theme_mod( 'footerText_heading_font_size' ) ) {
-                $size = (int)get_theme_mod( 'footerText_heading_font_size' ) / 10;
-                $footerText_heading_font_size = 'font-size: ' . get_theme_mod( 'footerText_heading_font_size' ) . 'px; ';
-                $footerText_heading_font_size .= 'font-size: ' . $size . 'rem;';
-                echo "@media (min-width: 769px) {  .footer-widget .widget .widget-title { $footerText_heading_font_size } }" . PHP_EOL;
-            } else {
-                if(($sampression_options_settings['widget_header_font_size'] )) {
-                    $size = (int)$sampression_options_settings['widget_header_font_size'] / 10;
-                    $footerText_heading_font_size = 'font-size: ' . $sampression_options_settings['widget_header_font_size'] . 'px; ';
-                    $footerText_heading_font_size .= 'font-size: ' . $size . 'rem;';
-                    echo "@media (min-width: 769px) {  .footer-widget .widget .widget-title { $footerText_heading_font_size } }" . PHP_EOL;
-                }
-            }
-            if( ($footer_text ) ) {
-            echo ".footer-widget .widget { $footer_text }" . PHP_EOL;
-            }
-            if( get_theme_mod( 'footerText_font_size' ) ) {
-                $size = (int)get_theme_mod( 'footerText_font_size' ) / 10;
-                $footerText_font_size = 'font-size: ' . get_theme_mod( 'footerText_font_size' ) . 'px; ';
-                $footerText_font_size .= 'font-size: ' . $size . 'rem;';
-                echo "@media (min-width: 769px) {  .footer-widget .widget { $footerText_font_size } }" . PHP_EOL;
-            }
-            if( ($footer_text_link ) ) {
-            echo ".footer-widget .widget a { $footer_text_link }" . PHP_EOL;
-            }
-            if( ($footer_text_link_hover )) {
-            echo ".footer-widget .widget a:hover { $footer_text_link_hover }" . PHP_EOL;
-            }
-            if (($footer_a)) {
-            echo "#footer a { $footer_a }" . PHP_EOL;
-            }
-            if( ($pagination_text ) ) {
-            echo "#nav-above a, #nav-below a, #nav-below span { $pagination_text }" . PHP_EOL;
-            }
+
+
             if( get_theme_mod( 'paginationtext_font_size' ) ) {
                 $size = (int)get_theme_mod( 'paginationtext_font_size' ) / 10;
                 $paginationtext_font_size = 'font-size: ' . get_theme_mod( 'paginationtext_font_size' ) . 'px; ';
                 $paginationtext_font_size .= 'font-size: ' . $size . 'rem;';
                 echo "@media (min-width: 769px) {  #nav-above a, #nav-below a, #nav-below span { $paginationtext_font_size } }" . PHP_EOL;
             }
-            if( ($pagination_text_link ) ) {
-            echo "#nav-above a:hover, #nav-below a:hover, #nav-below a:hover span { $pagination_text_link }" . PHP_EOL;
-            }
+
             if(($pin_color)){
                 echo ".sticky-icon path{ $pin_color }" . PHP_EOL;
             }
