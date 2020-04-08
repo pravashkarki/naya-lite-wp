@@ -32,6 +32,19 @@ if ( ! function_exists( 'sampression_get_default_options_value' ) ) :
 		// Sidebar.
 		$defaults['sampression_sidebar_layout'] = 'right';
 
+		// Social.
+		$defaults['sampression_socials_facebook']   = '';
+		$defaults['sampression_socials_twitter']    = '';
+		$defaults['sampression_socials_youtube']    = '';
+		$defaults['sampression_socials_googleplus'] = '';
+		$defaults['sampression_socials_linkedin']   = '';
+		$defaults['sampression_socials_flickr']     = '';
+		$defaults['sampression_socials_vimeo']      = '';
+		$defaults['sampression_socials_github']     = '';
+		$defaults['sampression_socials_instagram']  = '';
+		$defaults['sampression_socials_tumblr']     = '';
+		$defaults['sampression_socials_pinterest']  = '';
+
 
 		//font setting
 		$defaults['font']                       = 'Kreon, serif';
