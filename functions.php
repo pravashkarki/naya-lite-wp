@@ -96,20 +96,17 @@ add_action( 'after_setup_theme', 'naya_lite_setup' );
  * Enqueue scripts and styles.
  */
 function naya_lite_scripts() {
-	// wp_enqueue_style( 'gfont-kreon', '//fonts.googleapis.com/css?family=Kreon:400,700' );
-	// wp_enqueue_style( 'gfont-droid', '//fonts.googleapis.com/css?family=Droid+Serif:400,400italic' );
-
 	$fonts_url = naya_lite_fonts_url();
 
 	if ( ! empty( $fonts_url ) ) {
-		wp_enqueue_style( 'naya-lite-google-fonts', $fonts_url, array(), '1.0.0' );
+		wp_enqueue_style( 'naya-lite-google-fonts', $fonts_url );
 	}
 
-	wp_enqueue_style( 'font', get_template_directory_uri() . '/lib/css/fonts-sampression.css' );
-	wp_enqueue_style( 'superfish', get_template_directory_uri() . '/lib/css/base-960.css' );
-	wp_enqueue_style( 'base', get_template_directory_uri() . '/lib/css/superfish.css' );
-	wp_enqueue_style( 'mediaq', get_template_directory_uri() . '/lib/css/mediaquery.css' );
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/lib/css/font-awesome.css' );
+	wp_enqueue_style( 'font', get_template_directory_uri() . '/lib/css/fonts-sampression.css' );
+	wp_enqueue_style( 'base', get_template_directory_uri() . '/lib/css/base-960.css' );
+	wp_enqueue_style( 'superfish', get_template_directory_uri() . '/lib/css/superfish.css' );
+	wp_enqueue_style( 'mediaq', get_template_directory_uri() . '/lib/css/mediaquery.css' );
 
 	wp_enqueue_style( 'naya-lite-style', get_stylesheet_uri() );
 

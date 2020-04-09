@@ -23,6 +23,8 @@
 <body <?php body_class(); ?>>
 <?php do_action( 'wp_body_open' ); ?>
 
+<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'naya-lite' ); ?></a>
+
 <div id="wrapper">
     <div id="inner-wrapper">
 
@@ -70,12 +72,3 @@
                 <!-- #primary-nav -->
             </div>
         </header><!--/#header-->
-
-
-<?php
-
-// $hide_post_metas = sampression_get_option( 'hide_post_metas'  );
-// nspre( $hide_post_metas );
-
-// $back = get_theme_support( 'custom-background' );
-// nspre( $back );
