@@ -3,7 +3,7 @@
 /**
  * Contains methods for custom controls for Sampression Theme
  *
- * @since Sampression 2.0
+ * @since 2.0
  */
 
 if( class_exists( 'WP_Customize_Control' ) ) :
