@@ -39,7 +39,8 @@ custom.css and it will override the style in this file. You have been warned! :)
  * 01.0 Import css
  * -----------------------------------------------------------------------------
  */
-@import url(lib/css/base-960.css);
+
+/*@import url(lib/css/base-960.css);*/
 
 /**
  * 02.0 Reset & Basics (Inspired by E. Meyers)

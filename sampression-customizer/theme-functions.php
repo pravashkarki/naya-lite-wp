@@ -125,11 +125,31 @@ function sampression_navigation() {
 }
 
 function sampression_primary_navigation_fallback() {
+	echo '<div class="main-nav-wrapper">';
+	echo '<ul class="main-nav">';
+	echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'artblog-pro' ) . '</a></li>';
+
 	$args = array(
-		'sort_column' => 'menu_order, post_title',
-		'menu_class'  => 'main-nav-wrapper',
+		'posts_per_page' => 4,
+		'post_type'      => 'page',
+		'post_status'    => 'publish',
+		'orderby'        => 'name',
+		'order'          => 'ASC',
 	);
-	wp_page_menu( $args );
+
+	$the_query = new WP_Query( $args );
+
+	if ( $the_query->have_posts() ) {
+		while ( $the_query->have_posts() ) {
+			$the_query->the_post();
+			the_title( '<li><a href="' . esc_url( get_permalink() ) . '">', '</a></li>' );
+		}
+
+		wp_reset_postdata();
+	}
+
+	echo '</ul>';
+	echo '</div>';
 }
 
 if ( ! function_exists( 'sampression_the_title' ) ) :
