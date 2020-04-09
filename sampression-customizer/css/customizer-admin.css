@@ -30,16 +30,7 @@
 #customize-control-footerText_heading_label .customize-control-title{
     margin-top: 0;
 }
-/*
-#customize-control-webtitle_font_family select,
-#customize-control-webtitle_font_family select option {
-	background: url('http://sampression-pro.dev/wp-content/uploads/2016/02/Scarlett-Johansson-scarlett-johansson-8836765-1600-1200-150x150.jpg');
-	text-indent: -999em;
-}
 
-#customize-control-webtitle_font_family select option:hover {
-	opacity: 0.5;
-}*/
 .customize-partial-edit-shortcut-button{
     left:-5px !important;
 }

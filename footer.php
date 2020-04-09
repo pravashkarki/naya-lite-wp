@@ -22,8 +22,8 @@
                         <?php if ( ! empty( $sampression_copyright_text ) ) : ?>
                         	<?php echo wp_kses_post( $sampression_copyright_text ); ?>
                         <?php else: ?>
-                        	<?php printf(esc_html__('&copy; 2017. A theme by ', 'naya-lite')); ?>
-                        	<a href="<?php echo esc_url(__('sampression.com', 'naya-lite')); ?>"><?php
+                        	<?php printf(esc_html__('&copy; 2020. A theme by ', 'naya-lite')); ?>
+                        	<a href="https://sampression.com/"><?php
                         	    /* translators: %s: CMS name, i.e. WordPress. */
                         	    printf(esc_html__(' %s', 'naya-lite'), 'Sampression');
                         	    ?></a>
