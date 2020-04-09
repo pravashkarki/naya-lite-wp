@@ -28,30 +28,28 @@ function naya_lite_fonts_url() {
 	$theme_options = array();
 
 	foreach ( $font_fields as $k ) {
-
 		$theme_options[] = sampression_get_option( $k );
 	}
 
 	$theme_options = array_unique( $theme_options );
 
-	foreach ( $theme_options as $f) {
+	foreach ( $theme_options as $f ) {
+		$f_family = explode( '=', $f );
 
-		$f_family = explode(':', $f);
+		$font_family = ( ! empty( $f_family[0] ) ) ? $f_family[0] : '';
 
-		$f_family = str_replace('+', ' ', $f_family);
-
-		$font_family = ( !empty( $f_family[1]) ) ? $f_family[1] : '';
-
-		$fonts[] = $f_family[0].':'.$font_family;
-
+		$fonts[] = $font_family;
 	}
 
 	if ( $fonts ) {
-		$fonts_url = add_query_arg( array(
-			'family'  => urlencode( implode( '|', $fonts ) ),
-			'subset'  => urlencode( $subsets ),
-			'display' => 'swap',
-		), '//fonts.googleapis.com/css' );
+		$fonts_url = add_query_arg(
+			array(
+				'family'  => implode( '|', $fonts ),
+				'subset'  => $subsets,
+				'display' => 'swap',
+			),
+			'//fonts.googleapis.com/css'
+		);
 	}
 
 	return esc_url_raw( $fonts_url );
