@@ -33,21 +33,11 @@ foreach ( $sampression_customizer_settings as $customizer_setting ) {
 }
 
 /**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- */
-function sampression_customize_preview_js() {
-	wp_enqueue_script( 'sampression-customizer', get_template_directory_uri() . '/sampression-customizer/js/customizer.js', array( 'jquery' ), '1.0', true );
-}
-
-add_action( 'customize_preview_init', 'sampression_customize_preview_js' );
-
-/**
  * Enqueue Scripts for customize controls.
  */
 function sampression_customize_scripts() {
 	wp_enqueue_script( 'sampression-customize-control', get_template_directory_uri() . '/sampression-customizer/js/customizer-control.js', array( 'jquery' ), '', true );
 	wp_enqueue_style( 'sampression-admin-style', get_template_directory_uri() . '/sampression-customizer/css/customizer-admin.css', '1.0', 'screen' );
-	wp_enqueue_script( 'sampression-admin-js', get_template_directory_uri() . '/sampression-customizer/js/customizer-admin.js', array( 'jquery' ), '', true );
 }
 
 add_action( 'customize_controls_enqueue_scripts', 'sampression_customize_scripts' );
