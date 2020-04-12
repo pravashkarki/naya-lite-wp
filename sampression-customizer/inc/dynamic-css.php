@@ -5,139 +5,141 @@ function sampression_header_style() {
 
 	// Website Title Style
 	if ( ( sampression_get_option( 'webtitle_font_family' ) ) ) {
-		$webtitle .= 'font-family: ' . sampression_get_font_family( sampression_get_option( 'webtitle_font_family' ) ) . ';';
+		$webtitle .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'webtitle_font_family' ) ) ) . ';';
 	} else {
 		if ( sampression_get_option( 'body_font' ) ) {
-			$webtitle .= 'font-family: ' . sampression_get_font_family( sampression_get_option( 'body_font' ) ) . ';';
+			$webtitle .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'body_font' ) ) ) . ';';
 		}
 	}
 	if ( null !== sampression_get_option( 'webtitle_font_style' ) ) {
 		$webtitle .= sampression_font_style( sampression_get_option( 'webtitle_font_style' ) );
 	}
 	if ( sampression_get_option( 'webtitle_font_color' ) ) {
-		$webtitle_color .= 'color: #' . sampression_get_option( 'webtitle_font_color', '' ) . ';';
+		$webtitle_color .= 'color: #' . esc_attr( sampression_get_option( 'webtitle_font_color', '' ) ) . ';';
 	} else {
 		if ( sampression_get_option( 'title_textcolor' ) ) {
-			$webtitle_color .= 'color: ' . sampression_get_option( 'title_textcolor' ) . ';';
+			$webtitle_color .= 'color: ' . esc_attr( sampression_get_option( 'title_textcolor' ) ) . ';';
 		}
 	}
 
 	// Website Tagline Style
 	if ( ( sampression_get_option( 'webtagline_font_family' ) ) ) {
-		$webtagline .= 'font-family: ' . sampression_get_font_family( sampression_get_option( 'webtagline_font_family' ) ) . ';';
+		$webtagline .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'webtagline_font_family' ) ) ). ';';
 	} else {
 		if ( sampression_get_option( 'body_font' ) ) {
-			$webtagline .= 'font-family: ' . sampression_get_font_family( sampression_get_option( 'body_font' ) ) . ';';
+			$webtagline .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'body_font' ) ) ) . ';';
 		}
 	}
 	if ( sampression_get_option( 'webtagline_font_style' ) ) {
 		$webtagline .= sampression_font_style( sampression_get_option( 'webtagline_font_style' ) );
 	}
 	if ( sampression_get_option( 'webtagline_font_color' ) ) {
-		$webtagline .= 'color: #' . sampression_get_option( 'webtagline_font_color' ) . ';';
+		$webtagline .= 'color: #' . esc_attr( sampression_get_option( 'webtagline_font_color' ) ) . ';';
 	} else {
 		if ( sampression_get_option( 'body_textcolor' ) && sampression_get_option( 'webtagline_font_color' ) == '' ) {
-			$webtagline .= 'color: ' . sampression_get_option( 'body_textcolor' ) . ';';
+			$webtagline .= 'color: ' . esc_attr( sampression_get_option( 'body_textcolor' ) ) . ';';
 		}
 	}
 
 	if ( ( sampression_get_option( 'use_social_default_color' ) === false ) ) {
-		$social_media_icon .= 'color: #' . sampression_get_option( 'social_icon_color', '' ) . ';';
+		$social_media_icon .= 'color: #' . esc_attr( sampression_get_option( 'social_icon_color', '' ) ) . ';';
 	}
 
 	$header_text = $header_text_hover = '';
 	if ( ( sampression_get_option( 'title_font' ) ) ) {
-		$header_text .= 'font-family: ' . sampression_get_font_family( sampression_get_option( 'title_font' ) ) . ';';
+		$header_text .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'title_font' ) ) ) . ';';
 	}
 
 	$header_text .= sampression_font_style( sampression_get_option( 'headertext_font_style', 'bold' ) );
 	if ( sampression_get_option( 'title_textcolor' ) ) {
 		if ( strpos( sampression_get_option( 'title_textcolor' ), '#' ) !== false ) {
-			$header_text .= 'color: ' . sampression_get_option( 'title_textcolor' ) . ';';
+			$header_text .= 'color: ' . esc_attr( sampression_get_option( 'title_textcolor' ) ) . ';';
 		} else {
-			$header_text .= 'color: #' . sampression_get_option( 'title_textcolor' ) . ';';
+			$header_text .= 'color: #' . esc_attr( sampression_get_option( 'title_textcolor' ) ) . ';';
 		}
 	}
 	if ( sampression_get_option( 'headertext_link_color' ) ) {
-		$header_text_hover .= 'color: #' . sampression_get_option( 'headertext_link_color' ) . ';';
+		$header_text_hover .= 'color: #' . esc_attr( sampression_get_option( 'headertext_link_color' ) ) . ';';
 	}
-	$body_text                 = $bodytext_link_color = '';
+
+	$body_text = $bodytext_link_color = '';
+
 	$bodytext_link_color_hover = '';
 	if ( ( sampression_get_option( 'body_font' ) ) ) {
-		$body_text .= 'font-family: ' . sampression_get_font_family( sampression_get_option( 'body_font' ) ) . ';';
+		$body_text .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'body_font' ) ) ) . ';';
 	}
 
 	$body_text .= sampression_font_style( sampression_get_option( 'bodytext_font_style' ) );
 	if ( sampression_get_option( 'body_textcolor' ) ) {
 		if ( strpos( sampression_get_option( 'body_textcolor' ), '#' ) !== false ) {
-			$body_text .= 'color: ' . sampression_get_option( 'body_textcolor' ) . ';';
+			$body_text .= 'color: ' . esc_attr( sampression_get_option( 'body_textcolor' ) ) . ';';
 		} else {
-			$body_text .= 'color: #' . sampression_get_option( 'body_textcolor' ) . ';';
+			$body_text .= 'color: #' . esc_attr( sampression_get_option( 'body_textcolor' ) ) . ';';
 		}
 	}
 
 	if ( sampression_get_option( 'bodytext_font_size' ) ) {
 		if ( ( sampression_get_option( 'bodytext_font_size' ) ) ) {
-			$body_text .= 'font-size: ' . sampression_get_font_family( sampression_get_option( 'bodytext_font_size' ) ) . 'px;';
+			$body_text .= 'font-size: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'bodytext_font_size' ) ) ) . 'px;';
 		}
 	}
 
 	if ( sampression_get_option( 'body_link_color' ) ) {
-		$bodytext_link_color .= 'color: #' . sampression_get_option( 'body_link_color' ) . ';';
+		$bodytext_link_color .= 'color: #' . esc_attr( sampression_get_option( 'body_link_color' ) ) . ';';
 	} else {
 		if ( sampression_get_option( 'link_color' ) ) {
-			$bodytext_link_color .= 'color: ' . sampression_get_option( 'link_color' ) . ';';
+			$bodytext_link_color .= 'color: ' . esc_attr( sampression_get_option( 'link_color' ) ) . ';';
 		}
 	}
 
 	$meta_text = $meta_text_color = $meta_text_color_hover = '';
 	if ( ( sampression_get_option( 'metatext_font_family' ) ) ) {
-		$meta_text .= 'font-family: ' . sampression_get_font_family( sampression_get_option( 'metatext_font_family' ) ) . ';';
+		$meta_text .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'metatext_font_family' ) ) ) . ';';
 	}
 	$meta_text .= sampression_font_style( sampression_get_option( 'metatext_font_style' ) );
 	if ( sampression_get_option( 'metatext_font_color' ) ) {
-		$meta_text_color .= 'color: #' . sampression_get_option( 'metatext_font_color' ) . ';';
+		$meta_text_color .= 'color: #' . esc_attr( sampression_get_option( 'metatext_font_color' ) ) . ';';
 	} else {
 		if ( sampression_get_option( 'link_color' ) ) {
-			$meta_text_color .= 'color: ' . sampression_get_option( 'link_color' ) . ';';
+			$meta_text_color .= 'color: ' . esc_attr( sampression_get_option( 'link_color' ) ) . ';';
 		}
 	}
 	if ( sampression_get_option( 'metatext_link_color' ) ) {
-		$meta_text_color_hover .= 'color: #' . sampression_get_option( 'metatext_link_color' ) . ';';
+		$meta_text_color_hover .= 'color: #' . esc_attr( sampression_get_option( 'metatext_link_color' ) ) . ';';
 	}
 
 	$widget_text = $widget_text_link = $widget_heading_text = $widget_text_link_hover = '';
 	if ( ( sampression_get_option( 'widgetText_heading_font_family' ) ) ) {
-		$widget_heading_text .= 'font-family: ' . sampression_get_font_family( sampression_get_option( 'widgetText_heading_font_family' ) ) . ';';
+		$widget_heading_text .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'widgetText_heading_font_family' ) ) ) . ';';
 	}
 
 	$widget_heading_text .= sampression_font_style( sampression_get_option( 'widgetText_heading_font_style' ) );
 
 	if ( sampression_get_option( 'widgetText_heading_font_color' ) ) {
-		$widget_heading_text .= 'color: #' . sampression_get_option( 'widgetText_heading_font_color' ) . ';';
+		$widget_heading_text .= 'color: #' . esc_attr( sampression_get_option( 'widgetText_heading_font_color' ) ) . ';';
 	} else {
 		if ( sampression_get_option( 'title_textcolor' ) ) {
-			$widget_heading_text .= 'color: ' . sampression_get_option( 'title_textcolor' ) . ';';
+			$widget_heading_text .= 'color: ' . esc_attr( sampression_get_option( 'title_textcolor' ) ) . ';';
 		}
 	}
 
 	if ( ( sampression_get_option( 'widgetText_font_family' ) ) ) {
-		$widget_text .= 'font-family: ' . sampression_get_font_family( sampression_get_option( 'widgetText_font_family' ) ) . ';';
+		$widget_text .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'widgetText_font_family' ) ) ) . ';';
 	}
 
 	$widget_text .= sampression_font_style( sampression_get_option( 'widgetText_font_style' ) );
 	if ( sampression_get_option( 'widgetText_font_color' ) ) {
-		$widget_text .= 'color: #' . sampression_get_option( 'widgetText_font_color' ) . ';';
+		$widget_text .= 'color: #' . esc_attr( sampression_get_option( 'widgetText_font_color' ) ) . ';';
 	}
 	if ( sampression_get_option( 'widgetText_link_color' ) ) {
-		$widget_text_link .= 'color: #' . sampression_get_option( 'widgetText_link_color' ) . ';';
+		$widget_text_link .= 'color: #' . esc_attr( sampression_get_option( 'widgetText_link_color' ) ) . ';';
 	} else {
 		if ( sampression_get_option( 'link_color' ) ) {
-			$widget_text_link .= 'color: ' . sampression_get_option( 'link_color' ) . ';';
+			$widget_text_link .= 'color: ' . esc_attr( sampression_get_option( 'link_color' ) ) . ';';
 		}
 	}
 	if ( sampression_get_option( 'widgetText_hover_color' ) ) {
-		$widget_text_link_hover .= 'color: #' . sampression_get_option( 'widgetText_hover_color' ) . ';';
+		$widget_text_link_hover .= 'color: #' . esc_attr( sampression_get_option( 'widgetText_hover_color' ) ) . ';';
 	}
 	?>
 
@@ -149,7 +151,7 @@ function sampression_header_style() {
 		}
 		if ( sampression_get_option( 'webtitle_font_size' ) ) {
 			$size                = (int) sampression_get_option( 'webtitle_font_size' ) / 10;
-			$webtitle_font_size  = 'font-size: ' . sampression_get_option( 'webtitle_font_size' ) . 'px; ';
+			$webtitle_font_size  = 'font-size: ' . esc_attr( sampression_get_option( 'webtitle_font_size' ) ) . 'px; ';
 			$webtitle_font_size .= 'font-size: ' . $size . 'rem;';
 			echo "@media (min-width: 769px) {  #site-title { $webtitle_font_size } }" . PHP_EOL;
 		}
@@ -162,7 +164,7 @@ function sampression_header_style() {
 		}
 		if ( sampression_get_option( 'webtagline_font_size' ) ) {
 			$size                  = (int) sampression_get_option( 'webtagline_font_size' ) / 10;
-			$webtagline_font_size  = 'font-size: ' . sampression_get_option( 'webtagline_font_size' ) . 'px; ';
+			$webtagline_font_size  = 'font-size: ' . esc_attr( sampression_get_option( 'webtagline_font_size' ) ) . 'px; ';
 			$webtagline_font_size .= 'font-size: ' . $size . 'rem;';
 			echo "@media (min-width: 769px) {  #site-description { $webtagline_font_size } }" . PHP_EOL;
 		}
@@ -179,7 +181,7 @@ function sampression_header_style() {
 		}
 		if ( sampression_get_option( 'headertext_font_size' ) ) {
 			$size                  = (int) sampression_get_option( 'headertext_font_size' ) / 10;
-			$headertext_font_size  = 'font-size: ' . sampression_get_option( 'headertext_font_size' ) . 'px; ';
+			$headertext_font_size  = 'font-size: ' . esc_attr( sampression_get_option( 'headertext_font_size' ) ) . 'px; ';
 			$headertext_font_size .= 'font-size: ' . $size . 'rem;';
 			echo "@media (min-width: 769px) {  #page-not-found-message h2, article.post .post-title a, #page-not-found-message h3 a, body.single article.post .post-title, body.page article.post .post-title ,
             .entry-header .entry-title,.page-title,.entry-title,.comments-title,.entry-title a{ $headertext_font_size } }" . PHP_EOL;
@@ -200,7 +202,7 @@ function sampression_header_style() {
 			$h6_font_size = (int) sampression_get_option( 'bodytext_font_size' ) + 1;
 
 			$size                = (int) sampression_get_option( 'bodytext_font_size' ) / 10;
-			$bodytext_font_size  = 'font-size: ' . sampression_get_option( 'bodytext_font_size' ) . 'px; ';
+			$bodytext_font_size  = 'font-size: ' . esc_attr( sampression_get_option( 'bodytext_font_size' ) ) . 'px; ';
 			$bodytext_font_size .= 'font-size: ' . $size . 'rem;';
 			echo "@media (min-width: 769px) {  body .entry, body .comment-content{ $bodytext_font_size }" . PHP_EOL;
 
@@ -217,12 +219,12 @@ function sampression_header_style() {
 		}
 
 		if ( ( sampression_get_option( 'bodytext_font_color' ) ) ) {
-			echo 'body .entry a:hover { color: #' . sampression_get_option( 'bodytext_font_color' ) . '; }' . PHP_EOL;
+			echo 'body .entry a:hover { color: #' . esc_attr( sampression_get_option( 'bodytext_font_color' ) ) . '; }' . PHP_EOL;
 		}
 
 		if ( ( sampression_get_option( 'bodytext_font_color' ) ) ) {
-			echo '#primary-nav .nav-label { color: #' . sampression_get_option( 'bodytext_font_color' ) . '; }' . PHP_EOL;
-			echo "input[type='submit']:hover { background-color: #" . sampression_get_option( 'bodytext_font_color' ) . '; }' . PHP_EOL;
+			echo '#primary-nav .nav-label { color: #' . esc_attr( sampression_get_option( 'bodytext_font_color' ) ) . '; }' . PHP_EOL;
+			echo "input[type='submit']:hover { background-color: #" . esc_attr( sampression_get_option( 'bodytext_font_color' ) ) . '; }' . PHP_EOL;
 		}
 		if ( ( $meta_text ) ) {
 			echo '.meta a, .comment-meta a, .logged-in-as a,.entry-meta a ,.entry-meta span{ ' . $meta_text . ' }' . PHP_EOL;
@@ -230,7 +232,7 @@ function sampression_header_style() {
 		if ( ( sampression_get_option( 'metatext_font_size' ) ) ) {
 			$meta_icon_size      = (int) sampression_get_option( 'metatext_font_size' ) + 8;
 			$size                = (int) sampression_get_option( 'metatext_font_size' ) / 10;
-			$metatext_font_size  = 'font-size: ' . sampression_get_option( 'metatext_font_size' ) . 'px; ';
+			$metatext_font_size  = 'font-size: ' . esc_attr( sampression_get_option( 'metatext_font_size' ) ) . 'px; ';
 			$metatext_font_size .= 'font-size: ' . $size . 'rem;';
 			echo '@media (min-width: 769px) {  .post-author:before, .posted-on:before, .edit:before, .cats:before, .tags:before, .cats:before, .count-comment:before{ font-size: ' . $meta_icon_size . 'px; }' . PHP_EOL;
 			echo '.meta a, .comment-meta a, .logged-in-as a ,.entry-meta span{ ' . $metatext_font_size . 'px; }' . PHP_EOL;
@@ -248,7 +250,7 @@ function sampression_header_style() {
 		}
 		if ( sampression_get_option( 'widgetText_heading_font_size' ) ) {
 			$size                          = (int) sampression_get_option( 'widgetText_heading_font_size' ) / 10;
-			$widgetText_heading_font_size  = 'font-size: ' . sampression_get_option( 'widgetText_heading_font_size' ) . 'px; ';
+			$widgetText_heading_font_size  = 'font-size: ' . esc_attr( sampression_get_option( 'widgetText_heading_font_size' ) ) . 'px; ';
 			$widgetText_heading_font_size .= 'font-size: ' . $size . 'rem;';
 			echo "@media (min-width: 769px) {  .sidebar .widget .widget-title,.widget .widget-title { $widgetText_heading_font_size } } .sidebar .widget .widget-title,.widget .widget-title,.widget select { $widgetText_heading_font_size }" . PHP_EOL;
 		}
@@ -258,7 +260,7 @@ function sampression_header_style() {
 		}
 		if ( sampression_get_option( 'widgetText_font_size' ) ) {
 			$size                  = (int) sampression_get_option( 'widgetText_font_size' ) / 10;
-			$widgetText_font_size  = 'font-size: ' . sampression_get_option( 'widgetText_font_size' ) . 'px; ';
+			$widgetText_font_size  = 'font-size: ' . esc_attr( sampression_get_option( 'widgetText_font_size' ) ) . 'px; ';
 			$widgetText_font_size .= 'font-size: ' . $size . 'rem;';
 			echo "@media (min-width: 769px) {  .sidebar .widget,.widget select { $widgetText_font_size } } .widget { $widgetText_font_size }" . PHP_EOL;
 		}

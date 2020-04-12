@@ -358,12 +358,13 @@ endif;
 function sampression_get_previous_image_id( $prev = true ) {
 	$post = get_post();
 
-	$attachments = array_values( get_children( array( 'post_parent'    => $post->post_parent,
+	$attachments = array_values( get_children( array(
+		'post_parent'    => $post->post_parent,
 		'post_status'    => 'inherit',
 		'post_type'      => 'attachment',
 		'post_mime_type' => 'image',
 		'order'          => 'ASC',
-		'orderby'        => 'menu_order ID'
+		'orderby'        => 'menu_order ID',
 	) ) );
 
 	foreach ( $attachments as $k => $attachment ) {
@@ -495,6 +496,7 @@ function sampression_post_class() {
 
 function sampression_get_post_format() {
 	$format = get_post_format();
+
 	if ( false === $format ) {
 		$format = 'standard';
 	}

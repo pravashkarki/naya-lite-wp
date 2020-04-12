@@ -101,16 +101,6 @@ function sampression_sanitize_checkbox($checked)
 }
 
 /**
- * Sanitazation callback for textarea as allowed HTML tags for post content
- * @param  string $input Content to filter
- * @return string        Filtered content
- */
-function sampression_sanitize_text($input)
-{
-    return wp_kses_post(force_balance_tags($input));
-}
-
-/**
  * Sanitize select.
  *
  * @since 1.0.0
