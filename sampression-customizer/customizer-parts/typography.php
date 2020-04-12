@@ -46,7 +46,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'section'           => 'sampression_title_tag_section',
 			'choices'           => sampression_fonts(),
 			'settings'          => 'webtitle_font_family',
-			'label'             => 'Site Font Family',
+			'label'             => __( 'Site Font Family', 'naya-lite' ),
 			'sanitize_callback' => 'sampression_sanitize_fonts',
 		)
 	);
@@ -66,7 +66,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'priority'    => 2,
 			'settings'    => 'webtitle_font_size',
 			'section'     => 'sampression_title_tag_section',
-			'label'       => 'Site Title Font Size',
+			'label'       => __( 'Site Title Font Size', 'naya-lite' ),
 			'input_attrs' => array(
 				'min'  => 12,
 				'max'  => 72,
@@ -91,7 +91,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'priority' => 3,
 				'settings' => 'webtitle_font_style',
 				'section'  => 'sampression_title_tag_section',
-				'label'    => 'Site Title Font Style',
+				'label'    => __( 'Site Title Font Style', 'naya-lite' ),
 				'choices'  => sampression_get_font_style_options(),
 			)
 		)
@@ -136,7 +136,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'section'  => 'sampression_title_tag_section',
 			'choices'  => sampression_fonts(),
 			'settings' => 'webtagline_font_family',
-			'label'    => ' Tagline Font Family',
+			'label'    => __( 'Tagline Font Family', 'naya-lite' ),
 		)
 	);
 
@@ -156,7 +156,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'priority'    => 6,
 			'settings'    => 'webtagline_font_size',
 			'section'     => 'sampression_title_tag_section',
-			'label'       => ' Tagline Font Size',
+			'label'       => __( 'Tagline Font Size', 'naya-lite' ),
 			'input_attrs' => array(
 				'min'  => 12,
 				'max'  => 32,
@@ -181,7 +181,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'priority' => 7,
 				'settings' => 'webtagline_font_style',
 				'section'  => 'sampression_title_tag_section',
-				'label'    => ' Tagline Font Style',
+				'label'    => __( 'Tagline Font Style', 'naya-lite' ),
 				'choices'  => sampression_get_font_style_options(),
 			)
 		)
@@ -236,7 +236,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'section'  => 'sampression_headertext_section',
 			'choices'  => sampression_fonts(),
 			'settings' => 'title_font',
-			'label'    => 'Font Family',
+			'label'    => __( 'Font Family', 'naya-lite' ),
 		)
 	);
 
@@ -256,7 +256,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'priority'    => 2,
 			'settings'    => 'headertext_font_size',
 			'section'     => 'sampression_headertext_section',
-			'label'       => 'Font Size1111',
+			'label'       => __( 'Font Size', 'naya-lite' ),
 			'input_attrs' => array(
 				'min'  => 12,
 				'max'  => 36,
@@ -281,7 +281,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'priority' => 3,
 				'settings' => 'headertext_font_style',
 				'section'  => 'sampression_headertext_section',
-				'label'    => 'Font Style',
+				'label'    => __( 'Font Style', 'naya-lite' ),
 				'choices'  => sampression_get_font_style_options(),
 			)
 		)
@@ -358,7 +358,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'section'  => 'sampression_bodytext_section',
 			'choices'  => sampression_fonts(),
 			'settings' => 'body_font',
-			'label'    => 'Font Family',
+			'label'    => __( 'Font Family', 'naya-lite' ),
 		)
 	);
 
@@ -378,7 +378,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'priority'    => 2,
 			'settings'    => 'bodytext_font_size',
 			'section'     => 'sampression_bodytext_section',
-			'label'       => 'Font Size',
+			'label'       => __( 'Font Size', 'naya-lite' ),
 			'input_attrs' => array(
 				'min'  => 12,
 				'max'  => 22,
@@ -404,7 +404,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'priority' => 3,
 				'settings' => 'bodytext_font_style',
 				'section'  => 'sampression_bodytext_section',
-				'label'    => 'Font Style',
+				'label'    => __( 'Font Style', 'naya-lite' ),
 				'choices'  => sampression_get_font_style_options(),
 			)
 		)
@@ -481,7 +481,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'section'  => 'sampression_metatext_section',
 			'choices'  => sampression_fonts(),
 			'settings' => 'metatext_font_family',
-			'label'    => 'Font Family',
+			'label'    => __( 'Font Family', 'naya-lite' ),
 		)
 	);
 
@@ -501,7 +501,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'priority'    => 2,
 			'settings'    => 'metatext_font_size',
 			'section'     => 'sampression_metatext_section',
-			'label'       => 'Font Size',
+			'label'       => __( 'Font Size', 'naya-lite' ),
 			'input_attrs' => array(
 				'min'  => 12,
 				'max'  => 22,
@@ -526,7 +526,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'priority' => 3,
 				'settings' => 'metatext_font_style',
 				'section'  => 'sampression_metatext_section',
-				'label'    => 'Font Style',
+				'label'    => __( 'Font Style', 'naya-lite' ),
 				'choices'  => sampression_get_font_style_options(),
 			)
 		)
@@ -599,7 +599,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'priority' => 1,
 			'section'  => 'sampression_widgetText_section',
 			'settings' => 'widgetText_heading_label',
-			'label'    => 'Widget Heading',
+			'label'    => __( 'Widget Heading', 'naya-lite' ),
 			'type'     => 'hidden',
 		)
 	);
@@ -621,7 +621,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'section'  => 'sampression_widgetText_section',
 			'choices'  => sampression_fonts(),
 			'settings' => 'widgetText_heading_font_family',
-			'label'    => 'Font Family',
+			'label'    => __( 'Font Family', 'naya-lite' ),
 		)
 	);
 
@@ -641,7 +641,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'priority'    => 3,
 			'settings'    => 'widgetText_heading_font_size',
 			'section'     => 'sampression_widgetText_section',
-			'label'       => 'Font Size',
+			'label'       => __( 'Font Size', 'naya-lite' ),
 			'input_attrs' => array(
 				'min'  => 12,
 				'max'  => 25,
@@ -667,7 +667,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'priority' => 4,
 				'settings' => 'widgetText_heading_font_style',
 				'section'  => 'sampression_widgetText_section',
-				'label'    => 'Font Style',
+				'label'    => __( 'Font Style', 'naya-lite' ),
 				'choices'  => sampression_get_font_style_options(),
 			)
 		)
@@ -710,7 +710,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'priority' => 6,
 			'section'  => 'sampression_widgetText_section',
 			'settings' => 'widgetText_label',
-			'label'    => 'Widget Text',
+			'label'    => __( 'Widget Text', 'naya-lite' ),
 			'type'     => 'hidden',
 		)
 	);
@@ -732,7 +732,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'section'  => 'sampression_widgetText_section',
 			'choices'  => sampression_fonts(),
 			'settings' => 'widgetText_font_family',
-			'label'    => 'Font Family',
+			'label'    => __( 'Font Family', 'naya-lite' ),
 		)
 	);
 
@@ -753,7 +753,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'priority'    => 8,
 			'settings'    => 'widgetText_font_size',
 			'section'     => 'sampression_widgetText_section',
-			'label'       => 'Font Size',
+			'label'       => __( 'Font Size', 'naya-lite' ),
 			'input_attrs' => array(
 				'min'  => 12,
 				'max'  => 22,
@@ -779,7 +779,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 				'priority' => 9,
 				'settings' => 'widgetText_font_style',
 				'section'  => 'sampression_widgetText_section',
-				'label'    => 'Font Style',
+				'label'    => __( 'Font Style', 'naya-lite' ),
 				'choices'  => sampression_get_font_style_options(),
 			)
 		)
