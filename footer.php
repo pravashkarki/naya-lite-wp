@@ -25,12 +25,12 @@
                         	<?php printf(esc_html__('&copy; 2020. A theme by ', 'naya-lite')); ?>
                         	<a href="https://sampression.com/"><?php
                         	    /* translators: %s: CMS name, i.e. WordPress. */
-                        	    printf(esc_html__(' %s', 'naya-lite'), 'Sampression');
+                        	    printf(' %s', 'Sampression');
                         	    ?></a>
                         	<?php printf(esc_html__('. Powered by', 'naya-lite')); ?>
                         	<a href="<?php echo esc_url(__('wordpress.org', 'naya-lite')); ?>"><?php
                         	    /* translators: %s: CMS name, i.e. WordPress. */
-                        	    printf(esc_html__(' %s', 'naya-lite'), 'WordPress');
+                        	    printf(' %s', 'WordPress');
                         	    ?></a>
                         <?php endif; ?>
 

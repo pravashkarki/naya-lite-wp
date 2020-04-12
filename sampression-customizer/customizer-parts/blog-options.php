@@ -35,12 +35,12 @@ function sampression_customize_register_blog( $wp_customize ) {
 				'priority' => 1,
 				'settings' => 'hide_post_metas',
 				'section'  => 'sampression_blog_section',
-				'label'    => __( 'Hide Post Meta' ),
+				'label'    => __( 'Hide Post Meta', 'naya-lite' ),
 				'choices'  => array(
-					'date'       => __( 'Date' ),
-					'author'     => __( 'Author' ),
-					'categories' => __( 'Categories' ),
-					'tags'       => __( 'Tags' ),
+					'date'       => __( 'Date', 'naya-lite' ),
+					'author'     => __( 'Author', 'naya-lite' ),
+					'categories' => __( 'Categories', 'naya-lite' ),
+					'tags'       => __( 'Tags', 'naya-lite' ),
 				),
 			)
 		)

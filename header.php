@@ -38,7 +38,7 @@
                         <?php
                         if ( has_custom_logo() && true !== $sampression_remove_logo ) {
                             ?>
-                            <a href="<?php echo esc_url(home_url()) ?>" title="<?php bloginfo('name') ?>" rel="home"
+                            <a href="<?php echo esc_url(home_url('/')) ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home"
                                id="logo-area">
                                 <?php echo get_custom_logo(); ?>
                             </a>

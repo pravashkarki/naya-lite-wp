@@ -82,8 +82,8 @@ function naya_lite_setup() {
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'        => 120,
 			'width'         => 220,
+			'height'        => 120,
 			'flex-height'   => true,
 			'default-image' => '',
 		)

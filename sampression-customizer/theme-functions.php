@@ -49,9 +49,8 @@ function sampression_post_thumbnail() {
 		if ( ( is_single() || ( is_page() ) ) && wp_get_attachment_url( get_post_thumbnail_id() ) ) {
 			$link = wp_get_attachment_url( get_post_thumbnail_id() );
 		}
-		//echo $link; die;
-		//sam_p($sampression_image_settings);
-		echo '<a href="' . $link . '" title="' . the_title_attribute( 'echo=0' ) . '" >';
+
+		echo '<a href="' . esc_url( $link ) . '" title="' . the_title_attribute( 'echo=0' ) . '" >';
 		$thumb = 'large';
 		the_post_thumbnail( $thumb );
 		echo '</a>';
@@ -60,8 +59,6 @@ function sampression_post_thumbnail() {
 
 /**
  * sampression sidebar class
- *
- * @global type $sampression_style
  */
 function sampression_sidebar_class( $classes = array() ) {
 	$position = sampression_sidebar_position();
@@ -83,8 +80,6 @@ function sampression_sidebar_class( $classes = array() ) {
 
 /**
  * Sampression content class
- *
- * @global type $sampression_style
  */
 function sampression_content_class( $classes = array() ) {
 	$position = sampression_sidebar_position();
@@ -127,7 +122,7 @@ function sampression_navigation() {
 function sampression_primary_navigation_fallback() {
 	echo '<div class="main-nav-wrapper">';
 	echo '<ul class="main-nav">';
-	echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'artblog-pro' ) . '</a></li>';
+	echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'naya-lite' ) . '</a></li>';
 
 	$args = array(
 		'posts_per_page' => 4,
@@ -173,7 +168,9 @@ if ( ! function_exists( 'sampression_post_meta' ) ) :
 	 */
 	function sampression_post_meta() {
 		$posted      = '';
+
 		$post_format = 'Posted';
+
 		if ( get_post_format() === 'chat' ) {
 			$post_format = 'chat';
 		} elseif ( get_post_format() === 'status' ) {
@@ -228,7 +225,7 @@ if ( ! function_exists( 'sampression_post_meta_content' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function sampression_post_meta_content(){
+	function sampression_post_meta_content() {
 		$hide_metas = (array) sampression_get_option( 'hide_post_metas' );
 
 		$sm_meta = '';
@@ -359,7 +356,8 @@ if ( ! function_exists( 'sampression_content_nav' ) ) :
 endif;
 
 function sampression_get_previous_image_id( $prev = true ) {
-	$post        = get_post();
+	$post = get_post();
+
 	$attachments = array_values( get_children( array( 'post_parent'    => $post->post_parent,
 		'post_status'    => 'inherit',
 		'post_type'      => 'attachment',
@@ -373,8 +371,11 @@ function sampression_get_previous_image_id( $prev = true ) {
 			break;
 		}
 	}
-	$k      = $prev ? $k - 1 : $k + 1;
+
+	$k = $prev ? $k - 1 : $k + 1;
+
 	$output = $attachment_id = null;
+
 	if ( isset( $attachments[ $k ] ) ) {
 		$attachment_id = $attachments[ $k ]->ID;
 	}
@@ -387,7 +388,8 @@ if ( ! function_exists( 'sampression_attached_image' ) ) {
 
 	function sampression_attached_image() {
 
-		$post                = get_post();
+		$post = get_post();
+
 		$next_attachment_url = wp_get_attachment_url();
 
 		$attachment_ids = get_posts( array(
@@ -482,7 +484,7 @@ function sampression_truncate_text( $str, $length = 20 ) {
 
 function sampression_readmore_link() {
 	if ( get_the_excerpt() ) {
-		$more = __( 'Read more' );
+		$more = __( 'Read more', 'naya-lite' );
 		printf( '<div class="entry-footer"><a href="%2$s">%1$s</a></div>', $more, esc_url( get_permalink() ) );
 	}
 }
