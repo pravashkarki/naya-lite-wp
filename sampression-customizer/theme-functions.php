@@ -7,11 +7,11 @@
  */
 function sampression_social_media_icons() {
 	if ( sampression_get_option( 'sampression_socials_facebook' ) || sampression_get_option( 'sampression_socials_twitter' ) ||
-	     sampression_get_option( 'sampression_socials_linkedin' ) || sampression_get_option( 'sampression_socials_youtube' ) ||
-	     sampression_get_option( 'sampression_socials_googleplus' ) || sampression_get_option( 'sampression_socials_flicker' ) ||
-	     sampression_get_option( 'sampression_socials_github' ) || sampression_get_option( 'sampression_socials_instagram' ) ||
-	     sampression_get_option( 'sampression_socials_tumblr' ) || sampression_get_option( 'sampression_socials_pinterest' ) ||
-	     sampression_get_option( 'sampression_socials_vimeo' )
+		 sampression_get_option( 'sampression_socials_linkedin' ) || sampression_get_option( 'sampression_socials_youtube' ) ||
+		 sampression_get_option( 'sampression_socials_googleplus' ) || sampression_get_option( 'sampression_socials_flicker' ) ||
+		 sampression_get_option( 'sampression_socials_github' ) || sampression_get_option( 'sampression_socials_instagram' ) ||
+		 sampression_get_option( 'sampression_socials_tumblr' ) || sampression_get_option( 'sampression_socials_pinterest' ) ||
+		 sampression_get_option( 'sampression_socials_vimeo' )
 	) {
 		$social_arr = array(
 			'sampression_socials_facebook'   => 'facebook',
@@ -24,15 +24,15 @@ function sampression_social_media_icons() {
 			'sampression_socials_instagram'  => 'instagram',
 			'sampression_socials_tumblr'     => 'tumblr',
 			'sampression_socials_pinterest'  => 'pinterest',
-			'sampression_socials_vimeo'      => 'vimeo'
+			'sampression_socials_vimeo'      => 'vimeo',
 		);
 
 		foreach ( $social_arr as $key => $value ) {
 			if ( sampression_get_option( $key ) ) {
 				?>
-                <a href="<?php echo esc_url( sampression_get_option( $key ) ); ?>" target="_blank"
-                   class="<?php echo esc_attr( 'social-' . $value ); ?>">
-                    <i class="fa fa-<?php echo esc_attr( $value ); ?>"></i> </a>
+				<a href="<?php echo esc_url( sampression_get_option( $key ) ); ?>" target="_blank"
+				   class="<?php echo esc_attr( 'social-' . $value ); ?>">
+					<i class="fa fa-<?php echo esc_attr( $value ); ?>"></i> </a>
 				<?php
 			}
 		}
@@ -41,7 +41,6 @@ function sampression_social_media_icons() {
 
 /**
  * Sampression Post thumbnail
- *
  */
 function sampression_post_thumbnail() {
 	if ( has_post_thumbnail() && ! post_password_required() ) {
@@ -114,7 +113,7 @@ function sampression_navigation() {
 		'theme_location'  => 'primary',
 		'container'       => 'div',
 		'container_class' => 'main-nav-wrapper',
-		'fallback_cb'     => 'sampression_primary_navigation_fallback'
+		'fallback_cb'     => 'sampression_primary_navigation_fallback',
 	);
 	wp_nav_menu( $args );
 }
@@ -167,7 +166,7 @@ if ( ! function_exists( 'sampression_post_meta' ) ) :
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
 	function sampression_post_meta() {
-		$posted      = '';
+		$posted = '';
 
 		$post_format = 'Posted';
 
@@ -194,7 +193,7 @@ if ( ! function_exists( 'sampression_post_meta' ) ) :
 			);
 		}
 		if ( ! in_array( 'date', $hide_metas ) ) {
-			$time    = '';
+			$time     = '';
 			$sm_meta .= sprintf(
 				'<time datetime="%2$s" class="entry-date"><a href="%3$s">%1$s' . $time . '</a></time>',
 				get_the_date(),
@@ -239,10 +238,10 @@ if ( ! function_exists( 'sampression_post_meta_content' ) ) :
 			$post_format = 'video';
 		}
 
-		if (  in_array( 'tags', $hide_metas ) &&  in_array( 'categories', $hide_metas ) &&   in_array( 'date', $hide_metas )  &&
-		  in_array( 'author', $hide_metas )) {
+		if ( in_array( 'tags', $hide_metas ) && in_array( 'categories', $hide_metas ) && in_array( 'date', $hide_metas ) &&
+		  in_array( 'author', $hide_metas ) ) {
 			$sm_meta .= '';
-		}else{
+		} else {
 			$sm_meta .= '<div class="entry-meta meta">';
 		}
 		if ( ! in_array( 'author', $hide_metas ) ) {
@@ -256,7 +255,7 @@ if ( ! function_exists( 'sampression_post_meta_content' ) ) :
 			);
 		}
 		if ( ! in_array( 'date', $hide_metas ) ) {
-			$time    = '';
+			$time     = '';
 			$sm_meta .= sprintf(
 				'<time datetime="%2$s" class="entry-date"><a href="%3$s">%1$s' . $time . '</a></time>',
 				get_the_date(),
@@ -275,10 +274,10 @@ if ( ! function_exists( 'sampression_post_meta_content' ) ) :
 				$sm_meta .= '<span class="tags-links">' . get_the_tag_list( '', ', ', '' ) . '</span>';
 			}
 		}
-		if ( ! in_array( 'tags', $hide_metas ) && ! in_array( 'categories', $hide_metas ) &&  ! in_array( 'date', $hide_metas )  &&
-		 ! in_array( 'author', $hide_metas )) {
+		if ( ! in_array( 'tags', $hide_metas ) && ! in_array( 'categories', $hide_metas ) && ! in_array( 'date', $hide_metas ) &&
+		 ! in_array( 'author', $hide_metas ) ) {
 			$sm_meta .= '</div>';
-		}else{
+		} else {
 			$sm_meta .= '';
 		}
 
@@ -312,29 +311,31 @@ if ( ! function_exists( 'sampression_content_nav' ) ) :
 		$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
 
 		?>
-        <nav role="navigation" class="<?php echo $nav_class; ?> clearfix">
-            <h1 class="screen-reader-text"><?php _e( 'Post navigation', 'naya-lite' ); ?></h1>
+		<nav role="navigation" class="<?php echo $nav_class; ?> clearfix">
+			<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'naya-lite' ); ?></h1>
 
-			<?php if ( is_attachment() ) {
+			<?php
+			if ( is_attachment() ) {
 
 				$prev_image = sampression_get_previous_image_id();
 				$next_image = sampression_get_previous_image_id( false );
 
 				?>
-                <span class="nav-next alignright"><?php next_image_link( false, sampression_truncate_text( $next_image->post_title, 35 ) ) ?></span>
-                <span class="nav-prev alignleft"><?php previous_image_link( false, sampression_truncate_text( $prev_image->post_title, 35 ) ) ?></span>
+				<span class="nav-next alignright"><?php next_image_link( false, sampression_truncate_text( $next_image->post_title, 35 ) ); ?></span>
+				<span class="nav-prev alignleft"><?php previous_image_link( false, sampression_truncate_text( $prev_image->post_title, 35 ) ); ?></span>
 				<?php
-			} elseif ( is_single() ) { // navigation links for single posts ?>
+			} elseif ( is_single() ) { // navigation links for single posts
+				?>
 				<?php
 				$prev_post = get_adjacent_post( '', '', true );
 				$next_post = get_adjacent_post( '', '', false );
 				?>
 				<?php
 				if ( ! empty( $prev_post ) ) {
-					previous_post_link( '%link', '&larr; ' . sampression_truncate_text( get_the_title( $prev_post->ID ), 35 ) );//'%title'
+					previous_post_link( '%link', '&larr; ' . sampression_truncate_text( get_the_title( $prev_post->ID ), 35 ) );// '%title'
 				}
 				if ( ! empty( $next_post ) ) {
-					next_post_link( '%link', sampression_truncate_text( get_the_title( $next_post->ID ), 35 ) . ' &rarr;' );//'%title'
+					next_post_link( '%link', sampression_truncate_text( get_the_title( $next_post->ID ), 35 ) . ' &rarr;' );// '%title'
 				}
 				?>
 
@@ -350,7 +351,7 @@ if ( ! function_exists( 'sampression_content_nav' ) ) :
 
 			<?php } ?>
 
-        </nav>
+		</nav>
 		<?php
 	}
 endif;
@@ -358,14 +359,18 @@ endif;
 function sampression_get_previous_image_id( $prev = true ) {
 	$post = get_post();
 
-	$attachments = array_values( get_children( array(
-		'post_parent'    => $post->post_parent,
-		'post_status'    => 'inherit',
-		'post_type'      => 'attachment',
-		'post_mime_type' => 'image',
-		'order'          => 'ASC',
-		'orderby'        => 'menu_order ID',
-	) ) );
+	$attachments = array_values(
+		get_children(
+			array(
+				'post_parent'    => $post->post_parent,
+				'post_status'    => 'inherit',
+				'post_type'      => 'attachment',
+				'post_mime_type' => 'image',
+				'order'          => 'ASC',
+				'orderby'        => 'menu_order ID',
+			)
+		)
+	);
 
 	foreach ( $attachments as $k => $attachment ) {
 		if ( $attachment->ID == $post->ID ) {
@@ -393,16 +398,18 @@ if ( ! function_exists( 'sampression_attached_image' ) ) {
 
 		$next_attachment_url = wp_get_attachment_url();
 
-		$attachment_ids = get_posts( array(
-			'post_parent'    => $post->post_parent,
-			'fields'         => 'ids',
-			'numberposts'    => - 1,
-			'post_status'    => 'inherit',
-			'post_type'      => 'attachment',
-			'post_mime_type' => 'image',
-			'order'          => 'ASC',
-			'orderby'        => 'menu_order ID',
-		) );
+		$attachment_ids = get_posts(
+			array(
+				'post_parent'    => $post->post_parent,
+				'fields'         => 'ids',
+				'numberposts'    => - 1,
+				'post_status'    => 'inherit',
+				'post_type'      => 'attachment',
+				'post_mime_type' => 'image',
+				'order'          => 'ASC',
+				'orderby'        => 'menu_order ID',
+			)
+		);
 
 		// If there is more than 1 attachment in a gallery...
 		if ( count( $attachment_ids ) > 1 ) {
@@ -422,12 +429,12 @@ if ( ! function_exists( 'sampression_attached_image' ) ) {
 			}
 		}
 
-		printf( '<a href="%1$s" rel="attachment">%2$s</a>',
+		printf(
+			'<a href="%1$s" rel="attachment">%2$s</a>',
 			esc_url( $next_attachment_url ),
 			wp_get_attachment_image( $post->ID, 'large' )
 		);
 	}
-
 }
 
 add_filter( 'next_posts_link_attributes', 'sampression_next_posts_link_attributes' );
@@ -454,7 +461,6 @@ function sampression_previous_post_link( $url ) {
 
 /**
  * Return the post URL.
- *
  */
 function sampression_get_link_url() {
 	$content = get_the_content();
@@ -505,67 +511,67 @@ function sampression_get_post_format() {
 }
 
 function sampression_fonts() {
-    return $google_fonts = array(
-        'Arial, sans-serif' => 'Arial',
-        'Verdana, Geneva, sans-serif' => 'Verdana',
-        'Playfair+Display:400,700,400italic,700italic=serif' => 'Playfair Display',
-        'Work+Sans:400,700=sans-serif' => 'Work Sans',
-        'Alegreya:400,400italic,700,700italic=serif' => 'Alegreya',
-        'Alegreya+Sans:400,400italic,700,700italic=sans-serif' => 'Alegreya Sans',
-        'Fira+Sans:400,400italic,700,700italic=sans-serif' => 'Fira Sans',
-        'Droid+Sans:400,700=sans-serif' => 'Droid Sans',
-        'Source+Sans+Pro:400,400italic,700,700italic=sans-serif' => 'Source Sans Pro',
-        'Source+Serif+Pro:400,700=serif' => 'Source Serif Pro',
-        'Lora:400,700=serif' => 'Lora',
-        'Neuton:400,700=serif' => 'Neuton',
-        'Poppins:400,700=sans-serif' => 'Poppins',
-        'Karla:400,700=sans-serif' => 'Karla',
-        'Merriweather:400,400italic,700,700italic=serif' => 'Merriweather',
-        'Open+Sans:400,400italic,700,700italic=sans-serif' => 'Open Sans',
-        'Roboto:400,400italic,700,700italic=sans-serif' => 'Roboto',
-        'Roboto+Slab:400,700=serif' => 'Roboto Slab',
-        'Lato:400,400italic,700,700italic=sans-serif' => 'Lato',
-        'Droid Serif' => 'Droid Serif Normal',
-        'Droid+Serif:400,400italic,700,700italic=serif' => 'Droid Serif',
-        'Kreon' => 'Kreon',
-        'Archivo+Narrow:400,400italic,700,700italic=sans-serif' => 'Archivo Narrow',
-        'Libre+Baskerville:400,700,400italic=serif' => 'Libre Baskerville',
-        'Crimson+Text:400,400italic,700,700italic=serif' => 'Crimson Text',
-        'Montserrat:400,700=sans-serif' => 'Montserrat',
-        'Chivo:400,400italic=sans-serif' => 'Chivo',
-        'Old+Standard+TT:400,400italic,700=serif' => 'Old Standard TT',
-        'Domine:400,700=serif' => 'Domine',
-        'Varela+Round=sans-serif' => 'Varela Round',
-        'Bitter:400,700=serif' => 'Bitter',
-        'Cardo:400,700,400italic=serif' => 'Cardo',
-        'Arvo:400,400italic,700,700italic=serif' => 'Arvo',
-        'PT+Serif:400,400italic,700,700italic=serif' => 'PT Serif',
-        'Passion+One:400,700=cursive' => 'Passion One',
-        'Poiret+One=cursive' => 'Poiret One',
-        'Pacifico=cursive' => 'Pacifico',
-        'Georgia' => 'Georgia, serif',
-        'Dancing+Script:400,700=cursive' => 'Dancing Script',
-        'Kaushan+Script=cursive' => 'Kaushan Script',
-        'Satisfy=cursive' => 'Satisfy',
-        'Courgette=cursive' => 'Courgette',
-        'Cookie=cursive' => 'Cookie',
-        'Tangerine:400,700=cursive' => 'Tangerine',
-        'Bad+Script=cursive' => 'Bad Script',
-        'Calligraffitti=cursive' => 'Calligraffitti',
-        'Sacramento=cursive' => 'Sacramento',
-        'Trebuchet MS, Tahoma, sans-serif' => 'Trebuchet MS',
-        'Times New Roman, serif' => 'Times New Roman',
-        'Tahoma, Geneva, Verdana, sans-serif' => 'Tahoma',
-        'Impact, Charcoal, sans-serif' => 'Impact',
-        'Courier, Courier New, monospace' => 'Courier',
-        'Century Gothic, sans-serif' => 'Century Gothic',
-        'Nixie+One=cursive' => 'Nixie One',
-        'Parisienne=cursive' => 'Parisienne',
-        'Life+Savers:400,700=cursive' => 'Life Savers',
-        'Special+Elite=cursive' => 'Special Elite',
-        'Cutive=serif' => 'Cutive',
-        'Cutive+Mono=serif' => 'Cutive Mono',
-        'Josefin+Sans:400,400italic,700,700italic=sans-serif' => 'Josefin Sans',
-        'Josefin+Slab:400,400italic,700,700italic=serif' => 'Josefin Slab',
-    );
+	return $google_fonts = array(
+		'Arial, sans-serif'                                => 'Arial',
+		'Verdana, Geneva, sans-serif'                      => 'Verdana',
+		'Playfair+Display:400,700,400italic,700italic=serif' => 'Playfair Display',
+		'Work+Sans:400,700=sans-serif'                     => 'Work Sans',
+		'Alegreya:400,400italic,700,700italic=serif'       => 'Alegreya',
+		'Alegreya+Sans:400,400italic,700,700italic=sans-serif' => 'Alegreya Sans',
+		'Fira+Sans:400,400italic,700,700italic=sans-serif' => 'Fira Sans',
+		'Droid+Sans:400,700=sans-serif'                    => 'Droid Sans',
+		'Source+Sans+Pro:400,400italic,700,700italic=sans-serif' => 'Source Sans Pro',
+		'Source+Serif+Pro:400,700=serif'                   => 'Source Serif Pro',
+		'Lora:400,700=serif'                               => 'Lora',
+		'Neuton:400,700=serif'                             => 'Neuton',
+		'Poppins:400,700=sans-serif'                       => 'Poppins',
+		'Karla:400,700=sans-serif'                         => 'Karla',
+		'Merriweather:400,400italic,700,700italic=serif'   => 'Merriweather',
+		'Open+Sans:400,400italic,700,700italic=sans-serif' => 'Open Sans',
+		'Roboto:400,400italic,700,700italic=sans-serif'    => 'Roboto',
+		'Roboto+Slab:400,700=serif'                        => 'Roboto Slab',
+		'Lato:400,400italic,700,700italic=sans-serif'      => 'Lato',
+		'Droid Serif'                                      => 'Droid Serif Normal',
+		'Droid+Serif:400,400italic,700,700italic=serif'    => 'Droid Serif',
+		'Kreon'                                            => 'Kreon',
+		'Archivo+Narrow:400,400italic,700,700italic=sans-serif' => 'Archivo Narrow',
+		'Libre+Baskerville:400,700,400italic=serif'        => 'Libre Baskerville',
+		'Crimson+Text:400,400italic,700,700italic=serif'   => 'Crimson Text',
+		'Montserrat:400,700=sans-serif'                    => 'Montserrat',
+		'Chivo:400,400italic=sans-serif'                   => 'Chivo',
+		'Old+Standard+TT:400,400italic,700=serif'          => 'Old Standard TT',
+		'Domine:400,700=serif'                             => 'Domine',
+		'Varela+Round=sans-serif'                          => 'Varela Round',
+		'Bitter:400,700=serif'                             => 'Bitter',
+		'Cardo:400,700,400italic=serif'                    => 'Cardo',
+		'Arvo:400,400italic,700,700italic=serif'           => 'Arvo',
+		'PT+Serif:400,400italic,700,700italic=serif'       => 'PT Serif',
+		'Passion+One:400,700=cursive'                      => 'Passion One',
+		'Poiret+One=cursive'                               => 'Poiret One',
+		'Pacifico=cursive'                                 => 'Pacifico',
+		'Georgia'                                          => 'Georgia, serif',
+		'Dancing+Script:400,700=cursive'                   => 'Dancing Script',
+		'Kaushan+Script=cursive'                           => 'Kaushan Script',
+		'Satisfy=cursive'                                  => 'Satisfy',
+		'Courgette=cursive'                                => 'Courgette',
+		'Cookie=cursive'                                   => 'Cookie',
+		'Tangerine:400,700=cursive'                        => 'Tangerine',
+		'Bad+Script=cursive'                               => 'Bad Script',
+		'Calligraffitti=cursive'                           => 'Calligraffitti',
+		'Sacramento=cursive'                               => 'Sacramento',
+		'Trebuchet MS, Tahoma, sans-serif'                 => 'Trebuchet MS',
+		'Times New Roman, serif'                           => 'Times New Roman',
+		'Tahoma, Geneva, Verdana, sans-serif'              => 'Tahoma',
+		'Impact, Charcoal, sans-serif'                     => 'Impact',
+		'Courier, Courier New, monospace'                  => 'Courier',
+		'Century Gothic, sans-serif'                       => 'Century Gothic',
+		'Nixie+One=cursive'                                => 'Nixie One',
+		'Parisienne=cursive'                               => 'Parisienne',
+		'Life+Savers:400,700=cursive'                      => 'Life Savers',
+		'Special+Elite=cursive'                            => 'Special Elite',
+		'Cutive=serif'                                     => 'Cutive',
+		'Cutive+Mono=serif'                                => 'Cutive Mono',
+		'Josefin+Sans:400,400italic,700,700italic=sans-serif' => 'Josefin Sans',
+		'Josefin+Slab:400,400italic,700,700italic=serif'   => 'Josefin Slab',
+	);
 }

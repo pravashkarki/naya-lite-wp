@@ -24,7 +24,7 @@ function sampression_header_style() {
 
 	// Website Tagline Style
 	if ( ( sampression_get_option( 'webtagline_font_family' ) ) ) {
-		$webtagline .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'webtagline_font_family' ) ) ). ';';
+		$webtagline .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'webtagline_font_family' ) ) ) . ';';
 	} else {
 		if ( sampression_get_option( 'body_font' ) ) {
 			$webtagline .= 'font-family: ' . wp_kses_post( sampression_get_font_family( sampression_get_option( 'body_font' ) ) ) . ';';

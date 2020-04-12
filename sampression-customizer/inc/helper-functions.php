@@ -2,10 +2,10 @@
 
 function sampression_get_font_style_options() {
 	return array(
-		'bold'      => __( 'Bold', 'naya-lite'  ),
-		'italic'    => __( 'Italic', 'naya-lite'  ),
-		'all-caps'  => __( 'All Caps', 'naya-lite'  ),
-		'underline' => __( 'Underline', 'naya-lite'  ),
+		'bold'      => __( 'Bold', 'naya-lite' ),
+		'italic'    => __( 'Italic', 'naya-lite' ),
+		'all-caps'  => __( 'All Caps', 'naya-lite' ),
+		'underline' => __( 'Underline', 'naya-lite' ),
 	);
 }
 
