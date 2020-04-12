@@ -59,11 +59,11 @@
                         <?php endif; ?>
                     </div>
                 </div>
-
-                <div class="social-connect" id="social-connect">
-                    <?php sampression_social_media_icons() ?>
-                </div><!-- .social-connect-->
-
+                <div class="ten columns">
+                    <div class="social-connect" id="social-connect">
+                        <?php sampression_social_media_icons() ?>
+                    </div><!-- .social-connect-->
+                </div>
                 <nav id="primary-nav" class="clearfix" role="navigation">
 
                     <?php sampression_navigation(); ?>
