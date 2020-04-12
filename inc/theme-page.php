@@ -24,7 +24,7 @@ function naya_lite_about_page() {   ?>
 				<a target="_blank" class="button button-primary"
 				   href="<?php echo esc_url( 'http://www.demo.sampression.com/naya-lite/' ); ?>"><?php _e( 'Live Theme Demo', 'naya-lite' ); ?></a>
 			</p>
-			<p><?php _e( 'For further help, please visit our support page at:', 'naya-lite' ); ?> <a href="<?php echo esc_url( 'https://www.sampression.com/support' ); ?>" target="_blank"><?php echo esc_url( 'https://www.sampression.com/supports' ); ?></a></p>
+			<p><?php _e( 'For further help, please visit our support page at:', 'naya-lite' ); ?> <a href="<?php echo esc_url( 'https://www.sampression.com/support' ); ?>" target="_blank"><?php echo esc_url( 'https://www.sampression.com/support' ); ?></a></p>
 		</div>
 		<div>
 			<h2><?php _e( 'Naya Lite Features', 'naya-lite' ); ?></h2>

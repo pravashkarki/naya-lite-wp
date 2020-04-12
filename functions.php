@@ -106,9 +106,9 @@ function naya_lite_scripts() {
 	wp_enqueue_style( 'font', get_template_directory_uri() . '/lib/css/fonts-sampression.css' );
 	wp_enqueue_style( 'base', get_template_directory_uri() . '/lib/css/base-960.css' );
 	wp_enqueue_style( 'superfish', get_template_directory_uri() . '/lib/css/superfish.css' );
-	wp_enqueue_style( 'mediaq', get_template_directory_uri() . '/lib/css/mediaquery.css' );
 
 	wp_enqueue_style( 'naya-lite-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'mediaq', get_template_directory_uri() . '/lib/css/mediaquery.css' );
 
 	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/lib/js/plugins.js', array( 'jquery' ), '1.0', true );
 

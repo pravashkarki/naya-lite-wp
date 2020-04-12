@@ -97,6 +97,7 @@
     }
     .show-nav #inner-wrapper {
         margin-left: -70%;
+        border-right: 1px solid #DBDBDB;
     }
     /* #Navigation Style
        ================================================== */
@@ -107,7 +108,7 @@
         padding:2.7em 0 0;
         position: absolute;
         top: -40px;
-        width: 70%;
+        width: calc(70% - 1px);
         z-index: 99;
         margin:0!important;
     }
@@ -190,7 +191,6 @@
         position: inherit;
         top: 0;
         width: 100%;
-        display: block
         padding: 0 0 0 10%;
         display: none;
         background-color:transparent!important;
@@ -235,7 +235,7 @@
         border-width: 1px 0 0 0;
         border-color: #DBDBDB;
         left: 0 ;
-        
+        padding: 0;
     }
     #primary-nav ul li.current-menu-item li a {
         color: #666666;
@@ -305,8 +305,10 @@
         margin-bottom: 0;
     }
 	.powered-wp {
-    text-align: center !important;
-    width: 100%;
+        text-align: center !important;
+        width: 100%;
     }
-
+    .post.sticky{
+        padding:0;
+    }
 }
