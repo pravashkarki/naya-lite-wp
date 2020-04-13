@@ -183,14 +183,12 @@ a,
 a:visited {
     color: #45933a;
     text-decoration: none;
-    outline: 0;
     transition: 0.36s ease;
 }
 
 a:hover,
 a:focus {
     color: #000000;
-    outline: 0;
     background: none;
 }
 
@@ -751,7 +749,6 @@ textarea {
     color: #333;
     font-family: 'Droid Serif', serif;
     font-size: 18px;
-    outline: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     width: 57%;

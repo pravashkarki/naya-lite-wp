@@ -133,6 +133,7 @@
 
     .site-title-wrap {
         margin-right: 50px;
+        float: left;
     }
     #trigger-primary-nav{
         display: inline-block;
@@ -175,11 +176,11 @@
         background-size: contain;
         cursor: pointer;
         display: block;
-        height: 15px;
+        height: 33px;
         position: absolute;
         right: 2px;
         top: 1px;
-        width: 15px;
+        width: 32px;
         -webkit-transition: transform 0.3s ease-in-out;
         -moz-transition: transform 0.3s ease-in-out;
         -ms-transition: transform 0.3s ease-in-out;

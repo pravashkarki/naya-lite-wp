@@ -31,7 +31,6 @@
         <header id="header" class="block">
             <div class="container">
                 <div class="six columns">
-                    <span id="trigger-primary-nav"><a href="#primary-nav"><i class="icon-menu6"></i>&nbsp;</a></span>
                     <div class="site-title-wrap">
                         <?php $sampression_remove_logo = sampression_get_option( 'sampression_remove_logo' ); ?>
 
@@ -58,6 +57,7 @@
                         	<h2 id="site-description" class="site-description"><?php bloginfo('description') ?></h2>
                         <?php endif; ?>
                     </div>
+                    <span id="trigger-primary-nav"><a href="#primary-nav"><i class="icon-menu6"></i>&nbsp;</a></span>
                 </div>
                 <div class="ten columns">
                     <div class="social-connect" id="social-connect">
