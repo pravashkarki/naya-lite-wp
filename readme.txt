@@ -138,8 +138,9 @@ Added: Function for custom header preview on admin panel.
 
 License: CCO
 
-* https://example.com/
-* https://example.com/
+* https://stocksnap.io/photo/mill-mountain-ARAGQYVAYC
+* https://stocksnap.io/photo/enchanting-forest-1CFKSWRR5X
+* https://stocksnap.io/photo/old-barn-QVCLPGULUO
 
 == Documentation ==
 
