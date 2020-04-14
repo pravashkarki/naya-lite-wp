@@ -738,6 +738,7 @@ input[type="button"]:hover,
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="url"],
 select,
 .search-form .submit,
 textarea {
@@ -766,6 +767,7 @@ input[type="file"] {
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
+input[type="url"]:focus,
 textarea:focus {
     color: #000;
     border: 1px solid #a09c9c;
@@ -1483,7 +1485,8 @@ figcaption.gallery-caption {
 
 }
 
-.search-form input[type="submit"]:hover {
+.search-form input[type="submit"]:hover,
+.search-form input[type="submit"]:focus{
     border-color: #45933a;
     color: #222;
     background: none;

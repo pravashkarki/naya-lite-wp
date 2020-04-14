@@ -46,7 +46,9 @@ get_header(); ?>
 
                                     <?php sampression_post_thumbnail(); ?>
 
+                                    <div class="entry-meta meta">
                                         <?php sampression_post_meta(); ?>
+                                    </div>
 
                                     <div class="entry-content" itemprop="articleBody">
                                         <?php
