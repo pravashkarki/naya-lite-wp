@@ -22,9 +22,6 @@ function sampression_get_default_options_value() {
 	// Footer.
 	$defaults['sampression_copyright_text'] = '';
 
-	// Blog.
-	$defaults['hide_post_metas'] = array();
-
 	// Sidebar.
 	$defaults['sampression_sidebar_layout'] = 'right';
 

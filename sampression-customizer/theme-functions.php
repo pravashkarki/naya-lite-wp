@@ -180,7 +180,7 @@ if ( ! function_exists( 'sampression_post_meta' ) ) :
 
 		$sm_meta = '';
 
-		$hide_metas = (array) sampression_get_option( 'hide_post_metas' );
+		$hide_metas = array();
 
 		if ( ! in_array( 'author', $hide_metas ) ) {
 			global $authordata;
@@ -225,7 +225,7 @@ if ( ! function_exists( 'sampression_post_meta_content' ) ) :
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
 	function sampression_post_meta_content() {
-		$hide_metas = (array) sampression_get_option( 'hide_post_metas' );
+		$hide_metas = array();
 
 		$sm_meta = '';
 

@@ -109,18 +109,6 @@ function sampression_customize_register_default( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
-		'hide_post_metas',
-		array(
-			'selector' => '#post-listing', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
-		'hide_post_metas',
-		array(
-			'selector' => '#content', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
 		'sampression_copyright_text',
 		array(
 			'selector' => '.copyright', // You can also select a css class
