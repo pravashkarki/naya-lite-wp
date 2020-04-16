@@ -33,7 +33,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 	$wp_customize->add_setting(
 		'webtitle_font_family',
 		array(
-			'sanitize_callback' => 'sampression_sanitize_fonts',
+			'sanitize_callback' => 'sampression_sanitize_select',
 			'default'           => $defaults['webtitle_font_family'],
 		)
 	);
@@ -47,7 +47,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 			'choices'           => sampression_fonts(),
 			'settings'          => 'webtitle_font_family',
 			'label'             => __( 'Site Font Family', 'naya-lite' ),
-			'sanitize_callback' => 'sampression_sanitize_fonts',
+			'sanitize_callback' => 'sampression_sanitize_select',
 		)
 	);
 
@@ -124,7 +124,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 		'webtagline_font_family',
 		array(
 			'default'           => $defaults['webtagline_font_family'],
-			'sanitize_callback' => 'sampression_sanitize_fonts',
+			'sanitize_callback' => 'sampression_sanitize_select',
 		)
 	);
 
@@ -224,7 +224,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 		'title_font',
 		array(
 			'default'           => $defaults['title_font'],
-			'sanitize_callback' => 'sampression_sanitize_fonts',
+			'sanitize_callback' => 'sampression_sanitize_select',
 		)
 	);
 
@@ -346,7 +346,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 		'body_font',
 		array(
 			'default'           => $defaults['body_font'],
-			'sanitize_callback' => 'sampression_sanitize_fonts',
+			'sanitize_callback' => 'sampression_sanitize_select',
 		)
 	);
 
@@ -469,7 +469,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 		'metatext_font_family',
 		array(
 			'default'           => $defaults['metatext_font_family'],
-			'sanitize_callback' => 'sampression_sanitize_fonts',
+			'sanitize_callback' => 'sampression_sanitize_select',
 		)
 	);
 
@@ -609,7 +609,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 		'widgetText_heading_font_family',
 		array(
 			'default'           => $defaults['widgetText_heading_font_family'],
-			'sanitize_callback' => 'sampression_sanitize_fonts',
+			'sanitize_callback' => 'sampression_sanitize_select',
 		)
 	);
 
@@ -720,7 +720,7 @@ function sampression_customize_register_typography( $wp_customize ) {
 		'widgetText_font_family',
 		array(
 			'default'           => $defaults['widgetText_font_family'],
-			'sanitize_callback' => 'sampression_sanitize_fonts',
+			'sanitize_callback' => 'sampression_sanitize_select',
 		)
 	);
 
