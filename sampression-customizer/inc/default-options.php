@@ -20,8 +20,7 @@ function sampression_get_default_options_value() {
 	$defaults['sampression_remove_tagline'] = false; // Remove Tagline?
 
 	// Footer.
-	$defaults['sampression_copyright_text']        = '';
-	$defaults['sampression_remove_copyright_text'] = false;
+	$defaults['sampression_copyright_text'] = '';
 
 	// Blog.
 	$defaults['hide_post_metas'] = array();

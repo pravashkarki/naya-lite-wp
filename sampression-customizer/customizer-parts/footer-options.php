@@ -22,7 +22,7 @@ function sampression_customize_register_footer( $wp_customize ) {
 		'sampression_copyright_text',
 		array(
 			'default'           => $defaults['sampression_copyright_text'],
-			'sanitize_callback' => 'sanitize_textarea_field',
+			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 	$wp_customize->add_control(
@@ -31,25 +31,7 @@ function sampression_customize_register_footer( $wp_customize ) {
 			'label'    => __( 'Copyright Text', 'naya-lite' ),
 			'section'  => 'footer_options',
 			'priority' => 63,
-			'type'     => 'textarea',
-		)
-	);
-
-	// Remove Copyright Text - Setting
-	$wp_customize->add_setting(
-		'sampression_remove_copyright_text',
-		array(
-			'default'           => $defaults['sampression_remove_copyright_text'],
-			'sanitize_callback' => 'sampression_sanitize_checkbox',
-		)
-	);
-	$wp_customize->add_control(
-		'sampression_remove_copyright_text',
-		array(
-			'label'    => __( 'Remove Copyright Text?', 'naya-lite' ),
-			'section'  => 'footer_options',
-			'priority' => 64,
-			'type'     => 'checkbox',
+			'type'     => 'text',
 		)
 	);
 }

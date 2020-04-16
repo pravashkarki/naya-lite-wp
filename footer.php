@@ -14,29 +14,23 @@
     <div class="container">
         <div class="sixteen columns">
             <div class="site-info ten columns">
-                <?php if (true !== sampression_get_option( 'sampression_remove_copyright_text' ) ) { ?>
-                    <div class="alignleft powered-wp copyright">
-
-                        <?php $sampression_copyright_text = sampression_get_option( 'sampression_copyright_text' ); ?>
-
-                        <?php if ( ! empty( $sampression_copyright_text ) ) : ?>
-                        	<?php echo wp_kses_post( $sampression_copyright_text ); ?>
-                        <?php else: ?>
-                        	<?php printf(esc_html__('&copy; 2020. A theme by ', 'naya-lite')); ?>
-                        	<a href="https://sampression.com/"><?php
-                        	    /* translators: %s: CMS name, i.e. WordPress. */
-                        	    printf(' %s', 'Sampression');
-                        	    ?></a>
-                        	<?php printf(esc_html__('. Powered by', 'naya-lite')); ?>
-                        	<a href="<?php echo esc_url(__('wordpress.org', 'naya-lite')); ?>"><?php
-                        	    /* translators: %s: CMS name, i.e. WordPress. */
-                        	    printf(' %s', 'WordPress');
-                        	    ?></a>
-                        <?php endif; ?>
-
-                    </div>
-                <?php }
-                ?>
+                <div class="alignleft powered-wp copyright">
+                    <?php $sampression_copyright_text = sampression_get_option( 'sampression_copyright_text' ); ?>
+                    <?php if ( ! empty( $sampression_copyright_text ) ) : ?>
+                    	<?php echo wp_kses_post( $sampression_copyright_text ); ?>
+                    <?php else: ?>
+                    	<?php printf(esc_html__('&copy; 2020. A theme by ', 'naya-lite')); ?>
+                    	<a href="https://sampression.com/"><?php
+                    	    /* translators: %s: Company name. */
+                    	    printf(' %s', 'Sampression');
+                    	    ?></a>
+                    	<?php printf(esc_html__('. Powered by', 'naya-lite')); ?>
+                    	<a href="<?php echo esc_url(__('wordpress.org', 'naya-lite')); ?>"><?php
+                    	    /* translators: %s: CMS name, i.e. WordPress. */
+                    	    printf(' %s', 'WordPress');
+                    	    ?></a>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <div class="six columns">
