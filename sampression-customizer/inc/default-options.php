@@ -40,6 +40,10 @@ function sampression_get_default_options_value() {
 	$defaults['sampression_socials_tumblr']     = '';
 	$defaults['sampression_socials_pinterest']  = '';
 
+	// New Fonts
+	$defaults['primary_font_family']  = 'Kreon';
+	$defaults['secondary_font_family']  = 'Kreon';
+
 	// Fonts.
 	// Title and tagline.
 	$defaults['webtitle_font_family']   = 'Kreon';

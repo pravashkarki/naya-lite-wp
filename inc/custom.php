@@ -16,13 +16,8 @@ function naya_lite_fonts_url() {
 	$subsets   = 'latin,latin-ext';
 
 	$font_fields = array(
-		'webtitle_font_family',
-		'webtagline_font_family',
-		'title_font',
-		'body_font',
-		'metatext_font_family',
-		'widgetText_heading_font_family',
-		'widgetText_font_family',
+		'primary_font_family',
+		'secondary_font_family',
 	);
 
 	$theme_options = array();
