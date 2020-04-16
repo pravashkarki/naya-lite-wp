@@ -9,6 +9,7 @@
 $sampression_customizer_settings = array(
 	'defaults',
 	'typography',
+	'color',
 	'social-options',
 	'footer-options',
 	'sidebar-layout',

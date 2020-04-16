@@ -40,53 +40,13 @@ function sampression_get_default_options_value() {
 	$defaults['sampression_socials_tumblr']     = '';
 	$defaults['sampression_socials_pinterest']  = '';
 
-	// New Fonts
-	$defaults['primary_font_family']  = 'Kreon';
-	$defaults['secondary_font_family']  = 'Kreon';
-
 	// Fonts.
-	// Title and tagline.
-	$defaults['webtitle_font_family']   = 'Kreon';
-	$defaults['webtitle_font_size']     = '42';
-	$defaults['webtitle_font_style']    = array();
-	$defaults['webtitle_font_color']    = '000000';
-	$defaults['webtagline_font_family'] = 'Kreon';
-	$defaults['webtagline_font_size']   = '14';
-	$defaults['webtagline_font_style']  = array();
-	$defaults['webtagline_font_color']  = '000000';
+	$defaults['primary_font_family']   = 'Kreon';
+	$defaults['secondary_font_family'] = 'Kreon';
 
-	// Header Text.
-	$defaults['title_font']            = 'Kreon';
-	$defaults['headertext_font_size']  = '21';
-	$defaults['headertext_font_style'] = array();
-	$defaults['title_textcolor']       = '000000';
-	$defaults['headertext_link_color'] = '006799';
-
-	// Body.
-	$defaults['body_font']           = 'Kreon';
-	$defaults['bodytext_font_size']  = '14';
-	$defaults['bodytext_font_style'] = array();
-	$defaults['body_textcolor']      = '000000';
-	$defaults['body_link_color']     = '006799';
-
-	// Meta.
-	$defaults['metatext_font_family'] = 'Kreon';
-	$defaults['metatext_font_size']   = '14';
-	$defaults['metatext_font_style']  = array();
-	$defaults['metatext_font_color']  = '000000';
-	$defaults['metatext_link_color']  = '006799';
-
-	// General.
-	$defaults['widgetText_heading_font_family'] = 'Kreon';
-	$defaults['widgetText_heading_font_size']   = '21';
-	$defaults['widgetText_heading_font_style']  = array();
-	$defaults['widgetText_heading_font_color']  = '000000';
-	$defaults['widgetText_font_family']         = 'Kreon';
-	$defaults['widgetText_font_size']           = '14';
-	$defaults['widgetText_font_style']          = array();
-	$defaults['widgetText_font_color']          = '000000';
-	$defaults['widgetText_link_color']          = '006799';
-	$defaults['widgetText_hover_color']         = '0085ba';
+	// Color Options.
+	$defaults['primary_color']   = '#000000';
+	$defaults['secondary_color'] = '#333333';
 
 	return $defaults;
 }
