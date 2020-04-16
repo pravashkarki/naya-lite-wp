@@ -549,3 +549,32 @@ function sampression_fonts() {
 
 	return $google_fonts;
 }
+
+/**
+ * Generate CSS.
+ *
+ * @since 1.0.0
+ *
+ * @param string $selector CSS selector.
+ * @param string $style    CSS property.
+ * @param string $value    Value.
+ * @param string $prefix   Optional. Anything that needs to be output before the CSS property.
+ * @param string $postfix  Optional. Anything that needs to be output after the CSS property.
+ * @param string $format   A sprintf() format to use when printing the style.
+ *
+ * @return string Returns a single line of CSS with selectors and a property.
+ */
+function sampression_generate_css( $selector, $style, $value, $prefix = '', $postfix = '', $format = '%1$s { %2$s: %3$s; }' ) {
+	$output = '';
+
+	if ( ! empty( $value ) ) {
+		$output = sprintf(
+			$format . "\n",
+			$selector,
+			$style,
+			$prefix . $value . $postfix
+		);
+	}
+
+	return $output;
+}
