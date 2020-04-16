@@ -18,48 +18,6 @@ function sampression_customize_register_social( $wp_customize ) {
 		)
 	);
 
-	// Social Icon Color - Setting
-	$wp_customize->add_setting(
-		'social_icon_color',
-		array(
-			'default'              => $defaults['social_icon_color'],
-			'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-			'sanitize_js_callback' => 'maybe_hash_hex_color',
-			'transport'            => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize,
-			'social_icon_color',
-			array(
-				'label'    => __( 'Social Icon Color', 'naya-lite' ),
-				'section'  => 'sampression_social_section',
-				'settings' => 'social_icon_color',
-				'priority' => 1,
-			)
-		)
-	);
-
-	// Use Social Icon Default Color - Setting
-	$wp_customize->add_setting(
-		'use_social_default_color',
-		array(
-			'default'           => $defaults['use_social_default_color'],
-			'sanitize_callback' => 'sampression_sanitize_checkbox',
-		)
-	);
-	$wp_customize->add_control(
-		'use_social_default_color',
-		array(
-			'type'     => 'checkbox',
-			'label'    => __( 'Use Default Social Icon Color?', 'naya-lite' ),
-			'section'  => 'sampression_social_section',
-			'priority' => 2,
-		)
-	);
-
 	// Facebook URL - Setting
 	$wp_customize->add_setting(
 		'sampression_socials_facebook',

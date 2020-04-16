@@ -70,62 +70,6 @@ function sampression_customize_register_default( $wp_customize ) {
 	$wp_customize->get_section( 'background_image' )->priority = 2;
 
 	$wp_customize->get_control( 'background_color' )->section = 'background_image';
-
-	/** Add selective part pencil tool here */
-	$wp_customize->selective_refresh->add_partial(
-		'blogname',
-		array(
-			'selector' => '.site-title', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
-		'blogdescription',
-		array(
-			'selector' => '#site-description', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
-		'social_icon_color',
-		array(
-			'selector' => '.social-connect', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
-		'metatext_font_family',
-		array(
-			'selector' => '.entry-meta', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
-		'body_font',
-		array(
-			'selector' => '.entry-content', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
-		'nav_menu',
-		array(
-			'selector' => '#primary-nav', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
-		'sampression_copyright_text',
-		array(
-			'selector' => '.copyright', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
-		'sampression_credit_text',
-		array(
-			'selector' => '.credit', // You can also select a css class
-		)
-	);
-	$wp_customize->selective_refresh->add_partial(
-		'widgetText_heading_label',
-		array(
-			'selector' => '.sidebar', // You can also select a css class
-		)
-	);
 }
 
 add_action( 'customize_register', 'sampression_customize_register_default' );

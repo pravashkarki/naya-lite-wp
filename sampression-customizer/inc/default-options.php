@@ -26,8 +26,6 @@ function sampression_get_default_options_value() {
 	$defaults['sampression_sidebar_layout'] = 'right';
 
 	// Social.
-	$defaults['social_icon_color']              = 'eeeeee';
-	$defaults['use_social_default_color']       = true;
 	$defaults['sampression_socials_facebook']   = '';
 	$defaults['sampression_socials_twitter']    = '';
 	$defaults['sampression_socials_youtube']    = '';
