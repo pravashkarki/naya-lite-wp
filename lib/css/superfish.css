@@ -68,9 +68,14 @@
 #primary-nav > div > ul li li:last-child a {
     padding-right: 12px;
 }
-#primary-nav > div > ul li a:hover, #primary-nav > div > ul li a:focus, #primary-nav > div > ul li.current-menu-item a, #primary-nav > div > ul li:hover > a, #primary-nav > div > ul li.current-menu-ancestor a, #primary-nav > div > ul li.current-menu-parent a,
-#primary-nav > div > ul li.sfHover li li a:hover, #primary-nav > div > ul li.current_page_item > a {
-    color:#57b94a;
+#primary-nav > div > ul li a:hover,
+#primary-nav > div > ul li a:focus,
+#primary-nav > div > ul li.current-menu-item a,
+#primary-nav > div > ul li:hover > a,
+#primary-nav > div > ul li.current-menu-ancestor a,
+#primary-nav > div > ul li.current-menu-parent a,
+#primary-nav > div > ul li.sfHover li li a:hover,
+#primary-nav > div > ul li.current_page_item > a {
     text-decoration: none;
 }
 
@@ -119,7 +124,7 @@
 #primary-nav.sixteen{
    float: left;
     margin-left: 0;
-    margin-top: 20px;	
+    margin-top: 20px;
 	}
 #primary-nav.sixteen > div > ul{float:left;}
 #primary-nav ul li.window-right ul {
