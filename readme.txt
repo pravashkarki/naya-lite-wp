@@ -28,6 +28,7 @@ Naya Lite is a minimal, clean, lightweight, modern & typographic theme created w
 * Fixed: PHP warning in the post author link
 * Removed unused Selectivizr, Modernizr and minified Font Awesome files
 * Added responsive embeds
+* Support links point to the WordPress.org forum; dead demo links removed
 
 #Version 3.0
 

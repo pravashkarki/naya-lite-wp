@@ -21,10 +21,8 @@ function naya_lite_about_page() {   ?>
 				<a class="button button-primary" href="<?php echo esc_url( 'customize.php?return=%2Fwp-admin%2Fthemes.php' ); ?>"><?php _e( 'Go to Customizer', 'naya-lite' ); ?></a>
 				<a class="button button-primary" href="<?php echo esc_url( home_url() ); ?>"
 				   target="_blank"><?php _e( 'Visit ', 'naya-lite' ); ?><?php bloginfo( 'name' ); ?></a>
-				<a target="_blank" class="button button-primary"
-				   href="<?php echo esc_url( 'http://www.demo.sampression.com/naya-lite/' ); ?>"><?php _e( 'Live Theme Demo', 'naya-lite' ); ?></a>
 			</p>
-			<p><?php _e( 'For further help, please visit our support page at:', 'naya-lite' ); ?> <a href="<?php echo esc_url( 'https://www.sampression.com/support' ); ?>" target="_blank"><?php echo esc_url( 'https://www.sampression.com/support' ); ?></a></p>
+			<p><?php _e( 'For further help, please visit our support page at:', 'naya-lite' ); ?> <a href="<?php echo esc_url( 'https://wordpress.org/support/theme/naya-lite/' ); ?>" target="_blank"><?php echo esc_url( 'https://wordpress.org/support/theme/naya-lite/' ); ?></a></p>
 		</div>
 		<div>
 			<h2><?php _e( 'Naya Lite Features', 'naya-lite' ); ?></h2>
@@ -44,13 +42,7 @@ function naya_lite_about_page() {   ?>
 		   <h3 style="margin-bottom: 0;"><?php _e( 'Sampression Lite', 'naya-lite' ); ?></h3>
 			<p>Pinterest Style WordPress Theme</p>
 				<a target="_blank" class="button"
-				   href="<?php echo esc_url( 'https://www.demo.sampression.com/sampression-lite/' ); ?>"><?php _e( 'Live Theme Demo', 'naya-lite' ); ?></a>
-			<br><br>
-
-		   <h3 style="margin-bottom: 0;"><?php _e( 'Sampression Pro', 'naya-lite' ); ?></h3>
-				<p>Perfect theme for bloggers, artists, photographers and businesses.</p>
-				<a target="_blank" class="button"
-				   href="<?php echo esc_url( 'https://www.demo.sampression.com/sampression-pro/' ); ?>"><?php _e( 'Live Theme Demo', 'naya-lite' ); ?></a>
+				   href="<?php echo esc_url( 'https://wordpress.org/themes/sampression-lite/' ); ?>"><?php esc_html_e( 'View Theme', 'naya-lite' ); ?></a>
 		</div>
 	</div>
 	<?php
