@@ -19,7 +19,7 @@
                     <?php if ( ! empty( $sampression_copyright_text ) ) : ?>
                     	<?php echo wp_kses_post( $sampression_copyright_text ); ?>
                     <?php else: ?>
-                    	<?php printf(esc_html__('&copy; 2020. A theme by ', 'naya-lite')); ?>
+                    	<?php printf( esc_html__( '&copy; %s. A theme by ', 'naya-lite' ), esc_html( date_i18n( 'Y' ) ) ); ?>
                     	<a href="https://sampression.com/"><?php
                     	    /* translators: %s: Company name. */
                     	    printf(' %s', 'Sampression');
