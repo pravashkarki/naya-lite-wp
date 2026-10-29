@@ -2,9 +2,9 @@
 
 Contributors: sampression
 Requires at least: 5.2
-Requires PHP: 5.6.20
-Tested up to: 5.4
-Stable tag: 3.0
+Requires PHP: 5.6
+Tested up to: 7.1
+Stable tag: 3.1
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,13 @@ Naya Lite is a minimal, clean, lightweight, modern & typographic theme created w
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+#Version 3.1
+
+* Compatibility with WordPress 7.1
+* Fixed: PHP warning in the post author link
+* Removed unused Selectivizr, Modernizr and minified Font Awesome files
+* Added responsive embeds
 
 #Version 3.0
 
@@ -132,7 +139,6 @@ Added: Function for custom header preview on admin panel.
 
 * Font Awesome: http://fontawesome.io/, (c) Dave Gandy, CSS - [MIT](http://opensource.org/licenses/MIT) ; Fonts - [SIL OFL 1.1](http://scripts.sil.org/OFL)
 * Skeleton: https://github.com/dhg/Skeleton/blob/master/LICENSE.md
-* Selectivizr: https://github.com/keithclark/selectivizr - @license MIT license (https://opensource.org/licenses/MIT)
 
 == Images ==
 

@@ -245,12 +245,11 @@ if ( ! function_exists( 'sampression_post_meta_content' ) ) :
 			$sm_meta .= '<div class="entry-meta meta">';
 		}
 		if ( ! in_array( 'author', $hide_metas ) ) {
-			global $authordata;
 			$sm_meta .= sprintf(
 				'<span class="author">%4$s By <a href="%1$s" title="%2$s" rel="author">%3$s</a></span> ',
-				esc_url( get_author_posts_url( $authordata->ID, $authordata->user_nicename ) ),
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 				esc_attr( sprintf( __( 'Posts by %s', 'naya-lite' ), get_the_author() ) ),
-				get_the_author(),
+				esc_html( get_the_author() ),
 				$post_format
 			);
 		}
